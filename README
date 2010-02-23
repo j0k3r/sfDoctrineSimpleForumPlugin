@@ -52,11 +52,15 @@ Publish assets for the forum
 
     $ php symfony publish-assets
 
-Start using the plugin by browsing to the frontend module&#039;s default page:
+As for now, fixtures aren't filed right all database's field, run this task that update last reply, etc ..
+
+    $ php symfony fixForum
+
+Start using the plugin by browsing to the frontend module's default page:
      
     http://myproject/frontend_dev.php/sfSimpleForum
 
-If you want to enable the plugin administration interface, you have to enable two more modules. You can do so in your main application or in a backend application. the following example is for a &#039;backend&#039; application:
+If you want to enable the plugin administration interface, you have to enable two more modules. You can do so in your main application or in a backend application. the following example is for a 'backend' application:
 
     [yml]
     // in myproject/apps/backend/config/settings.yml

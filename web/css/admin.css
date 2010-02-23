@@ -1,0 +1,53 @@
+#sf_admin_container td, #sf_admin_container ul.sf_admin_actions input, #sf_admin_container input, #sf_admin_container textarea, #sf_admin_container select
+{
+  font-size: 13px;
+}
+
+#sf_admin_container
+{
+  position: relative;
+}
+
+#sf_admin_container #sf_admin_bar
+{
+  position: absolute;
+  right: 0;
+}
+
+#sf_admin_container select
+{
+  padding: 0;
+}
+
+#sf_simple_forum_forum_name, #sf_simple_forum_forum_stripped_name, #sf_simple_forum_forum_description, #sf_simple_forum_category_name, #sf_simple_forum_category_description, #sf_guard_user_username
+{
+  width: 370px;
+}
+
+#sf_admin_container .sf_admin_filters .form-row .content 
+{
+  padding-left: 8em;
+}
+
+#sf_admin_container .sf_admin_filters label
+{
+  width: 7em;
+}
+
+#admin_header
+{
+  float: right; 
+  margin-top: -60px;
+}
+
+#admin_header ul li
+{
+  display: inline;
+}
+
+#admin_header ul li:before {
+content:' - ';
+}
+#admin_header ul li:first-child:before {
+content:'';
+}

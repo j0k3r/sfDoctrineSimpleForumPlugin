@@ -1,0 +1,227 @@
+.forum, .forum td, .forum th, table#fora td.forum_threads, table#fora td.forum_posts, table#fora td.forum_recent, 
+table#threads td.thread_replies, table#threads td.thread_views, table#threads td.thread_recent
+{
+  /*font-family: 'Lucida Grande', 'Trebuchet MS', Arial, Helvetica, sans-serif;*/
+  font-size: 0.9em;
+}
+
+.forum h1
+{
+  /*font-family: 'Lucida Grande', 'Trebuchet MS', Arial, Helvetica, sans-serif;*/
+  margin: 5px 0;
+  font-size: 1.6em;
+}
+
+.forum .forum_figures
+{
+  width: 695px;
+  text-align: right;
+  margin: 0 0 10px 0;
+}
+
+table#fora, table#threads, table#messages
+{ 
+  border-collapse: collapse;
+  width: 695px;
+  clear: both;
+}
+
+table#fora td, table#fora th, table#threads td, table#threads th, table#messages td, table#messages th
+{
+  border: solid 1px #BFDCFF;  
+  padding: 4px;
+}
+
+table#fora th, table#threads th, table#messages th
+{
+  background: #a1c8d8;
+  color: white;
+}
+
+table#fora td.category_header
+{
+  font-weight: bold;
+  color: #000;  
+  background-color: #F3F9FB;
+}
+
+table#fora td.forum_name a
+{
+  font-weight: bold;
+  /*font-size: 1.3em;*/
+  text-decoration: underline;
+}
+
+table#fora td.forum_name
+{
+  width: 45%;
+  padding: 10px;
+}
+
+table#fora td.forum_threads, table#fora td.forum_posts
+{
+  text-align: center;
+  width: 9%;
+  background-color: #F3F9FB;
+}
+
+table#threads td.thread_name
+{
+  width: 50%;
+  padding: 5px;
+  text-align: left;
+}
+
+table#threads .thread_name a
+{
+  text-decoration: underline;
+}
+
+table#threads .thread_name a:hover
+{
+  text-decoration: none;
+}
+
+table#threads .thread_name a.new
+{
+  font-weight: bold;
+}
+
+table#threads td.thread_replies, table#threads td.thread_views
+{
+  text-align: center;
+  width: 8%;
+  background-color: #F3F9FB;
+}
+
+table#messages td.post_author
+{
+  width: 20%;
+  background-color: #F3F9FB;
+  vertical-align: top;
+}
+
+table#messages td .post_details
+{
+  border-bottom: solid 1px ;
+  color: #81A5CF;
+  margin-bottom: 5px;
+}
+
+table#messages td.post_message {
+  text-align: left;
+}
+
+table#messages td .post_content
+{
+  margin: 10px;
+}
+
+table#messages .spacer td
+{
+  border: none;
+}
+
+ul.forum_actions
+{
+  float: left;
+  margin-bottom: 5px;
+}
+
+ul.forum_actions li
+{
+  display: inline;
+  width: 100px;
+  height: 25px;
+}
+
+ul.forum_actions li a:link, 
+ul.forum_actions li a:visited
+{
+  font-size: 1.1em;
+  padding: 2px 4px;
+  color: white;
+  background: #CAAA00 url(/sfDoctrineSimpleForumPlugin/images/button_bg.gif);
+  text-decoration: none!important;
+  border-bottom: solid 1px #B08854;
+  border-right: solid 1px #B08854;
+}
+
+ul.post_actions
+{
+  list-style: none;
+  text-align: right;
+}
+
+ul.post_actions li
+{
+  display: inline;
+  font-size: 0.9em;
+}
+
+ul.post_actions li::before
+{
+  color: lightgrey;
+  content: ' - ';
+}
+
+ul.post_actions li:first-child::before
+{
+  content: '';
+}
+
+ul.post_actions li a:link, 
+ul.post_actions li a:visited
+{
+  color: red;
+  text-decoration: none!important;
+}
+
+ul.post_actions li a:hover
+{
+  text-decoration: underline!important;
+}
+
+.forum a {
+  text-decoration: none;
+  color: #00A0EA;
+}
+
+.forum a:hover {
+  color: #00A0EA;
+  text-decoration: underline;
+}
+
+.forum a img {
+  border: 0;
+}
+
+h1 {
+  color: #00A0EA;
+  font-size: 1.3em;
+  padding: 10px 0;
+}
+
+ul#forum_navigation, ul.forum_actions
+{
+  list-style: none;
+  display: inline;
+}
+
+ul#forum_navigation li
+{
+  display: inline;
+}
+
+.breadcrumb {
+  padding: 10px 0;
+  font-size: 0.9em;
+}
+
+.breadcrumb a {
+  text-decoration:none;
+}
+
+.breadcrumb a:hover {
+  text-decoration:underline;
+}

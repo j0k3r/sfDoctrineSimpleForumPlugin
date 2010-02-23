@@ -1,0 +1,141 @@
+sfSimpleForumCategory:
+  actAs:
+    Timestampable:
+    Sluggable:
+      fields:         [name]
+  columns:
+    id:
+      type:           integer(4)
+      primary:        true
+      autoincrement:  true
+    name:             string(255)
+    description:      clob
+    rank:             integer
+    
+sfSimpleForumForum:
+  actAs:
+    Timestampable:
+    Sluggable:
+      fields:         [name]
+  columns:
+    id:
+      type:           integer(4)
+      primary:        true
+      autoincrement:  true
+    name:             string(255)
+    description:      clob
+    rank:             integer
+    category_id:      integer(4)
+    latest_post_id:   integer(4)
+    nb_posts:         integer
+    nb_topics:        integer
+    phpbb_id:         integer
+  relations:
+    sfSimpleForumCategory: 
+      local:          category_id
+      foreign:        id
+      type:           one
+      onDelete:       CASCADE
+    sfSimpleForumPost: 
+      local:          latest_post_id
+      foreign:        id
+      type:           one
+      onDelete:       SET NULL
+    
+sfSimpleForumTopic:
+  actAs:
+    Timestampable:
+    Sluggable:
+      fields:         [title]
+  columns:
+    id:
+      type:           integer(4)
+      primary:        true
+      autoincrement:  true
+    title:            string(255)
+    is_sticked:
+      type:           boolean
+      default:        0
+    is_locked:
+      type:           boolean
+      default:        0
+    forum_id:         integer(4)
+    latest_post_id:   integer(4)
+    user_id:          integer(4)
+    nb_posts:
+      type:           integer
+      default:        0
+    nb_views:
+      type:           integer
+      default:        0
+    phpbb_id:         integer
+  relations:
+    sfSimpleForumForum: 
+      local:          forum_id
+      foreign:        id
+      type:           one
+      onDelete:       CASCADE
+    sfSimpleForumPost: 
+      local:          latest_post_id
+      foreign:        id
+      type:           one
+      onDelete:       SET NULL
+    sfGuardUser: 
+      local:          user_id
+      foreign:        id
+      type:           one
+      onDelete:       SET NULL
+    
+sfSimpleForumPost:
+  actAs:
+    Timestampable:
+  columns:
+    id:
+      type:           integer(4)
+      primary:        true
+      autoincrement:  true
+    title:            string(255)
+    content:          clob
+    topic_id:         integer(4)
+    user_id:          integer(4)
+    forum_id:         integer(4)
+    author_name:      string(255)
+    phpbb_id:         integer
+  relations:
+    sfSimpleForumForum: 
+      local:          forum_id
+      foreign:        id
+      type:           one
+      onDelete:       CASCADE
+    sfSimpleForumTopic: 
+      local:          topic_id
+      foreign:        id
+      type:           one
+      onDelete:       CASCADE
+    sfGuardUser: 
+      local:          user_id
+      foreign:        id
+      type:           one
+      onDelete:       CASCADE
+    
+sfSimpleForumTopicView:
+  actAs:
+    Timestampable:
+  columns:
+    user_id:
+      type:           integer(4)
+      primary:        true
+    topic_id:
+      type:           integer(4)
+      primary:        true
+  relations:
+    sfGuardUser: 
+      local:          user_id
+      foreign:        id
+      type:           one
+      onDelete:       CASCADE
+    sfSimpleForumTopic: 
+      local:          topic_id
+      foreign:        id
+      type:           one
+      onDelete:       CASCADE

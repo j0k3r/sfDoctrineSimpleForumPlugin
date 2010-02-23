@@ -1,0 +1,75 @@
+sfGuardPermission:
+  moderator:
+    name: moderator
+
+sfGuardUser:
+  user_1:
+    username:       admin
+    password:       admin
+    is_super_admin: true
+  user_2:
+    username:       tarzanman
+    password:       tarzanman
+  user_3:
+    username:       testuser
+    password:       testuser
+
+sfGuardPermission:
+  testuser_is_moderator:
+    name:           testuser
+    description: moderator
+ 
+sfSimpleForumCategory:
+  c1:
+    name:        Public Boards
+    description: We talk about stuff here.
+    rank:        1
+  c2:
+    name:        Miscellaneous
+    description: Secret matters
+    rank:        2
+
+sfSimpleForumTopic:
+  topic_1:
+    title:              Installing foo
+    sfSimpleForumForum: forum_1
+    sfGuardUser:        user_2
+  topic_2:
+    title:              Stick Moo
+    sfSimpleForumForum: forum_2
+    sfGuardUser:        user_1
+    is_sticked:         true
+
+sfSimpleForumForum:
+  forum_1:
+    name:                   Foo discussion
+    description:            Everybody is foo here
+    sfSimpleForumCategory:  c1
+    rank:                   1
+  forum_2:
+    name:                   Bar discussion
+    description:            If you want a bar, this is where you will find it
+    sfSimpleForumCategory:  c2
+    rank:                   2
+
+sfSimpleForumPost:
+  post_1:
+    title:                  Foo discussion
+    content:                Everybody is foo here
+    sfGuardUser:            user_1
+    sfSimpleForumForum:     forum_1
+    sfSimpleForumTopic:     topic_1
+  post_2:
+    title:                  Foo discussion2
+    content:                Everybody is foo here2
+    sfGuardUser:            user_2
+    sfSimpleForumForum:     forum_1
+    sfSimpleForumTopic:     topic_2
+  post_3:
+    title:                  Bar discussion
+    content:                If you want a bar, this is where you will find it
+    sfGuardUser:            user_3
+    sfSimpleForumForum:     forum_2
+    sfSimpleForumTopic:     topic_2
+    
+    

@@ -1,0 +1,280 @@
+.sfSimpleForum, .sfSimpleForum td
+{
+  font-family: 'Lucida Grande', 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+.sfSimpleForum th
+{
+  font-family: 'Lucida Grande', 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}
+
+.sfSimpleForum h1
+{
+  font-family: 'Lucida Grande', 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  margin: 5px 0;
+  font-size: 1.6em;
+}
+
+.sfSimpleForum .forum_figures
+{
+  width: 600px;
+  text-align: right;
+  margin: 0 0 10px 0;
+}
+table#fora, table#threads, table#messages
+{ 
+  border-collapse: collapse;
+  width: 600px;
+}
+
+table#fora td, table#fora th, table#threads td, table#threads th, table#messages td, table#messages th
+{
+  border: solid 1px #eedcd1;  
+  padding: 4px;
+}
+
+table#fora th, table#threads th, table#messages th
+{
+  background: url(../images/th_bg.gif) top repeat-x #911;
+  color: white;
+}
+
+table#fora td.category_header
+{
+  font-weight: bold;
+  color: #911;  
+  background-color: #ecd;
+}
+
+table#fora td.forum_name a
+{
+  font-weight: bold;
+  font-size: 1.3em;
+  text-decoration: underline;
+}
+
+table#fora td.forum_name
+{
+  width: 45%;
+  padding: 10px;
+}
+
+table#fora td.forum_threads, table#fora td.forum_posts
+{
+  text-align: center;
+  width: 9%;
+  background-color: #fde;
+}
+
+table#fora td.forum_threads, table#fora td.forum_posts, table#fora td.forum_recent
+{
+  font-size: 0.9em;
+}
+
+table#threads td.thread_name
+{
+  width: 50%;
+  padding: 5px;
+}
+
+table#threads .thread_name a
+{
+  text-decoration: underline;
+}
+
+table#threads .thread_name a.new
+{
+  font-weight: bold;
+}
+table#threads td.thread_replies, table#threads td.thread_views
+{
+  text-align: center;
+  width: 8%;
+  background-color: #fde;
+}
+
+table#threads td.thread_replies, table#threads td.thread_views, table#threads td.thread_recent
+{
+  font-size: 0.9em;
+}
+
+table#messages td.post_author
+{
+  width: 20%;
+  background-color: #fde;
+  vertical-align: top;
+}
+
+table#messages td .post_details
+{
+  border-bottom: solid 1px;
+  color: #b77;
+  margin-bottom: 5px;
+}
+table#messages td .post_content
+{
+  margin: 10px;
+}
+
+table#messages .spacer td
+{
+  border: none;
+}
+
+ul.forum_actions
+{
+  float: left;
+}
+ 
+ul#forum_navigation, ul.forum_actions
+{
+  list-style: none;
+  display: inline;
+}
+
+ul#forum_navigation li
+{
+  display: inline;
+}
+
+ul.forum_actions li
+{
+  display: inline;
+  width: 100px;
+  height: 25px;
+}
+
+ul.forum_actions li a:link, 
+ul.forum_actions li a:visited
+{
+  padding: 2px 4px;
+  color: white;
+  background: #CAAA00 url(../images/button_bg.gif);
+  text-decoration: none!important;
+  border-bottom: solid 1px #B08854;
+  border-right: solid 1px #B08854;
+}
+
+ul.post_actions
+{
+  list-style: none;
+  text-align: right;
+}
+
+ul.post_actions li
+{
+  display: inline;
+  font-size: 0.9em;
+}
+
+ul.post_actions li::before
+{
+  color: lightgrey;
+  content: ' - ';
+}
+
+ul.post_actions li:first-child::before
+{
+  content: '';
+}
+
+ul.post_actions li a:link, 
+ul.post_actions li a:visited
+{
+  color: lightgrey;
+  text-decoration: none!important;
+}
+
+ul.post_actions li a:hover
+{
+  text-decoration: underline!important;
+}
+
+/*PAGINATION class selector*/
+div.pagination
+{
+  width: 600px;
+  text-align: right;
+  margin-top: 10px;
+}
+
+.pagination ul
+{
+  list-style:none;
+  margin:0 0 0 0;
+  padding: 10px 0 10px 0;
+  display: inline;
+  height:2em;
+}
+
+.pagination a:link,
+.pagination a:visited
+{
+  border: none;
+  color: #911;
+  font-weight: bold;
+}
+
+.pagination li
+{
+  padding: 2px 5px 5px 5px;
+  list-style: none;
+  display: inline;
+  border-top: 1px solid #CCCCCC;
+}
+.pagination li.current
+{
+  padding: 3px 5px 4px 5px;
+  border-width: 0 1px 1px 1px;
+  border-style: none solid solid solid;
+  border-color: #CCCCCC;
+  color:#999;
+  font-weight:bold;
+}
+
+/***************************/
+
+form#add_topic
+{
+  width: 576px;
+  background-color: #fde;
+  border: solid 1px #b77;
+  padding: 10px;
+}
+
+form#add_topic label
+{
+  display: block;
+  margin-top: 5px;
+}
+
+form#add_topic input#topic_title
+{
+  width: 400px;
+  font-size: 1.2em;
+}
+
+form#add_topic textarea#topic_body
+{
+  width: 400px;
+  height: 200px;
+  font-family: Verdana, sans-serif;
+  font-size: 12px;
+}
+
+form#add_topic input#topic_submit
+{
+  display: block;
+}
+
+form#add_topic div.option
+{
+  padding:5px 0;
+}
+
+form#add_topic div.option label
+{
+	display:inline;
+}

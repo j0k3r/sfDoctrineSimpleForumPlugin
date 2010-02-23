@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" ?>
+<xliff version="1.0">
+  <file orginal="global" source-language="en_US" datatype="plaintext">
+    <body>
+      <trans-unit id="1">
+        <source>Latest messages from %forums%</source>
+        <target>Neueste Einträge in %forums%</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Forums</source>
+        <target>Foren</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>New topic</source>
+        <target>Neues Thema</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>[0]No topic yet|[1]One topic|(1,+Inf]%topics% topics</source>
+        <target>[0]Noch kein Thema|[1]Ein Thema|(1,+Inf]%topics% Themen</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>[0]No message|[1]One message|(1,+Inf]%posts% messages</source>
+        <target>[0]Keine Einträge|[1]Ein Eintrag|(1,+Inf]%posts% Einträge</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Forum</source>
+        <target>Forum</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Topics</source>
+        <target>Themen</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Messages</source>
+        <target>Einträge</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Last Message</source>
+        <target>Letzter Eintrag</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>1 day</source>
+        <target>1 Tag</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>%date% ago by %author%</source>
+        <target>vor %date% von %author%</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Replies</source>
+        <target>Antworten</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>Views</source>
+        <target>Aufrufe</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Posted</source>
+        <target>Geschrieben</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>view</source>
+        <target>Aufruf</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Last reply</source>
+        <target>Letzte Antwort</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>Topic</source>
+        <target>Thema</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>Post a reply</source>
+        <target>Eine Antwort schreiben</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Latest messages from %forums% » %forum% » %topic%</source>
+        <target>Neueste Einträge in %forums% » %forum% » %topic%</target>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>[1]1 message, no reply|(1,+Inf]%posts% messages</source>
+        <target>[1]1 Eintrag, keine Antworten|(1,+Inf]%posts% Einträge</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>[0,1]1 view|(1,+Inf]%views% views</source>
+        <target>[0,1]1 Aufruf|(1,+Inf]%views% Aufrufe</target>
+      </trans-unit>
+      <trans-unit id="22">
+        <source>Messages by %user%</source>
+        <target>Einträge von %user%</target>
+      </trans-unit>
+      <trans-unit id="23">
+        <source>Latest messages from %forums% by %username%</source>
+        <target>Neueste Einträge von %username% in %forums%</target>
+      </trans-unit>
+      <trans-unit id="24">
+        <source>Topics by %user%</source>
+        <target>Themen von %user%</target>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>Forums</source>
+        <target>Foren</target>
+      </trans-unit>
+      <trans-unit id="26">
+        <source>Create a new topic</source>
+        <target>Neues Thema erstellen</target>
+      </trans-unit>
+      <trans-unit id="27">
+        <source>Title</source>
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="28">
+        <source>Body</source>
+        <target>Eintrag</target>
+      </trans-unit>
+      <trans-unit id="29">
+        <source>Post</source>
+        <target>Schreiben</target>
+      </trans-unit>
+      <trans-unit id="30">
+        <source>Delete</source>
+        <target>Löschen</target>
+      </trans-unit>
+      <trans-unit id="31">
+        <source>Are you sure you want to delete this topic?</source>
+        <target>Wollen Sie dieses Thema wirklich löschen?</target>
+      </trans-unit>
+      <trans-unit id="32">
+        <source>Stick</source>
+        <target>Anpinnen</target>
+      </trans-unit>
+      <trans-unit id="33">
+        <source>Lock</source>
+        <target>Sperren</target>
+      </trans-unit>
+      <trans-unit id="34">
+        <source>Are you sure you want to delete this post?</source>
+        <target>Wollen sie diesen Eintrag wirklich löschen?</target>
+      </trans-unit>
+      <trans-unit id="35">
+        <source>Moderator</source>
+        <target>Moderator</target>
+      </trans-unit>
+      <trans-unit id="36">
+        <source>Latest topics</source>
+        <target>Neueste Themen</target
+      </trans-unit>
+      <trans-unit id="37">
+        <source>Sticked topic</source>
+        <target>Angepinntes Thema</target>
+      </trans-unit>
+      <trans-unit id="38">
+        <source>Latest messages</source>
+        <target>Neueste Einträge</target>
+      </trans-unit>
+      <trans-unit id="39">
+        <source>Next</source>
+        <target>Weiter</target>
+      </trans-unit>
+      <trans-unit id="40">
+        <source>Previous</source>
+        <target>Zurück</target>
+      </trans-unit>
+      <trans-unit id="41">
+        <source>[1]1 message|(1,+Inf] %1% messages</source>
+        <target>[1]1 Eintrag|(1,+Inf] %1% Einträge</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

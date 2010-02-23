@@ -1,0 +1,2 @@
+all:
+  stylesheets: [/sfDoctrineSimpleForumPlugin/css/reset.css, /sfDoctrineSimpleForumPlugin/css/forum.css]

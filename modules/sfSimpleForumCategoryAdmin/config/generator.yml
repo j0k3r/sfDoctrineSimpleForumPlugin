@@ -1,0 +1,26 @@
+generator:
+  class:                    sfDoctrineGenerator
+  param:
+    model_class:            sfSimpleForumCategory
+    theme:                  bloganje
+    non_verbose_templates:  true
+    with_show:              false
+    singular:               ~
+    plural:                 ~
+    route_prefix:           forum_category
+    with_doctrine_route:    1
+
+    config:
+      actions: ~
+      fields: ~
+      
+      list:
+        title:              Category Administration
+        display:            [=name, description, rank]
+        sort:               [rank, desc]
+      filter:
+        display:            [name]
+      edit:
+        title:              Edit category "%%name%%"
+        display:            [name, description, rank, _forums]
+

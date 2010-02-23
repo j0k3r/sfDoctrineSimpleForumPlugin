@@ -1,0 +1,4 @@
+all:
+  metas:
+    title: Forum Administration
+  stylesheets: [/sfSimpleForumPlugin/css/admin.css: { position: last } ]

@@ -1,0 +1,24 @@
+createTopic:
+  is_secure:   on
+
+addTopic:
+  is_secure:   on
+
+addPost:
+  is_secure:   on
+  
+deletePost:
+  is_secure:   on
+  credentials: [moderator]
+
+deleteTopic:
+  is_secure:   on
+  credentials: [moderator]
+    
+toggleStick:
+  is_secure:   on
+  credentials: [moderator]
+
+toggleLock:
+  is_secure:   on
+  credentials: [moderator]
