@@ -1,0 +1,70 @@
+sfDoctrineSimpleForumplugin
+========================================================
+
+Overview
+--------
+
+This is a port of sfSimpleForumPlugin for Doctrine & Symfony 1.4
+
+
+Requirements
+------------
+
+The prerequisites for using the `sfSimpleForum` plugin are the same of sfSimpleForumplugin:
+
+  * We recommend to installe [sfDoctrineGuardPlugin](http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin)
+  * If you want to use RSS feeds, you must install the [sfFeed2Plugin](http://www.symfony-project.org/plugins/sfFeed2Plugin).
+
+Installation
+------------
+
+Install the plugin from the source you want (svn, git, etc ..)
+
+Rebuild the model, generate the SQL code for the new tables, insert it into your database and load the included fixtures :
+    
+    $ php symfony doctrine:build --all --and-load
+
+Clear the cache to enable the autoloading to find the new classes:
+    
+    $ php symfony cc
+
+Enable the new `sfSimpleForum` module in your application, via the `settings.yml` file.
+    
+    [yml]
+    // in myproject/apps/frontend/config/settings.yml
+    all:
+      .settings:
+        enabled_modules:        [sfSimpleForum, default]
+
+Enable coma into the url via the `factories.yml` file.
+    
+    [yml]
+    // in myproject/apps/frontend/config/factories.yml
+    all:
+      routing:
+        class: sfPatternRouting
+        param:
+          generate_shortest_url:            true
+          extra_parameters_as_query_string: true
+          segment_separators: ['/', ',']
+
+Publish assets for the forum
+
+    $ php symfony publish-assets
+
+Start using the plugin by browsing to the frontend module&#039;s default page:
+     
+    http://myproject/frontend_dev.php/sfSimpleForum
+
+If you want to enable the plugin administration interface, you have to enable two more modules. You can do so in your main application or in a backend application. the following example is for a &#039;backend&#039; application:
+
+    [yml]
+    // in myproject/apps/backend/config/settings.yml
+    all:
+      .settings:
+        enabled_modules:        [sfSimpleForumCategoryAdmin, sfSimpleForumForumAdmin, default]
+
+Configure the plugin categories and forums by browsing to the administration modules default page:
+     
+    http://myproject/backend_dev.php/sfSimpleForumCategoryAdmin
+    http://myproject/backend_dev.php/sfSimpleForumForumAdmin
