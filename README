@@ -12,8 +12,8 @@ Requirements
 
 The prerequisites for using the `sfSimpleForum` plugin are the same of sfSimpleForumplugin:
 
-  * We recommend to installe [sfDoctrineGuardPlugin](http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin)
-  * If you want to use RSS feeds, you must install the [sfFeed2Plugin](http://www.symfony-project.org/plugins/sfFeed2Plugin).
+  * We recommend to installe sfDoctrineGuardPlugin - http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin
+  * If you want to use RSS feeds, you must install the sfFeed2Plugin - http://www.symfony-project.org/plugins/sfFeed2Plugin
 
 Installation
 ------------
