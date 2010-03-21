@@ -2,13 +2,13 @@ generator:
   class:                    sfDoctrineGenerator
   param:
     model_class:            sfSimpleForumForum
-    theme:                  bloganje
+    theme:                  admin
     non_verbose_templates:  true
     with_show:              false
     singular:               ~
     plural:                 ~
-    route_prefix:           forum_forum
-    with_doctrine_route:    1
+    route_prefix:           forum_admin
+    with_doctrine_route:    true
 
     config:
       actions: ~
