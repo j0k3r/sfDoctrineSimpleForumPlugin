@@ -1,4 +1,3 @@
-<?php use_helper('Validation') ?>
 
 <?php if (sfConfig::get('app_sfSimpleForum_include_breadcrumb', true)): ?>
 <?php slot('forum_navigation') ?>
@@ -36,7 +35,7 @@
       
       <dl class="topic">
         <dd>
-          <form action="<?php echo url_for('sfSimpleForum/createTopic') ?>" method="post">
+          <form action="<?php echo url_for('sfSimpleForum/createTopic?forum_name=' . $forum->get('slug')) ?>" method="post">
             <?php if(sfConfig::get('sf_csrf_secret')): echo $form['_csrf_token']->render(); endif; ?>
             <?php echo $form['forum_id']->render() ?>
             <p>

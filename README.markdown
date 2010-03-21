@@ -1,4 +1,4 @@
-sfDoctrineSimpleForumplugin
+sfDoctrineSimpleForumPlugin
 ========================================================
 
 Overview
@@ -12,13 +12,29 @@ Requirements
 
 The prerequisites for using the `sfSimpleForum` plugin are the same of sfSimpleForumplugin:
 
-  * We recommend to installe sfDoctrineGuardPlugin - http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin
+  * You have to install and configure sfDoctrineGuardPlugin - http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin
   * If you want to use RSS feeds, you must install the sfFeed2Plugin - http://www.symfony-project.org/plugins/sfFeed2Plugin
 
 Installation
 ------------
 
 Install the plugin from the source you want (svn, git, etc ..)
+
+Enabled it in `ProjectConfiguration.class.php`
+
+    [php]
+    class ProjectConfiguration extends sfProjectConfiguration
+    {
+      public function setup()
+      {
+        $this->enablePlugins(array(
+          'sfDoctrinePlugin', 
+          'sfDoctrineGuardPlugin',
+          'sfDoctrineSimpleForumPlugin',
+          '...'
+        ));
+      }
+    }
 
 Rebuild the model, generate the SQL code for the new tables, insert it into your database and load the included fixtures :
     
@@ -28,29 +44,18 @@ Clear the cache to enable the autoloading to find the new classes:
     
     $ php symfony cc
 
-Enable the new `sfSimpleForum` module in your application, via the `settings.yml` file.
+Enable the new `sfSimpleForum` module and the new `sfSimpleForum` helper in your application, via the `settings.yml` file.
     
     [yml]
     // in myproject/apps/frontend/config/settings.yml
     all:
       .settings:
         enabled_modules:        [sfSimpleForum, default]
-
-Enable coma into the url via the `factories.yml` file.
-    
-    [yml]
-    // in myproject/apps/frontend/config/factories.yml
-    all:
-      routing:
-        class: sfPatternRouting
-        param:
-          generate_shortest_url:            true
-          extra_parameters_as_query_string: true
-          segment_separators: ['/', ',']
+        standard_helpers:       [Partial, Cache, sfSimpleForum, I18N]
 
 Publish assets for the forum
 
-    $ php symfony publish-assets
+    $ php symfony plugin:publish-assets
 
 As for now, fixtures aren't filed right all database's field, run this task that update last reply, etc ..
 

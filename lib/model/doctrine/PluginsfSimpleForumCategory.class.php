@@ -5,7 +5,7 @@
  */
 abstract class PluginsfSimpleForumCategory extends BasesfSimpleForumCategory
 {
-  public function getFora()
+  public function getForum()
   {
     $q = Doctrine_Query::create();
     $q->from('sfSimpleForumForum');

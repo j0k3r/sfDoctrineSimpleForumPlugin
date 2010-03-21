@@ -61,7 +61,7 @@ sfSimpleForumTopic:
       default:        0
     forum_id:         integer(4)
     latest_post_id:   integer(4)
-    user_id:          integer(4)
+    user_id:          integer
     nb_posts:
       type:           integer
       default:        0
@@ -97,7 +97,7 @@ sfSimpleForumPost:
     title:            string(255)
     content:          clob
     topic_id:         integer(4)
-    user_id:          integer(4)
+    user_id:          integer
     forum_id:         integer(4)
     author_name:      string(255)
     phpbb_id:         integer
@@ -123,7 +123,7 @@ sfSimpleForumTopicView:
     Timestampable:
   columns:
     user_id:
-      type:           integer(4)
+      type:           integer
       primary:        true
     topic_id:
       type:           integer(4)

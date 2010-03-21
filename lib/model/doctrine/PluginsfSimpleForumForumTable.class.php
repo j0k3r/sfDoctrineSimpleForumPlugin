@@ -4,10 +4,10 @@
  */
 class PluginsfSimpleForumForumTable extends Doctrine_Table
 {
-  public function retrieveByStrippedName($stripped_name)
+  public function retrieveBySlug($slug)
   {
     $q = $this->createQuery();
-    $q->where('slug = ?', array($stripped_name));
+    $q->where('slug = ?', array($slug));
 
     return $q->limit(1)->execute()->getFirst();
   }

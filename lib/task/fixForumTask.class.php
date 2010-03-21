@@ -13,7 +13,7 @@ class fixForumTask extends sfBaseTask
 
     $this->namespace        = '';
     $this->name             = 'fixForum';
-    $this->briefDescription = '';
+    $this->briefDescription = 'Updated latest information form the database';
     $this->detailedDescription = <<<EOF
 The [fixForum|INFO] task does things.
 Call it with:

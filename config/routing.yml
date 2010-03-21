@@ -24,7 +24,7 @@ forum_name_last:
   param: { module: sfSimpleForum, action: forumLatestPosts }
 
 forum_topic:
-  url:  /forums/topic,:id,:stripped_title
+  url:  /forums/topic/:id/:stripped_title
   param: { module: sfSimpleForum, action: topic }
 
 forum_message:

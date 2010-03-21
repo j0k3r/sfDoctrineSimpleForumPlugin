@@ -1,4 +1,4 @@
-<?php use_helper('Pagination', 'Validation') ?>
+<?php use_helper('Pagination') ?>
 
 <?php slot('title', $topic->getTitle().' - '.$topic->getsfSimpleForumForum()->getName().' - Forum '.sfConfig::get('app_config_title_short')) ?>
 
@@ -57,7 +57,7 @@
   
   <?php if (!$topic->getIsLocked() && $sf_user->isAuthenticated()): ?>
     
-    <form action="<?php echo url_for('sfSimpleForum/topic') ?>" method="post">
+    <form action="<?php echo url_for('sfSimpleForum/topic?id='.$topic->getId().'&stripped_title='.$topic->getSlug()) ?>" method="post">
       <fieldset>
         <legend><?php echo __('Post a reply', null, 'sfSimpleForum') ?></legend>
         <?php echo $form['_csrf_token']->render() ?>

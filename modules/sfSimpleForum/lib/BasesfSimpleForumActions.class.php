@@ -152,7 +152,7 @@ class BasesfSimpleForumActions extends sfActions
   {
     $this->name = $this->getRequestParameter('forum_name');
 
-    $forum = Doctrine::getTable('sfSimpleForumForum')->retrieveByStrippedName($this->name);
+    $forum = Doctrine::getTable('sfSimpleForumForum')->retrieveBySlug($this->name);
     $this->forward404Unless($forum);
     $this->forum = $forum;
 
@@ -167,12 +167,12 @@ class BasesfSimpleForumActions extends sfActions
 
   public function executeTopic($request)
   {
-    $this->setTopicVars($request->hasParameter('forum_post[topic_id]') ? $request->getParameter('forum_post[topic_id]') : $request->getParameter('id'));
+    $this->setTopicVars($request->getParameter('id'));
     $this->post_pager = $this->topic->getPostsPager(
       $request->getParameter('page', 1),
       sfConfig::get('app_sfSimpleForumPlugin_max_per_page', 10)
     );
-    $this->forward404Unless($this->post_pager);
+    $this->forward404Unless($this->post_pager, 'Topic not found !');
     
     if (sfConfig::get('app_sfSimpleForumPlugin_count_views', true))
     {
@@ -372,7 +372,9 @@ class BasesfSimpleForumActions extends sfActions
     $this->form = new forumTopic();
     if($request->hasParameter('forum_name'))
     {
-      $this->forum = Doctrine::getTable('sfSimpleForumForum')->retrieveByStrippedName($request->getParameter('forum_name'));
+      $this->forum = Doctrine::getTable('sfSimpleForumForum')->retrieveBySlug($request->getParameter('forum_name'));
+      $this->forward404Unless($this->forum, 'Forum not found !');
+
       $this->form->setDefaults(array('forum_id' => $this->forum->get('id')));
     }
     elseif( ! $request->isMethod('post'))
@@ -380,11 +382,10 @@ class BasesfSimpleForumActions extends sfActions
       // we don't allow new topic outside forum
       $this->forward404();
     }
-    
+
     if ($request->isMethod('post'))
     {
       $this->form->bind($request->getParameter('forum_topic'));
-      $this->forum = Doctrine::getTable('sfSimpleForumForum')->find($request->getParameter('forum_topic[forum_id]'));
       
       if ($this->form->isValid())
       {
