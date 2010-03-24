@@ -6,16 +6,13 @@ sfGuardUser:
   user_1:
     username:       admin_forum
     password:       admin
-    email_address:  admin@sf.org
     is_super_admin: true
   user_2:
     username:       tarzanman
     password:       tarzanman
-    email_address:  tarzanman@sf.org
   user_3:
     username:       testuser
     password:       testuser
-    email_address:  testuser@sf.org
 
 sfGuardPermission:
   testuser_is_moderator:
