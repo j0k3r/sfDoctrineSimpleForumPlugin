@@ -9,4 +9,9 @@
  */
 abstract class PluginsfSimpleForumForumForm extends BasesfSimpleForumForumForm
 {
+  public function setup()
+  {
+    parent::setup();
+    unset($this['created_at'], $this['updated_at']);
+  }  
 }
