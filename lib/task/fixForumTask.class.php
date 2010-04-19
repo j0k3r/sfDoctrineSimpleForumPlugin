@@ -11,16 +11,16 @@ class fixForumTask extends sfBaseTask
       // add your own options here
     ));
 
-    $this->namespace        = '';
-    $this->name             = 'fixForum';
-    $this->briefDescription = 'Updated latest information form the database';
+    $this->namespace        = 'forum';
+    $this->name             = 'fix';
+    $this->briefDescription = 'Updated latest information from the database';
     $this->detailedDescription = <<<EOF
-The [fixForum|INFO] task does things.
+The [fix|INFO] task does things.
 Call it with:
 
-  [php symfony fixForum|INFO]
+  [php symfony forum:fix|INFO]
   
-  Updated nb_posts, nb_topics and latest_post_id with latest information form the database.
+  Updated nb_posts, nb_topics and latest_post_id with latest information from the database.
   
 EOF;
   }

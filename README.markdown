@@ -57,9 +57,9 @@ Publish assets for the forum
 
     $ php symfony plugin:publish-assets
 
-As for now, fixtures aren't filed right all database's field, run this task that update last reply, etc ..
+As for now, fixtures aren't filed right all database's field, run this task that update last reply, nb posts, etc ..
 
-    $ php symfony fixForum
+    $ php symfony forum:fix
 
 Start using the plugin by browsing to the frontend module's default page:
      
