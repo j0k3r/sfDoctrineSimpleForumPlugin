@@ -118,7 +118,7 @@ class BasesfSimpleForumActions extends sfActions
     if (sfConfig::get('app_sfSimpleForumPlugin_count_views', true) && $this->getUser()->isAuthenticated())
     {
       // FIXME: When Propel can do a right join with multiple on conditions, merge this query with the pager's one
-      $this->topics = Doctrine::getTable('sfSimpleForumTopic')->setIsNewForUser($this->topics, sfSimpleForumTools::getConnectedUserId());
+      $this->topics = Doctrine::getTable('sfSimpleForumTopic')->setIsNewForUser($this->topics, sfSimpleForumTools::getConnectedUserId($this->getUser()));
     }
 
     $response = $this->getResponse();
@@ -184,7 +184,7 @@ class BasesfSimpleForumActions extends sfActions
       }
       if($this->getUser()->isAuthenticated())
       {
-        $this->topic->addViewForUser(sfSimpleForumTools::getConnectedUserId());
+        $this->topic->addViewForUser(sfSimpleForumTools::getConnectedUserId($this->getUser()));
       }
     }
     
@@ -207,7 +207,7 @@ class BasesfSimpleForumActions extends sfActions
           $post = new sfSimpleForumPost();
           $post->setContent($values['content']);
           $post->setTitle($this->topic->get('title'));
-          $post->setUserId(sfSimpleForumTools::getConnectedUserId());
+          $post->setUserId(sfSimpleForumTools::getConnectedUserId($this->getUser()));
           $post->setTopicId($this->topic->getId());
           $post->setForumId($this->topic->get('sfSimpleForumForum')->get('id'));
           $post->save();
@@ -394,7 +394,7 @@ class BasesfSimpleForumActions extends sfActions
         $topic = new sfSimpleForumTopic();
         $topic->set('forum_id', $values['forum_id']);
         $topic->setTitle($values['title']);
-        $topic->setUserId(sfSimpleForumTools::getConnectedUserId());
+        $topic->setUserId(sfSimpleForumTools::getConnectedUserId($this->getUser()));
         if ($this->getUser()->hasCredential('moderator'))
         {
           $topic->setIsSticked($values['is_sticked'] ? 1 : 0);
@@ -405,7 +405,7 @@ class BasesfSimpleForumActions extends sfActions
         $post = new sfSimpleForumPost();
         $post->setContent($values['content']);
         $post->setTitle($values['title']);
-        $post->setUserId(sfSimpleForumTools::getConnectedUserId());
+        $post->setUserId(sfSimpleForumTools::getConnectedUserId($this->getUser()));
         $post->setsfSimpleForumTopic($topic);
         $post->setForumId($topic->get('sfSimpleForumForum')->get('id'));
         $post->save();
