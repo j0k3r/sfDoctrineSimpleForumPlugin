@@ -4,7 +4,7 @@
 
 <?php slot('forum_navigation') ?>
   <?php echo forum_breadcrumb(array(
-    array(sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'), 'sfSimpleForum/forumList'),
+    array(sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'), '@forum_home_list'),
     $forum->getName()
   )) ?>
 <?php end_slot() ?>
@@ -19,7 +19,7 @@
 
   <ul class="forum_actions">
     <li><?php echo link_to('<span>'.__('New topic', null, 'sfSimpleForum').'</span>', 
-                           'sfSimpleForum/createTopic?forum_name='.$forum->getSlug(),
+                           '@forum_new_topic?forum_name='.$forum->getSlug(),
                            array('class' => 'button')) ?></li>
   </ul>
   
@@ -29,8 +29,8 @@
     'topic_rule'          => '',
     'display_post_link'   => $forum->getNbPosts(),
     'nb_posts'            => $forum->getNbPosts(),
-    'post_rule'           => 'sfSimpleForum/forumLatestPosts?forum_name='.$forum->getSlug(),
-    'feed_rule'           => 'sfSimpleForum/forumLatestPostsFeed?forum_name='.$forum->getSlug(),
+    'post_rule'           => '@forum_name_last?forum_name='.$forum->getSlug(),
+    'feed_rule'           => '@forum_name_last_feed?forum_name='.$forum->getSlug(),
     'feed_title'          => $feed_title
   )) ?>
   
@@ -43,7 +43,7 @@
     </div>
   <?php else: ?>
     <br/>
-    <p><?php echo __('There is no topic in this discussion yet. Perhaps you would like to %start%?', array('%start%' =>  link_to(__('start a new one', null, 'sfSimpleForum'), 'sfSimpleForum/createTopic?forum_name='.$forum->getSlug())), 'sfSimpleForum') ?></p>
+    <p><?php echo __('There is no topic in this discussion yet. Perhaps you would like to %start%?', array('%start%' =>  link_to(__('start a new one', null, 'sfSimpleForum'), '@forum_new_topic?forum_name='.$forum->getSlug())), 'sfSimpleForum') ?></p>
   <?php endif; ?>
 
 </div>

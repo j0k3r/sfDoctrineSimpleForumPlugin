@@ -1,3 +1,4 @@
+<?php slot('title', __('Welcome on the forum',null,'sfSimpleForum')) ?>
 
 <?php slot('forum_navigation') ?>
   <?php echo forum_breadcrumb(array(
@@ -15,7 +16,7 @@
   
   <?php if (sfConfig::get('app_sfSimpleForumPlugin_allow_new_topic_outside_forum', false)): ?>
   <ul class="forum_actions">
-    <li><?php echo link_to(__('New topic', null, 'sfSimpleForum'), 'sfSimpleForum/createTopic') ?></li>
+    <li><?php echo link_to(__('New topic', null, 'sfSimpleForum'), '@forum_new_topic') ?></li>
   </ul>    
   <?php endif; ?>
   
