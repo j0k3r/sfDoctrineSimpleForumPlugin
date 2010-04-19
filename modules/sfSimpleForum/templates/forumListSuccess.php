@@ -1,6 +1,4 @@
 
-<?php slot('title', 'Bienvenue sur le forum') ?>
-
 <?php slot('forum_navigation') ?>
   <?php echo forum_breadcrumb(array(
     sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums')
@@ -13,7 +11,7 @@
     <?php include_slot('forum_navigation') ?>
   </div>
   
-  <h1>Bienvenue sur le forum</h1>
+  <h1><?php echo __('Welcome on the forum',null,'sfSimpleForum'); ?></h1>
   
   <?php if (sfConfig::get('app_sfSimpleForumPlugin_allow_new_topic_outside_forum', false)): ?>
   <ul class="forum_actions">
@@ -24,11 +22,11 @@
   <?php include_partial('sfSimpleForum/figures', array(
     'display_topic_link'  => true,
     'nb_topics'           => $nb_topics,
-    'topic_rule'          => 'sfSimpleForum/latestTopics',
+    'topic_rule'          => '@forum_latest_topics',
     'display_post_link'   => true,
     'nb_posts'            => $nb_posts,
-    'post_rule'           => 'sfSimpleForum/latestPosts',
-    'feed_rule'           => 'sfSimpleForum/latestPostsFeed',
+    'post_rule'           => '@forum_latest_posts',
+    'feed_rule'           => '@forum_latest_posts_feed',
     'feed_title'          => $feed_title
   )) ?>
   

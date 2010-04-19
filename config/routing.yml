@@ -7,6 +7,10 @@ forum_latest_posts:
   url:  /forums/latest-posts
   param: { module: sfSimpleForum, action: latestPosts }
 
+forum_latest_posts_feed:
+  url:  /forums/latest-posts-feed
+  param: { module: sfSimpleForum, action: latestPostsFeed }
+
 forum_home:
   url:  /forums
   param: { module: sfSimpleForum, action: index }
