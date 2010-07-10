@@ -6,6 +6,8 @@ Overview
 
 This is a port of sfSimpleForumPlugin for Doctrine & Symfony 1.4
 
+It relies on an already working registration process (using sfDoctrineGuardPlugin)
+
 
 Requirements
 ------------
