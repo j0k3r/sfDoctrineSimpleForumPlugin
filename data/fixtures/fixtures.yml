@@ -38,14 +38,12 @@ sfSimpleForumTopic:
     sfSimpleForumForum: forum_1
     sfGuardUser:        user_2
     nb_posts:           1
-    sfSimpleForumPost:  post_1
   topic_2:
     title:              Stick Moo
     sfSimpleForumForum: forum_2
     sfGuardUser:        user_1
     is_sticked:         true
     nb_posts:           2
-    sfSimpleForumPost:  post_3
 
 sfSimpleForumForum:
   forum_1:
@@ -55,7 +53,6 @@ sfSimpleForumForum:
     rank:                   1
     nb_posts:               2
     nb_topics:              1
-    sfSimpleForumPost:      post_1
   forum_2:
     name:                   Bar discussion
     description:            If you want a bar, this is where you will find it
@@ -63,26 +60,22 @@ sfSimpleForumForum:
     rank:                   2
     nb_posts:               1
     nb_topics:              1
-    sfSimpleForumPost:      post_3
 
 sfSimpleForumPost:
   post_1:
     title:                  Foo discussion
     content:                Everybody is foo here
     sfGuardUser:            user_1
-    sfSimpleForumForum:     forum_1
     sfSimpleForumTopic:     topic_1
   post_2:
     title:                  Foo discussion2
     content:                Everybody is foo here2
     sfGuardUser:            user_2
-    sfSimpleForumForum:     forum_1
-    sfSimpleForumTopic:     topic_2
+    sfSimpleForumTopic:     topic_1
   post_3:
     title:                  Bar discussion
     content:                If you want a bar, this is where you will find it
     sfGuardUser:            user_3
-    sfSimpleForumForum:     forum_2
     sfSimpleForumTopic:     topic_2
     
     
