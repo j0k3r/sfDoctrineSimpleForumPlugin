@@ -40,12 +40,12 @@
   </ul>
     
   <div class="forum_figures">
-    <?php echo format_number_choice('[1]1 message, no reply|(1,+Inf]%posts% messages', array('%posts%' => $post_pager->getNbResults()), $post_pager->getNbResults(), 'sfSimpleForum') ?> 
+    <?php echo format_number_choice('[0]No message|[1]1 message, no reply|(1,+Inf]%posts% messages', array('%posts%' => $post_pager->getNbResults()), $post_pager->getNbResults(), 'sfSimpleForum') ?> 
     <?php if (sfConfig::get('app_sfSimpleForumPlugin_count_views', true)): ?>
     - <?php echo format_number_choice('[0,1]1 view|(1,+Inf]%views% views', array('%views%' => $topic->getNbViews()), $topic->getNbViews(), 'sfSimpleForum') ?>
     <?php endif; ?>
     <?php if(sfConfig::get('app_sfSimpleForumPlugin_use_feeds', true)): ?>
-      <?php echo link_to(image_tag('forum/feed-icon.png', 'align=top'), 'sfSimpleForum/topicFeed?id='.$topic->getId().'&stripped_title='.$topic->getSlug(), 'title='.$feed_title) ?>
+      <?php echo link_to(image_tag('/sfDoctrineSimpleForumPlugin/images/feed-icon.png', 'align=top'), 'sfSimpleForum/topicFeed?id='.$topic->getId().'&stripped_title='.$topic->getSlug(), 'title='.$feed_title) ?>
     <?php endif; ?>    
   </div>
   
