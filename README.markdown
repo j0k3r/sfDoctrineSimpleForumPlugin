@@ -73,10 +73,6 @@ Publish assets for the forum
 
     $ php symfony plugin:publish-assets
 
-As for now, fixtures aren't filled right all database's field, run this task that update last reply, nb posts, etc ..
-
-    $ php symfony forum:fix
-
 Start using the plugin by browsing to the frontend module's default page:
      
     http://myproject/frontend_dev.php/sfSimpleForum
