@@ -4,10 +4,6 @@ sfSimpleForumCategory:
     Sluggable:
       fields:         [name]
   columns:
-    id:
-      type:           integer(4)
-      primary:        true
-      autoincrement:  true
     name:             string(255)
     description:      clob
     rank:             integer
@@ -18,15 +14,11 @@ sfSimpleForumForum:
     Sluggable:
       fields:         [name]
   columns:
-    id:
-      type:           integer(4)
-      primary:        true
-      autoincrement:  true
     name:             string(255)
     description:      clob
     rank:             integer
-    category_id:      integer(4)
-    latest_post_id:   integer(4)
+    category_id:      integer
+    latest_post_id:   integer
     nb_posts:         integer
     nb_topics:        integer
     phpbb_id:         integer
@@ -48,10 +40,6 @@ sfSimpleForumTopic:
     Sluggable:
       fields:         [title]
   columns:
-    id:
-      type:           integer(4)
-      primary:        true
-      autoincrement:  true
     title:            string(255)
     is_sticked:
       type:           boolean
@@ -59,9 +47,9 @@ sfSimpleForumTopic:
     is_locked:
       type:           boolean
       default:        0
-    forum_id:         integer(4)
-    latest_post_id:   integer(4)
-    user_id:          integer(4)
+    forum_id:         integer
+    latest_post_id:   integer
+    user_id:          integer
     nb_posts:
       type:           integer
       default:        0
@@ -90,15 +78,11 @@ sfSimpleForumPost:
   actAs:
     Timestampable:
   columns:
-    id:
-      type:           integer(4)
-      primary:        true
-      autoincrement:  true
     title:            string(255)
     content:          clob
-    topic_id:         integer(4)
-    user_id:          integer(4)
-    forum_id:         integer(4)
+    topic_id:         integer
+    user_id:          integer
+    forum_id:         integer
     author_name:      string(255)
     phpbb_id:         integer
   relations:
@@ -123,10 +107,10 @@ sfSimpleForumTopicView:
     Timestampable:
   columns:
     user_id:
-      type:           integer(4)
+      type:           integer
       primary:        true
     topic_id:
-      type:           integer(4)
+      type:           integer
       primary:        true
   relations:
     sfGuardUser: 

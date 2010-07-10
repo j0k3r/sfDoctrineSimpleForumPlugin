@@ -13,12 +13,28 @@ Requirements
 The prerequisites for using the `sfSimpleForum` plugin are the same of sfSimpleForumplugin:
 
   * You have to install and configure sfDoctrineGuardPlugin - http://www.symfony-project.org/plugins/sfDoctrineGuardPlugin
+
+By default, I use the trunk version of sfDoctrineGuardPlugin, to install it, just checkout the trunk : 
+
+    $ svn co http://svn.symfony-project.com/plugins/sfDoctrineGuardPlugin/trunk/ plugins/sfDoctrineGuardPlugin
+
+If you want to use an older version of sfDoctrineGuardPlugin, just remove the 3 email_address fixtures in sfDoctrineSimpleForumPlugin/data/fixtures/fixtures.yml , it should work.
+
   * If you want to use RSS feeds, you must install the sfFeed2Plugin - http://www.symfony-project.org/plugins/sfFeed2Plugin
 
 Installation
 ------------
 
 Install the plugin from the source you want (svn, git, etc ..)
+
+With git from your project directory
+
+    $ git clone git://github.com/j0k3r/sfDoctrineSimpleForumPlugin.git -s plugins/sfDoctrineSimpleForumPlugin
+
+With svn from your project directory
+
+    $ svn checkout http://svn.github.com/j0k3r/sfDoctrineSimpleForumPlugin.git plugins/sfDoctrineSimpleForumPlugin
+
 
 Enabled it in `ProjectConfiguration.class.php`
 
