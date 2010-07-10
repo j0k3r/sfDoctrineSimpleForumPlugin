@@ -67,15 +67,18 @@ sfSimpleForumPost:
     content:                Everybody is foo here
     sfGuardUser:            user_1
     sfSimpleForumTopic:     topic_1
+    sfSimpleForumForum:     forum_1
   post_2:
     title:                  Foo discussion2
     content:                Everybody is foo here2
     sfGuardUser:            user_2
     sfSimpleForumTopic:     topic_1
+    sfSimpleForumForum:     forum_1
   post_3:
     title:                  Bar discussion
     content:                If you want a bar, this is where you will find it
     sfGuardUser:            user_3
     sfSimpleForumTopic:     topic_2
+    sfSimpleForumForum:     forum_2
     
     

@@ -75,6 +75,10 @@ Publish assets for the forum
 
     $ php symfony plugin:publish-assets
 
+Because of cycling dependencies in the fixtures, the latest post information can't be set automatically by doctrine. It will be updated when you will post your first message, or you can fix this by running the update-last-post task :
+
+    $ php symfony forum:update-last-post
+
 Start using the plugin by browsing to the frontend module's default page:
      
     http://myproject/frontend_dev.php/sfSimpleForum
