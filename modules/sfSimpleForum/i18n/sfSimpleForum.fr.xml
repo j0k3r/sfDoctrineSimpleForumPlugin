@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" ?>
 <xliff version="1.0">
-  <file orginal="global" source-language="en_US" datatype="plaintext">
+  <file orginal="global" source-language="en" datatype="plaintext">
     <body>
       <trans-unit id="1">
         <source>Latest messages from %forums%</source>
@@ -170,6 +170,11 @@
         <source>Content</source>
         <target>Message</target>
       </trans-unit>
+      <trans-unit id="42">
+        <source>Welcome on the forum</source>
+        <target>Bienvenue sur le forum</target>
+      </trans-unit>
+
     </body>
   </file>
 </xliff>
