@@ -56,6 +56,9 @@ sfSimpleForumTopic:
     nb_views:
       type:           integer
       default:        0
+    nb_recommandations:
+      type:           integer
+      default:        0
     phpbb_id:         integer
   relations:
     sfSimpleForumForum: 

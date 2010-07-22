@@ -58,6 +58,11 @@
   <td class="thread_views"><?php echo $topic->getNbViews() ?></td>
   <?php endif; ?>
 
+  <?php if (sfConfig::get('app_sfSimpleForumPlugin_display_recommandations', true)): ?>
+  <td class="thread_recommandations"><?php echo $topic->getNbRecommandations() ?></td>
+  <?php endif; ?>
+
+
   <td class="thread_recent">
     <?php //$message_link = $topic->getNbReplies() ? __('Last reply', null, 'sfSimpleForum') : __('Posted', null, 'sfSimpleForum') ?>
     <?php $latest_post = $topic->getsfSimpleForumPost() ?>

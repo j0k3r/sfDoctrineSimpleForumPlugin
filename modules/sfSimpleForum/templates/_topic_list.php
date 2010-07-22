@@ -5,6 +5,9 @@
     <?php if (sfConfig::get('app_sfSimpleForumPlugin_count_views', true)): ?>
     <th class="thread_replies"><?php echo __('Views', null, 'sfSimpleForum') ?></th>
     <?php endif; ?>
+    <?php if (sfConfig::get('app_sfSimpleForumPlugin_display_recommandations', true)): ?>
+    <th class="thread_recommandations"><?php echo __('Recommandations', null, 'sfSimpleForum') ?></th>
+    <?php endif; ?>
     <th class="thread_recent"><?php echo __('Last Message', null, 'sfSimpleForum') ?></th>
   </tr>
   <?php foreach ($topics as $topic): ?>

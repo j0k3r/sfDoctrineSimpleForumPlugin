@@ -1,5 +1,5 @@
 .forum, .forum td, .forum th, table#fora td.forum_threads, table#fora td.forum_posts, table#fora td.forum_recent, 
-table#threads td.thread_replies, table#threads td.thread_views, table#threads td.thread_recent
+table#threads td.thread_replies, table#threads td.thread_views, table#threads td.thread_recommandations, table#threads td.thread_recent
 {
   /*font-family: 'Lucida Grande', 'Trebuchet MS', Arial, Helvetica, sans-serif;*/
   font-size: 0.9em;
@@ -87,7 +87,7 @@ table#threads .thread_name a.new
   font-weight: bold;
 }
 
-table#threads td.thread_replies, table#threads td.thread_views
+table#threads td.thread_replies, table#threads td.thread_views, table#threads td.thread_recommandations
 {
   text-align: center;
   width: 8%;
