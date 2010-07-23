@@ -104,7 +104,51 @@ sfSimpleForumPost:
       foreign:        id
       type:           one
       onDelete:       CASCADE
-    
+
+sfSimpleAbuseLog:
+  actAs:
+    Timestampable:
+  columns:
+    user_id:
+      type: integer
+      primary: true
+    topic_id:
+      type: integer
+      primary: true
+  relations:
+    sfGuardUser: 
+      local:          user_id
+      foreign:        id
+      type:           one
+      onDelete:       CASCADE
+    sfSimpleForumTopic: 
+      local:          topic_id
+      foreign:        id
+      type:           one
+      onDelete:       CASCADE
+
+sfSimpleRecommandationLog:
+  actAs:
+    Timestampable:
+  columns:
+    user_id:
+      type: integer
+      primary: true
+    topic_id:
+      type: integer
+      primary: true
+  relations:
+    sfGuardUser: 
+      local:          user_id
+      foreign:        id
+      type:           one
+      onDelete:       CASCADE
+    sfSimpleForumTopic: 
+      local:          topic_id
+      foreign:        id
+      type:           one
+      onDelete:       CASCADE
+
 sfSimpleForumTopicView:
   actAs:
     Timestampable:
