@@ -95,3 +95,17 @@ Configure the plugin categories and forums by browsing to the administration mod
      
     http://myproject/backend_dev.php/sfSimpleForumCategoryAdmin
     http://myproject/backend_dev.php/sfSimpleForumForumAdmin
+
+Configuration
+-------------
+
+Some settings can be tweaked in your app settings.yml
+
+    [yml]
+    all:
+      sfSimpleForumPlugin
+        display_recommandations: true
+        count_views: true
+
+display_recommandations will allow the users to recommand a topic.
+count_views will count the number of view per topic.
