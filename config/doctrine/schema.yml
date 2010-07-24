@@ -105,7 +105,7 @@ sfSimpleForumPost:
       type:           one
       onDelete:       CASCADE
 
-sfSimpleAbuseLog:
+sfSimpleForumAbuseLog:
   actAs:
     Timestampable:
   columns:
@@ -127,7 +127,7 @@ sfSimpleAbuseLog:
       type:           one
       onDelete:       CASCADE
 
-sfSimpleRecommandationLog:
+sfSimpleForumRecommandationLog:
   actAs:
     Timestampable:
   columns:
