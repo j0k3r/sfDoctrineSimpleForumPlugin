@@ -105,7 +105,14 @@ Some settings can be tweaked in your app settings.yml
     all:
       sfSimpleForumPlugin
         display_recommandations: true
+        display_abuse: true
         count_views: true
 
 display_recommandations will allow the users to recommand a topic.
+display_abuse will allow the users to report abuse for a topic.
 count_views will count the number of view per topic.
+
+Translations
+------------
+
+The french translation is up-to-date (in modules/sfSimpleForum/i18n). Use it as a starting point for other translations.
