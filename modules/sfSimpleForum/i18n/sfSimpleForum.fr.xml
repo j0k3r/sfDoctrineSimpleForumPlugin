@@ -79,8 +79,8 @@
         <target>Dernier message dans %forums% » %forum% » %topic%</target>
       </trans-unit>
       <trans-unit id="20">
-        <source>[1]1 message, no reply|(1,+Inf]%posts% messages</source>
-        <target>[1]1 message, pas de réponse|(1,+Inf]%posts% réponses</target>
+        <source>[0]No message|[1]1 message, no reply|(1,+Inf]%posts% messages</source>
+        <target>[0]Pas de message|[1]1 message, pas de réponse|(1,+Inf]%posts% réponses</target>
       </trans-unit>
       <trans-unit id="21">
         <source>[0,1]1 view|(1,+Inf]%views% views</source>
