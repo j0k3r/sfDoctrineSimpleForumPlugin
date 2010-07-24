@@ -494,10 +494,36 @@ class BasesfSimpleForumActions extends sfActions
 
     //TODO
     //SEND an email to someone !
-    
+    $this->sendAbuseEmail($topic);
+
+
     $this->redirect($this->getModuleName().'/topic?id='.$topic->getId());
   }
  
+
+  protected function sendAbuseEmail(sfSimpleForumTopic $topic)
+  {
+    //one kitten, one
+    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N'));
+    $mailFrom = sfConfig::get('app_sfSimpleForum_fromEmail','changethis@test.com');
+
+    $mailTo = sfConfig::get('app_sfSimpleForum_adminEmail',null);
+      
+    if($mailTo=== null)
+    {
+      return;
+    }
+
+    $mailBody = $this->getPartial('sfSimpleForum/abuse_mail', array(
+      'topic' 		=> $topic,
+    ));
+
+    $message = $this->getMailer() 
+      ->compose($mailFrom,$mailTo,__('An abuse was reported for topic %1%',array("%1%" => $topic->getTitle()),'sfSimpleForum'),$mailBody)
+      ->setContentType('text/html');
+    $this->getMailer()->send($message);
+  }
+
   public function executeRecommand()
   {
     $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
