@@ -50,3 +50,11 @@ forum_user:
 forum_user_topics:
   url:  /user/:username/topics
   param: { module: sfSimpleForum, action: userLatestTopics }
+
+forum_report_abuse:
+  url: /forums/report-topic/:id
+  param: { module: sfSimpleForum, action: reportAbuse }
+
+forum_recommand:
+  url: /forums/recommand-topic/:id
+  param: { module: sfSimpleForum, action: recommand }

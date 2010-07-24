@@ -5,9 +5,103 @@
  */
 abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
 {
-  protected
-    $is_new   = false;
-  
+  protected $is_new = false;
+
+  public function recommand($user)
+  {
+    $recommandation = new sfSimpleForumRecommandationLog();
+    $recommandation->topic_id=$this->id;
+    $recommandation->user_id=$user->id;
+    $recommandation->save();
+
+  }
+  public function reportAbuse($user)
+  {
+    $abuse = new sfSimpleForumAbuseLog();
+    $abuse->topic_id=$this->id;
+    $abuse->user_id=$user->id;
+    $abuse->save();
+  }
+
+  /**
+   * isAbuseReported checks if a user has already reported an abuse for a topic 
+   * 
+   * @param sfGuardUser $user 
+   * @access public
+   * @return void
+   */
+  public function isAbuseReported($user)
+  {
+    if($user === null)
+    {
+
+      return false;
+    }
+    
+    return $this->getNbAbuseReportedByUser($user) > 0;
+  }
+
+  /**
+   * getNbAbuseReportedByUser returns the number of abuse reported
+   * by user
+   *
+   * Ok it makes one more query, but mysql and doctrine are just
+   * bad with nested selects. 
+   * 
+   * @param mixed $user 
+   * @access public
+   * @return void
+   */
+
+  public function getNbAbuseReportedByUser($user)
+  {
+    $q = Doctrine_Query::create()
+      ->from('sfSimpleForumAbuseLog r')
+      ->where('r.topic_id=?',$this->id)
+      ->andWhere('r.user_id=?',$user->id);
+
+    return $q->count();
+  }
+
+  /**
+   * isRecommanded checks if a user has already recommanded a topic 
+   * 
+   * @param sfGuardUser $user 
+   * @access public
+   * @return void
+   */
+  public function isRecommanded($user)
+  {
+    if($user === null)
+    {
+
+      return false;
+    }
+
+    return $this->getNbRecommandationsByUser($user) > 0;
+  }
+
+  /**
+   * getNbRecommandations returns the number of recommandations
+   * by user
+   *
+   * Ok it makes one more query, but mysql and doctrine are just
+   * bad with nested selects. 
+   * 
+   * @param mixed $user 
+   * @access public
+   * @return void
+   */
+  public function getNbRecommandationsByUser($user)
+  {
+    $q = Doctrine_Query::create()
+      ->from('sfSimpleForumRecommandationLog r')
+      ->where('r.topic_id=?',$this->id)
+      ->andWhere('r.user_id=?',$user->id);
+
+    return $q->count();
+  }
+
   public function getIsNew()
   {
     return $this->is_new;

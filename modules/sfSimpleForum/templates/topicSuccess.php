@@ -37,6 +37,27 @@
         array('class' => 'button')
       ) ?></li>
     <?php endif ?>
+    <?php if ($sf_user->isAuthenticated()): ?>
+    <?php if (sfConfig::get('app_sfSimpleForumPlugin_display_recommandations', true) && !$topic->isRecommanded($sf_user->getGuardUser())): ?>
+         <li><?php echo link_to(
+           '<span>'. __('Recommand', null, 'sfSimpleForum').'</span>', 
+          '@forum_recommand?id='.$topic->getId(),
+          array('class' => 'button')
+        ) ?></li>
+      <?php endif; ?>
+
+      <?php if (sfConfig::get('app_sfSimpleForumPlugin_display_abuse', true) && !$topic->isAbuseReported($sf_user->getGuardUser())): ?>
+         <li><?php echo link_to(
+           '<span>'. __('Report abuse', null, 'sfSimpleForum').'</span>', 
+          '@forum_report_abuse?id='.$topic->getId(),
+          array(
+            'class' => 'button',
+            'confirm' => __('Are you sure you want to report this topic?',null,'sfSimpleForum'))
+        ) ?></li>
+      <?php endif; ?>
+
+    <?php endif; ?>
+
   </ul>
     
   <div class="forum_figures">

@@ -482,6 +482,34 @@ class BasesfSimpleForumActions extends sfActions
     $this->redirect($this->getModuleName().'/topic?id='.$topic->getId());
   }
 
+
+  public function executeReportAbuse()
+  {
+    $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
+    $this->forward404Unless($topic);
+    
+    $topic->reportAbuse($this->getUser()->getGuardUser());
+    $topic->leaveUpdatedAtUnchanged();
+    $topic->save();
+
+    //TODO
+    //SEND an email to someone !
+    
+    $this->redirect($this->getModuleName().'/topic?id='.$topic->getId());
+  }
+ 
+  public function executeRecommand()
+  {
+    $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
+    $this->forward404Unless($topic);
+    
+    $topic->recommand($this->getUser()->getGuardUser());
+    $topic->leaveUpdatedAtUnchanged();
+    $topic->save();
+    
+    $this->redirect($this->getModuleName().'/topic?id='.$topic->getId());
+  }
+
   public function executeUpdatePost($request)
   {
     $this->forward404If( ! $request->getParameter('content') || 

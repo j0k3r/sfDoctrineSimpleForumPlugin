@@ -99,4 +99,5 @@ class PluginsfSimpleForumTopicTable extends Doctrine_Table
     
     return $q->execute()->count();
   }
+
 }

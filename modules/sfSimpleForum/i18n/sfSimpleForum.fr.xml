@@ -194,7 +194,14 @@
         <source>This topic was locked by a forum moderator. No reply can be added.</source>
         <target>Ce sujet a été fermé par un modérateur du forum. Il n'est plus possible d'y répondre.</target>
       </trans-unit>
-
+      <trans-unit id="48">
+        <source>Report abuse</source>
+        <target>Signaler un abus</target>
+      </trans-unit>
+      <trans-unit id="49">
+        <source>Are you sure you want to report this topic?</source>
+        <target>Êtes-vous certain de vouloir signaler un abus pour ce sujet ?</target>
+      </trans-unit>
 
     </body>
   </file>
