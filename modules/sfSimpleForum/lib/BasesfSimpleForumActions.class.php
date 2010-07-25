@@ -505,9 +505,9 @@ class BasesfSimpleForumActions extends sfActions
   {
     //one kitten, one
     sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N'));
-    $mailFrom = sfConfig::get('app_sfSimpleForum_fromEmail','changethis@test.com');
+    $mailFrom = sfConfig::get('app_sfSimpleForum_from_email','changethis@test.com');
 
-    $mailTo = sfConfig::get('app_sfSimpleForum_adminEmail',null);
+    $mailTo = sfConfig::get('app_sfSimpleForum_admin_email',null);
       
     if($mailTo=== null)
     {

@@ -107,10 +107,14 @@ Some settings can be tweaked in your app settings.yml
         display_recommandations: true
         display_abuse: true
         count_views: true
+        admin_email: test@test.com 
+        from_email: test@test.com
 
 display_recommandations will allow the users to recommand a topic.
 display_abuse will allow the users to report abuse for a topic.
 count_views will count the number of view per topic.
+admin_emain is the email of the admin who will receive abuse mails
+from_email is the "from" email address used to send abuse email
 
 Translations
 ------------
