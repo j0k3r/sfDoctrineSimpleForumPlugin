@@ -519,7 +519,7 @@ class BasesfSimpleForumActions extends sfActions
     ));
 
     $message = $this->getMailer() 
-      ->compose($mailFrom,$mailTo,__('An abuse was reported for topic %1%',array("%1%" => $topic->getTitle()),'sfSimpleForum'),$mailBody)
+      ->compose($mailFrom,$mailTo,__('An abuse was reported for topic "%1%"',array("%1%" => $topic->getTitle()),'sfSimpleForum'),$mailBody)
       ->setContentType('text/html');
     $this->getMailer()->send($message);
   }

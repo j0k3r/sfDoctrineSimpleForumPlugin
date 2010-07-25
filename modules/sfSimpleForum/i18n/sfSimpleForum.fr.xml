@@ -202,7 +202,14 @@
         <source>Are you sure you want to report this topic?</source>
         <target>Êtes-vous certain de vouloir signaler un abus pour ce sujet ?</target>
       </trans-unit>
-
+      <trans-unit id="50">
+        <source>An abuse was reported for topic "%1%"</source>
+        <target>Un abus a été signalé dans le sujet "%1%"</target>
+      </trans-unit>
+      <trans-unit id="51">
+        <source><![CDATA[An abuse was reported for topic "%1%".<br />Please, check the topic and delete it if necessary.<br /><a href="%2%">%2%</a>]]></source>
+        <target><![CDATA[Un abus a été signalé dans le sujet "%1%".<br />Veuillez vérifier le sujet et effectuer les actions en conséquence.<br /><a href="%2%">%2%</a>]]></target>      
+      </trans-unit>
     </body>
   </file>
 </xliff>
