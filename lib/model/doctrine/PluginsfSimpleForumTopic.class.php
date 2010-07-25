@@ -14,6 +14,9 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
     $recommandation->user_id=$user->id;
     $recommandation->save();
 
+    $this->nb_recommandations++;
+    $this->save();
+
   }
   public function reportAbuse($user)
   {
