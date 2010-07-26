@@ -15,5 +15,10 @@
       echo __('Moderator', null, 'sfSimpleForum') . '<br/>';
     }
     echo format_number_choice('[1]1 message|(1,+Inf] %1% messages', array('%1%' => $nb_posts), $nb_posts, 'sfSimpleForum');
+
+    if(sfConfig::get('app_sfSimpleForumPlugin_display_avatar',false)):
+      $method = sfConfig::get('app_sfSimpleForumPlugin_avatar_method','getId');
+      include_partial('sfSimpleForum/avatar',array('src'=>$sf_user->$method()));
+    endif;
   }
 ?><br />

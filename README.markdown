@@ -111,6 +111,8 @@ Some settings can be tweaked in your app settings.yml
         from_email: test@test.com
         show_author_details: true
         max_per_page: 10
+        display_avatar: true
+        avatar_method: getLogo
 
 *display_recommandations* will allow the users to recommand a topic.
 
@@ -125,6 +127,10 @@ Some settings can be tweaked in your app settings.yml
 *show_author_details* displays detailed information about the author on each post 
 
 *max_per_page* number of posts displayed per page
+
+*display_avatar* If you want to display animage for each user
+
+*avatar_method* Provide a method which will return the path of the image to display. This method should be defined il your app/lib/myUser.class.php file
 
 Translations
 ------------
