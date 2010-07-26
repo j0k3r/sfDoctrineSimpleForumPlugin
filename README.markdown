@@ -113,11 +113,17 @@ Some settings can be tweaked in your app settings.yml
         max_per_page: 10
 
 *display_recommandations* will allow the users to recommand a topic.
+
 *display_abuse* will allow the users to report abuse for a topic.
+
 *count_views* will count the number of view per topic.
+
 *admin_emain* is the email of the admin who will receive abuse mails
+
 *from_email* is the "from" email address used to send abuse email
+
 *show_author_details* displays detailed information about the author on each post 
+
 *max_per_page* number of posts displayed per page
 
 Translations
