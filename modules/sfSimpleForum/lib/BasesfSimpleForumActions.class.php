@@ -492,8 +492,6 @@ class BasesfSimpleForumActions extends sfActions
     $topic->leaveUpdatedAtUnchanged();
     $topic->save();
 
-    //TODO
-    //SEND an email to someone !
     $this->sendAbuseEmail($topic);
 
 
@@ -505,9 +503,9 @@ class BasesfSimpleForumActions extends sfActions
   {
     //one kitten, one
     sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N'));
-    $mailFrom = sfConfig::get('app_sfSimpleForum_from_email','changethis@test.com');
+    $mailFrom = sfConfig::get('app_sfSimpleForumPlugin_from_email','changethis@test.com');
 
-    $mailTo = sfConfig::get('app_sfSimpleForum_admin_email',null);
+    $mailTo = sfConfig::get('app_sfSimpleForumPlugin_admin_email',null);
       
     if($mailTo=== null)
     {
