@@ -51,7 +51,7 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
   
   public function getForTopicCriteria($topic_id)
   {
-    $q = $this->createQuery();
+    $q = $this->createQuery('t');
     $q->where('topic_id = ?', array($topic_id));
     
     return $q;
@@ -71,8 +71,12 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
   
   public function getForTopicPager($topic_id, $page = 1, $max_per_page = 10)
   {
-    $q = $this->getForTopicCriteria($topic_id);
-    $q->orderBy('id ASC');
+    $q = $this->getForTopicCriteria($topic_id)
+      ->leftJoin('t.sfGuardUser u')
+      ->leftJoin('u.sfSimpleForumPost upo')
+      ->leftJoin('u.Permissions upe')
+      ->leftJoin('u.Groups ug')
+      ->orderBy('t.id ASC');
 
     $pager = new sfDoctrinePager('sfSimpleForumPost', $max_per_page);
     $pager->setPage($page);
@@ -155,6 +159,9 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
     return $q->execute()->count();
   }
   
+
+
+
   /**
    * Selects a collection of sfSimpleForumPost objects pre-filled with related topic and forum objects.
    *

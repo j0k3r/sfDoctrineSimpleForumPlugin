@@ -2,9 +2,9 @@
 <tr>
   <td class="post_author">
     <?php if (sfConfig::get('app_sfSimpleForumPlugin_show_author_details', false)): ?>
-      <?php echo include_partial('sfSimpleForum/author', array('author_name' => $post->getAuthorName())) ?>
+      <?php echo include_partial('sfSimpleForum/author', array('author' => $post->getSfGuardUser(),'post' => $post)) ?>
     <?php else: ?>
-      <?php echo link_to(get_partial('sfSimpleForum/author_name', array('author' => $post->getAuthorName())), 'sfSimpleForum/userLatestPosts?username='.$post->getAuthorName()) ?><br/>
+    <?php echo link_to(get_partial('sfSimpleForum/author_name', array('author' => $post->getAuthorName())), 'sfSimpleForum/userLatestPosts?username='.$post->getAuthorName()) ?><br/>
     <?php endif; ?>
     <?php echo format_date($post->getCreatedAt('U')) ?>
   </td>
