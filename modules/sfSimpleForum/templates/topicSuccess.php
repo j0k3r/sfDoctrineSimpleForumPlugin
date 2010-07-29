@@ -70,7 +70,7 @@
     <?php endif; ?>    
   </div>
   
-  <?php include_partial('sfSimpleForum/post_list', array('posts' => $post_pager->getResults(), 'include_topic' => false)) ?>
+  <?php include_partial('sfSimpleForum/post_list', array('posts' => $post_pager->getResults(), 'rankArray' => $rankArray, 'include_topic' => false)) ?>
   
   <div id="pager">
     <?php echo pager_navigation($post_pager, 'sfSimpleForum/topic?id='.$topic->getId().'&stripped_title='.$topic->getSlug()) ?>

@@ -20,5 +20,10 @@
       $method = sfConfig::get('app_sfSimpleForumPlugin_avatar_method','getId');
       include_partial('sfSimpleForum/avatar',array('src'=>$sf_user->$method()));
     endif;
+
+    if(sfConfig::get('app_sfSimpleForumPlugin_display_rank',false)):
+      include_partial('sfSimpleForum/rank',array('rankArray'=>$rankArray,'nb_posts'=>$nb_posts));
+    endif;
+
   }
 ?><br />

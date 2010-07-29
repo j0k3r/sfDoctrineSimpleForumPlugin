@@ -21,7 +21,7 @@ generator:
       filter:
         display:            [title]
       new:
-        title:              Edit rank "%%title%%"
+        title:              New rank
         display:            [title, nb_posts, image]
       edit:
         title:              Edit rank "%%title%%"

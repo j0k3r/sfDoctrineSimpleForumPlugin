@@ -16,4 +16,19 @@ class PluginsfSimpleForumRankTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('PluginsfSimpleForumRank');
     }
+
+
+    /**
+     * fetchArrayAllOrdered 
+     * 
+     * @access public
+     * @return void
+     */
+    public function fetchOrderedByNbPostsArray()
+    {
+      $q = $this->createQuery('r')
+        ->orderBy('r.nb_posts asc');
+
+      return $q->fetchArray();  
+    }
 }
