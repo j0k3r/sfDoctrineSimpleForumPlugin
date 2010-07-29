@@ -1,0 +1,26 @@
+generator:
+  class:                    sfDoctrineGenerator
+  param:
+    model_class:            sfSimpleForumRank
+    theme:                  admin
+    non_verbose_templates:  true
+    with_show:              false
+    singular:               ~
+    plural:                 ~
+    route_prefix:           rank_admin
+    with_doctrine_route:    true
+
+    config:
+      actions: ~
+      fields: ~
+      
+      list:
+        title:              Rank Administration
+        display:            [=title, nb_posts]
+        sort:               [nb_posts, asc]
+      filter:
+        display:            [title]
+      edit:
+        title:              Edit rank "%%name%%"
+        display:            [title, nb_posts, image]
+

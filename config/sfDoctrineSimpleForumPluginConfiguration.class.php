@@ -24,7 +24,7 @@ class sfDoctrineSimpleForumPluginConfiguration extends sfPluginConfiguration
    */
   public function initialize()
   {
-    foreach (array('sfSimpleForumCategoryAdmin', 'sfSimpleForumForumAdmin') as $module)
+    foreach (array('sfSimpleForumCategoryAdmin', 'sfSimpleForumForumAdmin','sfSimpleForumRankAdmin') as $module)
     {
       if (in_array($module, sfConfig::get('sf_enabled_modules', array())))
       {

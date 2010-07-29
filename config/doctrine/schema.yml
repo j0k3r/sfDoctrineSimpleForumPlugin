@@ -149,6 +149,18 @@ sfSimpleForumRecommandationLog:
       type:           one
       onDelete:       CASCADE
 
+
+sfSimpleForumRank:
+  columns:
+    nb_posts:
+      type: integer
+      notnull: true
+    image:
+      type: varchar(255) 
+    title:
+      type: string(30)
+      notnull: true
+
 sfSimpleForumTopicView:
   actAs:
     Timestampable:
