@@ -89,12 +89,13 @@ If you want to enable the plugin administration interface, you have to enable tw
     // in myproject/apps/backend/config/settings.yml
     all:
       .settings:
-        enabled_modules:        [sfSimpleForumCategoryAdmin, sfSimpleForumForumAdmin, default]
+        enabled_modules:        [sfSimpleForumCategoryAdmin, sfSimpleForumForumAdmin, sfSimpleForumRankAdmin, default]
 
-Configure the plugin categories and forums by browsing to the administration modules default page:
+Configure the plugin categories and forums by browsing to the administration modules default pages (assuming your backend application is called _backend_):
      
     http://myproject/backend_dev.php/sfSimpleForumCategoryAdmin
     http://myproject/backend_dev.php/sfSimpleForumForumAdmin
+    http://myproject/backend_dev.php/sfSimpleForumRankAdmin
 
 Configuration
 -------------
