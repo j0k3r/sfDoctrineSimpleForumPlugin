@@ -20,7 +20,10 @@ generator:
         sort:               [nb_posts, asc]
       filter:
         display:            [title]
+      new:
+        title:              Edit rank "%%title%%"
+        display:            [title, nb_posts, image]
       edit:
-        title:              Edit rank "%%name%%"
+        title:              Edit rank "%%title%%"
         display:            [title, nb_posts, image]
 

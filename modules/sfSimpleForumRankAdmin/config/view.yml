@@ -1,4 +1,4 @@
 all:
   metas:
-    title: Category Administration
+    title: Rank Administration
   stylesheets: [/sfSimpleForumPlugin/css/admin.css: { position: last } ]
