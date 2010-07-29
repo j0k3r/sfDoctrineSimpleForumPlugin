@@ -114,6 +114,7 @@ Some settings can be tweaked in your app settings.yml
         max_per_page: 10
         display_avatar: true
         avatar_method: getLogo
+        upload_dir: forum/
 
 *display_recommandations* will allow the users to recommand a topic.
 
@@ -129,9 +130,11 @@ Some settings can be tweaked in your app settings.yml
 
 *max_per_page* number of posts displayed per page
 
-*display_avatar* If you want to display animage for each user
+*display_avatar* If you want to display an image for each user
 
 *avatar_method* Provide a method which will return the path of the image to display. This method should be defined il your app/lib/myUser.class.php file
+
+*upload_dir* The directory where uploaded files (for the rank system) will be uploaded. It will append this dir to sfConfig::get('sf_upload_dir') 
 
 Translations
 ------------
