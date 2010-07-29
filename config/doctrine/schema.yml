@@ -151,6 +151,9 @@ sfSimpleForumRecommandationLog:
 
 
 sfSimpleForumRank:
+  actAs:
+    Sluggable:
+      fields:         [title]
   columns:
     nb_posts:
       type: integer
