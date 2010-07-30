@@ -344,6 +344,12 @@ class BasesfSimpleForumActions extends sfActions
   {
     $this->username = $this->getRequestParameter('username');
     $this->user = sfSimpleForumTools::getUserByUsername($this->username);
+    $this->rankArray=array();
+    if (sfConfig::get('app_sfSimpleForumPlugin_display_rank', true))
+    {
+      $this->rankArray=Doctrine_Core::getTable('sfSimpleForumRank')->fetchOrderedByNbPostsArray();
+    }
+
     $this->forward404Unless($this->user);
   }
   
