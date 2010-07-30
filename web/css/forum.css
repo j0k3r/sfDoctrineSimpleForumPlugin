@@ -14,7 +14,7 @@ table#threads td.thread_replies, table#threads td.thread_views, table#threads td
 
 .forum .forum_figures
 {
-  width: 695px;
+  width: 100%;
   text-align: right;
   margin: 0 0 10px 0;
 }
@@ -22,7 +22,7 @@ table#threads td.thread_replies, table#threads td.thread_views, table#threads td
 table#fora, table#threads, table#messages
 { 
   border-collapse: collapse;
-  width: 695px;
+  width: 100%;
   clear: both;
 }
 
