@@ -116,6 +116,7 @@ Some settings can be tweaked in your app settings.yml
         avatar_method: getLogo
         upload_dir: forum/
         display_rank: true
+        use_feeds: true
 
 *display_recommandations* will allow the users to recommand a topic.
 
@@ -138,6 +139,8 @@ Some settings can be tweaked in your app settings.yml
 *upload_dir* The directory where uploaded files (for the rank system) will be uploaded. It will append this dir to sfConfig::get('sf_upload_dir') 
 
 *display_rank* If you want to display the rank of each user (if show_author_details is set to true)
+
+*use_feeds* If you want to display an RSS link on each topic. Needs sfFeed2Plugin to work
 
 Translations
 ------------
