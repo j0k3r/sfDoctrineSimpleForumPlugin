@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <xliff version="1.0">
   <file orginal="global" source-language="en" datatype="plaintext">
     <body>
@@ -209,6 +209,14 @@
       <trans-unit id="51">
         <source><![CDATA[An abuse was reported for topic "%1%".<br />Please, check the topic and delete it if necessary.<br /><a href="%2%">%2%</a>]]></source>
         <target><![CDATA[Un abus a été signalé dans le sujet "%1%".<br />Veuillez vérifier le sujet et effectuer les actions en conséquence.<br /><a href="%2%">%2%</a>]]></target>      
+      </trans-unit>
+      <trans-unit id="52">
+        <source>There is no topic in this discussion yet. Perhaps you would like to %start%?</source>
+        <target>Il n'y a pas encore de sujet dans cette discussion. Vous voulez peut être %start%?</target>
+      </trans-unit>
+      <trans-unit id="53">
+        <source>start a new one</source>
+        <target>en commencer un nouveau</target>
       </trans-unit>
     </body>
   </file>
