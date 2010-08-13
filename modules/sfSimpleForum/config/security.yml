@@ -22,3 +22,9 @@ toggleStick:
 toggleLock:
   is_secure:   on
   credentials: [moderator]
+
+report_abuse:
+  is_secure:   on
+
+recommand:
+  is_secure:   on

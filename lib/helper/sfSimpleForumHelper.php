@@ -31,3 +31,18 @@ function forum_breadcrumb($params, $options = array())
 
   return $html;
 }
+
+function forum_rank($rankArray=array(),$nb_posts=0)
+{
+
+  foreach($rankArray as $rank)
+  {
+    if($rank['nb_posts']>=$nb_posts)
+    {
+      return $rank;
+    }
+
+  }
+
+  return null;
+}

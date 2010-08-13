@@ -105,7 +105,7 @@ sfSimpleForumPost:
       type:           one
       onDelete:       CASCADE
 
-sfSimpleAbuseLog:
+sfSimpleForumAbuseLog:
   actAs:
     Timestampable:
   columns:
@@ -127,7 +127,7 @@ sfSimpleAbuseLog:
       type:           one
       onDelete:       CASCADE
 
-sfSimpleRecommandationLog:
+sfSimpleForumRecommandationLog:
   actAs:
     Timestampable:
   columns:
@@ -148,6 +148,21 @@ sfSimpleRecommandationLog:
       foreign:        id
       type:           one
       onDelete:       CASCADE
+
+
+sfSimpleForumRank:
+  actAs:
+    Sluggable:
+      fields:         [title]
+  columns:
+    nb_posts:
+      type: integer
+      notnull: true
+    image:
+      type: varchar(255) 
+    title:
+      type: string(30)
+      notnull: true
 
 sfSimpleForumTopicView:
   actAs:

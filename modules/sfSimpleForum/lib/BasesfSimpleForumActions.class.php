@@ -188,6 +188,13 @@ class BasesfSimpleForumActions extends sfActions
       }
     }
     
+
+    $this->rankArray=array();
+    if (sfConfig::get('app_sfSimpleForumPlugin_display_rank', true))
+    {
+      $this->rankArray=Doctrine_Core::getTable('sfSimpleForumRank')->fetchOrderedByNbPostsArray();
+    }
+
     if (!$this->topic->getIsLocked() && $this->getUser()->isAuthenticated())
     {
       $this->form = new forumPost();
@@ -337,6 +344,12 @@ class BasesfSimpleForumActions extends sfActions
   {
     $this->username = $this->getRequestParameter('username');
     $this->user = sfSimpleForumTools::getUserByUsername($this->username);
+    $this->rankArray=array();
+    if (sfConfig::get('app_sfSimpleForumPlugin_display_rank', true))
+    {
+      $this->rankArray=Doctrine_Core::getTable('sfSimpleForumRank')->fetchOrderedByNbPostsArray();
+    }
+
     $this->forward404Unless($this->user);
   }
   
@@ -476,6 +489,58 @@ class BasesfSimpleForumActions extends sfActions
     $this->forward404Unless($topic);
     
     $topic->setIsLocked(!$topic->getIsLocked());
+    $topic->leaveUpdatedAtUnchanged();
+    $topic->save();
+    
+    $this->redirect($this->getModuleName().'/topic?id='.$topic->getId());
+  }
+
+
+  public function executeReportAbuse()
+  {
+    $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
+    $this->forward404Unless($topic);
+    
+    $topic->reportAbuse($this->getUser()->getGuardUser());
+    $topic->leaveUpdatedAtUnchanged();
+    $topic->save();
+
+    $this->sendAbuseEmail($topic);
+
+
+    $this->redirect($this->getModuleName().'/topic?id='.$topic->getId());
+  }
+ 
+
+  protected function sendAbuseEmail(sfSimpleForumTopic $topic)
+  {
+    //one kitten, one
+    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N'));
+    $mailFrom = sfConfig::get('app_sfSimpleForumPlugin_from_email','changethis@test.com');
+
+    $mailTo = sfConfig::get('app_sfSimpleForumPlugin_admin_email',null);
+      
+    if($mailTo=== null)
+    {
+      return;
+    }
+
+    $mailBody = $this->getPartial('sfSimpleForum/abuse_mail', array(
+      'topic' 		=> $topic,
+    ));
+
+    $message = $this->getMailer() 
+      ->compose($mailFrom,$mailTo,__('An abuse was reported for topic "%1%"',array("%1%" => $topic->getTitle()),'sfSimpleForum'),$mailBody)
+      ->setContentType('text/html');
+    $this->getMailer()->send($message);
+  }
+
+  public function executeRecommand()
+  {
+    $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
+    $this->forward404Unless($topic);
+    
+    $topic->recommand($this->getUser()->getGuardUser());
     $topic->leaveUpdatedAtUnchanged();
     $topic->save();
     

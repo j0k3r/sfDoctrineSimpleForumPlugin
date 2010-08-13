@@ -89,9 +89,60 @@ If you want to enable the plugin administration interface, you have to enable tw
     // in myproject/apps/backend/config/settings.yml
     all:
       .settings:
-        enabled_modules:        [sfSimpleForumCategoryAdmin, sfSimpleForumForumAdmin, default]
+        enabled_modules:        [sfSimpleForumCategoryAdmin, sfSimpleForumForumAdmin, sfSimpleForumRankAdmin, default]
 
-Configure the plugin categories and forums by browsing to the administration modules default page:
+Configure the plugin categories and forums by browsing to the administration modules default pages (assuming your backend application is called _backend_):
      
     http://myproject/backend_dev.php/sfSimpleForumCategoryAdmin
     http://myproject/backend_dev.php/sfSimpleForumForumAdmin
+    http://myproject/backend_dev.php/sfSimpleForumRankAdmin
+
+Configuration
+-------------
+
+Some settings can be tweaked in your app settings.yml
+
+    [yml]
+    all:
+      sfSimpleForumPlugin
+        display_recommandations: true
+        display_abuse: true
+        count_views: true
+        admin_email: test@test.com 
+        from_email: test@test.com
+        show_author_details: true
+        max_per_page: 10
+        display_avatar: true
+        avatar_method: getLogo
+        upload_dir: forum/
+        display_rank: true
+        use_feeds: true
+
+*display_recommandations* will allow the users to recommand a topic.
+
+*display_abuse* will allow the users to report abuse for a topic.
+
+*count_views* will count the number of view per topic.
+
+*admin_emain* is the email of the admin who will receive abuse mails
+
+*from_email* is the "from" email address used to send abuse email
+
+*show_author_details* displays detailed information about the author on each post 
+
+*max_per_page* number of posts displayed per page
+
+*display_avatar* If you want to display an image for each user (if show_author_details is set to true)
+
+*avatar_method* Provide a method which will return the path of the image to display. This method should be defined il your app/lib/myUser.class.php file
+
+*upload_dir* The directory where uploaded files (for the rank system) will be uploaded. It will append this dir to sfConfig::get('sf_upload_dir') 
+
+*display_rank* If you want to display the rank of each user (if show_author_details is set to true)
+
+*use_feeds* If you want to display an RSS link on each topic. Needs sfFeed2Plugin to work
+
+Translations
+------------
+
+The french translation is up-to-date (in modules/sfSimpleForum/i18n). Use it as a starting point for other translations.

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <xliff version="1.0">
   <file orginal="global" source-language="en" datatype="plaintext">
     <body>
@@ -79,8 +79,8 @@
         <target>Dernier message dans %forums% » %forum% » %topic%</target>
       </trans-unit>
       <trans-unit id="20">
-        <source>[1]1 message, no reply|(1,+Inf]%posts% messages</source>
-        <target>[1]1 message, pas de réponse|(1,+Inf]%posts% réponses</target>
+        <source>[0]No message|[1]1 message, no reply|(1,+Inf]%posts% messages</source>
+        <target>[0]Pas de message|[1]1 message, pas de réponse|(1,+Inf]%posts% réponses</target>
       </trans-unit>
       <trans-unit id="21">
         <source>[0,1]1 view|(1,+Inf]%views% views</source>
@@ -128,11 +128,11 @@
       </trans-unit>
       <trans-unit id="32">
         <source>Stick</source>
-        <target>Épinglé</target>
+        <target>Épingler</target>
       </trans-unit>
       <trans-unit id="33">
         <source>Lock</source>
-        <target>Fermé</target>
+        <target>Fermer</target>
       </trans-unit>
       <trans-unit id="34">
         <source>Are you sure you want to delete this post?</source>
@@ -174,7 +174,50 @@
         <source>Welcome on the forum</source>
         <target>Bienvenue sur le forum</target>
       </trans-unit>
-
+      <trans-unit id="43">
+        <source>Recommand</source>
+        <target>Recommander</target>
+      </trans-unit>
+      <trans-unit id="44">
+        <source>Unrecommand</source>
+        <target>Dérecommander</target>
+      </trans-unit>
+      <trans-unit id="45">
+        <source>Unstick</source>
+        <target>Désépingler</target>
+      </trans-unit>
+      <trans-unit id="46">
+        <source>Unlock</source>
+        <target>Réouvrir</target>
+      </trans-unit>
+      <trans-unit id="47">
+        <source>This topic was locked by a forum moderator. No reply can be added.</source>
+        <target>Ce sujet a été fermé par un modérateur du forum. Il n'est plus possible d'y répondre.</target>
+      </trans-unit>
+      <trans-unit id="48">
+        <source>Report abuse</source>
+        <target>Signaler un abus</target>
+      </trans-unit>
+      <trans-unit id="49">
+        <source>Are you sure you want to report this topic?</source>
+        <target>Êtes-vous certain de vouloir signaler un abus pour ce sujet ?</target>
+      </trans-unit>
+      <trans-unit id="50">
+        <source>An abuse was reported for topic "%1%"</source>
+        <target>Un abus a été signalé dans le sujet "%1%"</target>
+      </trans-unit>
+      <trans-unit id="51">
+        <source><![CDATA[An abuse was reported for topic "%1%".<br />Please, check the topic and delete it if necessary.<br /><a href="%2%">%2%</a>]]></source>
+        <target><![CDATA[Un abus a été signalé dans le sujet "%1%".<br />Veuillez vérifier le sujet et effectuer les actions en conséquence.<br /><a href="%2%">%2%</a>]]></target>      
+      </trans-unit>
+      <trans-unit id="52">
+        <source>There is no topic in this discussion yet. Perhaps you would like to %start%?</source>
+        <target>Il n'y a pas encore de sujet dans cette discussion. Vous voulez peut être %start%?</target>
+      </trans-unit>
+      <trans-unit id="53">
+        <source>start a new one</source>
+        <target>en commencer un nouveau</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

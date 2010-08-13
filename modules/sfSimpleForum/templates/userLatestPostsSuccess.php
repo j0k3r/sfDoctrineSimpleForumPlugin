@@ -29,7 +29,7 @@
     'feed_title'          => $feed_title
   )) ?>
   
-  <?php include_partial('sfSimpleForum/post_list', array('posts' => $post_pager->getResults(), 'include_topic' => true)) ?>
+  <?php include_partial('sfSimpleForum/post_list', array('posts' => $post_pager->getResults(), 'include_topic' => true,'rankArray' => $rankArray)) ?>
   
   <div id="pager">
     <?php echo pager_navigation($post_pager, 'sfSimpleForum/userLatestPosts?username='.$username) ?>

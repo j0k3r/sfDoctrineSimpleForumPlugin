@@ -47,4 +47,23 @@ class sfDoctrineSimpleForumRouting
       'requirements'        => array(),
     )));
   }
+
+  /**
+   * Adds an sfDoctrineRouteCollection collection to manage categories.
+   *
+   * @param sfEvent $event
+   * @static
+   */
+  static public function addRouteForRankAdmin(sfEvent $event)
+  {
+    $event->getSubject()->prependRoute('rank_admin', new sfDoctrineRouteCollection(array(
+      'name'                => 'rank_admin',
+      'model'               => 'sfSimpleForumRank',
+      'module'              => 'sfSimpleForumRankAdmin',
+      'prefix_path'         => 'forum/rank',
+      'with_wildcard_routes' => true,
+      'collection_actions'  => array('filter' => 'post', 'batch' => 'post'),
+      'requirements'        => array(),
+    )));
+  }
 }
