@@ -245,7 +245,7 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
     }
   }
     
-  public function delete(Doctrine_Connection $conn = null, $latestPost = null)
+  public function delete(Doctrine_Connection $con = null, $latestPost = null)
   {
     if(!$con)
     {
