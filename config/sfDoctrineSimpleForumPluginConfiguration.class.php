@@ -19,17 +19,30 @@
  */
 class sfDoctrineSimpleForumPluginConfiguration extends sfPluginConfiguration
 {
+
   /**
    * @see sfPluginConfiguration
    */
   public function initialize()
   {
-    foreach (array('sfSimpleForumCategoryAdmin', 'sfSimpleForumForumAdmin') as $module)
-    {
-      if (in_array($module, sfConfig::get('sf_enabled_modules', array())))
-      {
-        $this->dispatcher->connect('routing.load_configuration', array('sfDoctrineSimpleForumRouting', 'addRouteFor'.str_replace('sfSimpleForum', '', $module)));
+    foreach (array('sfSimpleForumCategoryAdmin', 'sfSimpleForumForumAdmin') as $module) {
+      if (in_array($module, sfConfig::get('sf_enabled_modules', array()))) {
+        $this->dispatcher->connect('routing.load_configuration', array('sfDoctrineSimpleForumRouting', 'addRouteFor' . str_replace('sfSimpleForum', '', $module)));
       }
     }
+    if (in_array('sfSimpleForum', sfConfig::get('sf_enabled_modules', array()))) {
+      $this->dispatcher->connect('context.load_factories', array($this, 'listenLoadCss'));
+    }
   }
+
+  /**
+   * Load StyleSheet
+   * @param sfEvent $event
+   */
+  public static function listenLoadCss(sfEvent $event)
+  {
+    sfContext::getInstance()->getResponse()->addStyleSheet('/sfDoctrineSimpleForumPlugin/css/forum.css', 'last');
+    sfContext::getInstance()->getResponse()->addStyleSheet('/sfDoctrineSimpleForumPlugin/css/reset.css', 'last');
+  }
+
 }
