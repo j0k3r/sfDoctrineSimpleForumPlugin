@@ -17,8 +17,8 @@
  * @author     Jonathan H. Wage <jonwage@gmail.com>
  * @version    SVN: $Id: sfDoctrineGuardPluginConfiguration.class.php 25546 2009-12-17 23:27:55Z Jonathan.Wage $
  */
-class sfDoctrineSimpleForumPluginConfiguration extends sfPluginConfiguration
-{
+class sfDoctrineSimpleForumPluginConfiguration extends sfPluginConfiguration {
+
   /**
    * @see sfPluginConfiguration
    */
@@ -28,8 +28,24 @@ class sfDoctrineSimpleForumPluginConfiguration extends sfPluginConfiguration
     {
       if (in_array($module, sfConfig::get('sf_enabled_modules', array())))
       {
-        $this->dispatcher->connect('routing.load_configuration', array('sfDoctrineSimpleForumRouting', 'addRouteFor'.str_replace('sfSimpleForum', '', $module)));
+        $this->dispatcher->connect('routing.load_configuration', array('sfDoctrineSimpleForumRouting', 'addRouteFor' . str_replace('sfSimpleForum', '', $module)));
       }
     }
+
+    if (in_array('sfSimpleForum', sfConfig::get('sf_enabled_modules', array())) && sfConfig::get('app_sfDoctrineSimpleForumPlugin_load_css'))
+    {
+      $this->dispatcher->connect('context.load_factories', array($this, 'listenLoadCss'));
+    }
   }
+
+  /**
+   * Load StyleSheet
+   * @param sfEvent $event
+   */
+  public static function listenLoadCss(sfEvent $event)
+  {
+    sfContext::getInstance()->getResponse()->addStyleSheet('/sfDoctrineSimpleForumPlugin/css/forum.css', 'last');
+    sfContext::getInstance()->getResponse()->addStyleSheet('/sfDoctrineSimpleForumPlugin/css/reset.css', 'last');
+  }
+
 }
