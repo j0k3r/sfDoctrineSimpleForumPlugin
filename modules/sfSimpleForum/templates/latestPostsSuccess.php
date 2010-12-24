@@ -29,7 +29,7 @@
     'feed_title'          => $feed_title
   )) ?>
   
-  <?php include_partial('sfSimpleForum/post_list', array('posts' => $post_pager->getResults(), 'include_topic' => true)) ?>
+  <?php include_partial('sfSimpleForum/post_list', array('posts' => $post_pager->getResults(), 'rankArray' => $rankArray, 'include_topic' => true)) ?>
   
   <br/>
   

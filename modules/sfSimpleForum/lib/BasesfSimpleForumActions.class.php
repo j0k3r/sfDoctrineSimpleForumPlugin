@@ -36,9 +36,9 @@ class BasesfSimpleForumActions extends sfActions
       $nb_posts  += $forum->getNbPosts();
     }
 
-    $this->forums = $forums;
-    $this->nb_topics = $nb_topics;
-    $this->nb_posts  = $nb_posts;
+    $this->forums     = $forums;
+    $this->nb_topics  = $nb_topics;
+    $this->nb_posts   = $nb_posts;
     $this->feed_title = $this->getFeedTitle();
   }
   
@@ -48,8 +48,9 @@ class BasesfSimpleForumActions extends sfActions
       $this->getRequestParameter('page', 1),
       sfConfig::get('app_sfSimpleForumPlugin_max_per_page', 10)
     );
-    $this->nb_topics = Doctrine::getTable('sfSimpleForumTopic')->findAll()->count();
+    $this->nb_topics  = Doctrine::getTable('sfSimpleForumTopic')->findAll()->count();
     $this->feed_title = $this->getFeedTitle();
+    $this->rankArray  = $this->getRankArray();
   }
   
   public function executeLatestPostsFeed()
@@ -67,7 +68,7 @@ class BasesfSimpleForumActions extends sfActions
   
   protected function getFeedTitle()
   {
-    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N'));
+    $this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
     return __('Latest messages from %forums%', array(
       '%forums%'  => sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'),
     ));
@@ -97,12 +98,23 @@ class BasesfSimpleForumActions extends sfActions
   
   protected function getLatestTopicsFeedTitle()
   {
-    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N'));
+    $this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
     return __('Latest topics from %forums%', array(
       '%forums%'  => sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'),
     ));
   }
-  
+
+  // get rank information
+  protected function getRankArray()
+  {
+    $rankArray = array();
+    if (sfConfig::get('app_sfSimpleForumPlugin_display_rank', true))
+    {
+      $rankArray = Doctrine_Core::getTable('sfSimpleForumRank')->fetchOrderedByNbPostsArray();
+    }
+    return $rankArray;
+  }
+
   // One forum
   
   public function executeForum()
@@ -156,7 +168,7 @@ class BasesfSimpleForumActions extends sfActions
     $this->forward404Unless($forum);
     $this->forum = $forum;
 
-    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N'));
+    $this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
     $this->feed_title =  __('Latest messages from %forums% » %forum%', array(
       '%forums%'  => sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'),
       '%forum%'   => $this->forum->getName()
@@ -187,13 +199,8 @@ class BasesfSimpleForumActions extends sfActions
         $this->topic->addViewForUser(sfSimpleForumTools::getConnectedUserId($this->getUser()));
       }
     }
-    
 
-    $this->rankArray=array();
-    if (sfConfig::get('app_sfSimpleForumPlugin_display_rank', true))
-    {
-      $this->rankArray=Doctrine_Core::getTable('sfSimpleForumRank')->fetchOrderedByNbPostsArray();
-    }
+    $this->rankArray = $this->getRankArray();
 
     if (!$this->topic->getIsLocked() && $this->getUser()->isAuthenticated())
     {
@@ -228,10 +235,10 @@ class BasesfSimpleForumActions extends sfActions
     $response->addMeta('description', $this->topic->getTitle());
   }
   
-  public function executeTopicFeed()
+  public function executeTopicFeed($request)
   {
     $this->checkFeedPlugin();
-    $this->setTopicVars();
+    $this->setTopicVars($request->getParameter('id'));
     $this->posts = $this->topic->getPosts(
       sfConfig::get('app_sfSimpleForumPlugin_feed_max', 10)
     );
@@ -247,7 +254,7 @@ class BasesfSimpleForumActions extends sfActions
     $this->topic = Doctrine::getTable('sfSimpleForumTopic')->find($id);
     $this->forward404Unless($this->topic);
 
-    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N'));
+    $this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
     $this->feed_title =  __('Latest messages from %forums% » %forum% » %topic%', array(
       '%forums%'  => sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'),
       '%forum%'   => $this->topic->getsfSimpleForumForum()->getName(),
@@ -297,7 +304,7 @@ class BasesfSimpleForumActions extends sfActions
   
   protected function getUserLatestPostsFeedTitle()
   {
-    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N'));
+    $this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
     return __('Latest messages from %forums% by %username%', array(
       '%forums%'   => sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'),
       '%username%' => $this->user->getUsername(),
@@ -333,7 +340,7 @@ class BasesfSimpleForumActions extends sfActions
   
   protected function getUserLatestTopicsFeedTitle()
   {
-    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N'));
+    $this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
     return __('Latest topics from %forums% by %username%', array(
       '%forums%'   => sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'),
       '%username%' => $this->user->getUsername(),
@@ -342,13 +349,9 @@ class BasesfSimpleForumActions extends sfActions
   
   protected function setUserVars()
   {
-    $this->username = $this->getRequestParameter('username');
-    $this->user = sfSimpleForumTools::getUserByUsername($this->username);
-    $this->rankArray=array();
-    if (sfConfig::get('app_sfSimpleForumPlugin_display_rank', true))
-    {
-      $this->rankArray=Doctrine_Core::getTable('sfSimpleForumRank')->fetchOrderedByNbPostsArray();
-    }
+    $this->username  = $this->getRequestParameter('username');
+    $this->user      = sfSimpleForumTools::getUserByUsername($this->username);
+    $this->rankArray = $this->getRankArray();
 
     $this->forward404Unless($this->user);
   }
@@ -411,7 +414,7 @@ class BasesfSimpleForumActions extends sfActions
         if ($this->getUser()->hasCredential('moderator'))
         {
           $topic->setIsSticked($values['is_sticked'] ? 1 : 0);
-          $topic->setIsLocked($values['is_locked'] ? 1 : 0);
+          $topic->setIsLocked($values['is_locked']   ? 1 : 0);
         }
         $topic->save();
 
@@ -495,7 +498,6 @@ class BasesfSimpleForumActions extends sfActions
     $this->redirect($this->getModuleName().'/topic?id='.$topic->getId());
   }
 
-
   public function executeReportAbuse()
   {
     $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
@@ -507,20 +509,17 @@ class BasesfSimpleForumActions extends sfActions
 
     $this->sendAbuseEmail($topic);
 
-
     $this->redirect($this->getModuleName().'/topic?id='.$topic->getId());
   }
- 
 
   protected function sendAbuseEmail(sfSimpleForumTopic $topic)
   {
-    //one kitten, one
-    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N'));
+    $this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
     $mailFrom = sfConfig::get('app_sfSimpleForumPlugin_from_email','changethis@test.com');
 
     $mailTo = sfConfig::get('app_sfSimpleForumPlugin_admin_email',null);
-      
-    if($mailTo=== null)
+
+    if($mailTo === null)
     {
       return;
     }

@@ -12,7 +12,6 @@
  */
 abstract class PluginsfSimpleForumRank extends BasesfSimpleForumRank
 {
-
   public function generateImageFilename(sfValidatedFile $file)
   {
     return $this->getSlug().$file->getExtension($file->getOriginalExtension());

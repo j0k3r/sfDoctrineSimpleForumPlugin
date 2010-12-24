@@ -104,7 +104,7 @@ Some settings can be tweaked in your app settings.yml
 
     [yml]
     all:
-      sfSimpleForumPlugin
+      sfSimpleForumPlugin:
         display_recommandations: true
         display_abuse: true
         count_views: true
@@ -117,6 +117,7 @@ Some settings can be tweaked in your app settings.yml
         upload_dir: forum/
         display_rank: true
         use_feeds: true
+        load_css: true
 
 *display_recommandations* will allow the users to recommand a topic.
 
@@ -140,7 +141,9 @@ Some settings can be tweaked in your app settings.yml
 
 *display_rank* If you want to display the rank of each user (if show_author_details is set to true)
 
-*use_feeds* If you want to display an RSS link on each topic. Needs sfFeed2Plugin to work
+*use_feeds* If you want to display a RSS link on each topic. Needs sfFeed2Plugin to work
+
+*load_css* enable default plugin css (disabled this config if you want to use your own css for the forum)
 
 Translations
 ------------

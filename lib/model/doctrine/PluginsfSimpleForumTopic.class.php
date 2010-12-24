@@ -55,7 +55,6 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
    * @access public
    * @return void
    */
-
   public function getNbAbuseReportedByUser($user)
   {
     $q = Doctrine_Query::create()
