@@ -8,7 +8,7 @@ function forum_breadcrumb($params, $options = array())
   $title = '';
   $id = isset($options['id']) ? $options['id'] : 'forum_navigation';
   $html = '<ul id="'.$id.'">';
-  $html .= '<li>'.link_to(__('Home',null,'sfSimpleForum'), '@homepage').sfConfig::get('app_sfSimpleForumPlugin_breadcrumb_separator', ' &raquo; ').'</li>';
+  $html .= '<li>'.sfConfig::get('app_sfSimpleForumPlugin_breadcrumb_separator', ' &raquo; ').'</li>';
   foreach ($params as $step) 
   { 
     $separator = $first ? '' : sfConfig::get('app_sfSimpleForumPlugin_breadcrumb_separator', ' &raquo; ');
@@ -34,13 +34,14 @@ function forum_breadcrumb($params, $options = array())
 
 function forum_rank($rankArray = array(), $nb_posts = 0)
 {
+  $choosedRank = null;
   foreach($rankArray as $rank)
   {
-    if($rank['nb_posts'] >= $nb_posts)
+    if($rank['nb_posts'] <= $nb_posts)
     {
-      return $rank;
+      $choosedRank = $rank;
     }
   }
 
-  return null;
+  return $choosedRank;
 }

@@ -218,6 +218,10 @@
         <source>start a new one</source>
         <target>en commencer un nouveau</target>
       </trans-unit>
+      <trans-unit id="54">
+        <source>Rank</source>
+        <target>Grade</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
