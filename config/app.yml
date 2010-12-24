@@ -1,0 +1,3 @@
+default:
+  sfDoctrineSimpleForumPlugin:
+    load_css: true

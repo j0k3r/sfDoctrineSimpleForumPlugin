@@ -17,20 +17,23 @@
  * @author     Jonathan H. Wage <jonwage@gmail.com>
  * @version    SVN: $Id: sfDoctrineGuardPluginConfiguration.class.php 25546 2009-12-17 23:27:55Z Jonathan.Wage $
  */
-class sfDoctrineSimpleForumPluginConfiguration extends sfPluginConfiguration
-{
+class sfDoctrineSimpleForumPluginConfiguration extends sfPluginConfiguration {
 
   /**
    * @see sfPluginConfiguration
    */
   public function initialize()
   {
-    foreach (array('sfSimpleForumCategoryAdmin', 'sfSimpleForumForumAdmin') as $module) {
-      if (in_array($module, sfConfig::get('sf_enabled_modules', array()))) {
+    foreach (array('sfSimpleForumCategoryAdmin', 'sfSimpleForumForumAdmin') as $module)
+    {
+      if (in_array($module, sfConfig::get('sf_enabled_modules', array())))
+      {
         $this->dispatcher->connect('routing.load_configuration', array('sfDoctrineSimpleForumRouting', 'addRouteFor' . str_replace('sfSimpleForum', '', $module)));
       }
     }
-    if (in_array('sfSimpleForum', sfConfig::get('sf_enabled_modules', array()))) {
+
+    if (in_array('sfSimpleForum', sfConfig::get('sf_enabled_modules', array())) && sfConfig::get('app_sfDoctrineSimpleForumPlugin_load_css'))
+    {
       $this->dispatcher->connect('context.load_factories', array($this, 'listenLoadCss'));
     }
   }
