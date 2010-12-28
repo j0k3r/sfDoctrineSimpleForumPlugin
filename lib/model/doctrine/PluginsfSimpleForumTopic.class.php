@@ -60,6 +60,7 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
     Doctrine_Query::create()
       ->from('sfSimpleForumTopicView')
       ->where("topic_id = ?", $this->getId())
+      ->andWhere("user_id != ?", $user_id)
       ->delete()->execute();
   }
 
