@@ -1,5 +1,6 @@
 <table id="threads">
   <tr>
+    <th>&nbsp;</th>
     <th class="thread_name"><?php echo __('Topic', null, 'sfSimpleForum') ?></th>
     <th class="thread_replies"><?php echo __('Replies', null, 'sfSimpleForum') ?></th>
     <?php if (sfConfig::get('app_sfSimpleForumPlugin_count_views', true)): ?>

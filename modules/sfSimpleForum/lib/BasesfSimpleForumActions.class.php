@@ -108,7 +108,7 @@ class BasesfSimpleForumActions extends sfActions
   public function executeForum()
   {
     $this->setForumVars();
-        
+    
     $this->topic_pager = $this->forum->getTopicsPager(
       $this->getRequestParameter('page', 1),
       sfConfig::get('app_sfSimpleForumPlugin_max_per_page', 10)
@@ -211,6 +211,8 @@ class BasesfSimpleForumActions extends sfActions
           $post->setTopicId($this->topic->getId());
           $post->setForumId($this->topic->get('sfSimpleForumForum')->get('id'));
           $post->save();
+
+          $this->topic->clearTopicView($this->getUser()->getGuardUser()->getId());
           
           $this->redirectToPost($post);
         }
