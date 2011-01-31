@@ -145,6 +145,7 @@ class BasesfSimpleForumActions extends sfActions
       $this->getRequestParameter('page', 1),
       sfConfig::get('app_sfSimpleForumPlugin_max_per_page', 10)
     );
+    $this->rankArray  = $this->getRankArray();
   }
     
   public function executeForumLatestPostsFeed()
