@@ -1,3 +1,5 @@
 default:
   sfDoctrineSimpleForumPlugin:
     load_css: true
+    image_read: /sfDoctrineSimpleForumPlugin/images/email.png
+    image_not_read: /sfDoctrineSimpleForumPlugin/images/email_go.png

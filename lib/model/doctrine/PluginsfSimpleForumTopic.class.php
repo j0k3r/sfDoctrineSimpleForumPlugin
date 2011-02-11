@@ -150,7 +150,16 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
   {
     return Doctrine::getTable('sfSimpleForumTopicView')->find(array($user_id, $this->getId()));
   }
-  
+
+  public function clearTopicView($user_id)
+  {
+    Doctrine_Query::create()
+      ->from('sfSimpleForumTopicView')
+      ->where("topic_id = ?", $this->getId())
+      ->andWhere("user_id != ?", $user_id)
+      ->delete()->execute();
+  }
+
   public function clearViews()
   {
     $q = Doctrine_Query::create();
