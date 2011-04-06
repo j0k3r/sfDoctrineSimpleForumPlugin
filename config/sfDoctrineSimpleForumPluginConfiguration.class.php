@@ -44,8 +44,8 @@ class sfDoctrineSimpleForumPluginConfiguration extends sfPluginConfiguration {
    */
   public static function listenLoadCss(sfEvent $event)
   {
-    sfContext::getInstance()->getResponse()->addStyleSheet('/sfDoctrineSimpleForumPlugin/css/forum.css', 'last');
-    sfContext::getInstance()->getResponse()->addStyleSheet('/sfDoctrineSimpleForumPlugin/css/reset.css', 'last');
+    sfContext::getInstance()->getResponse()->addStyleSheet('/sfDoctrineSimpleForumPlugin/css/reset.css', 'first');
+    sfContext::getInstance()->getResponse()->addStyleSheet('/sfDoctrineSimpleForumPlugin/css/forum.css', 'first');
   }
 
 }
