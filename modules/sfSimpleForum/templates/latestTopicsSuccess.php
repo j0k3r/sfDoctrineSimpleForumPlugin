@@ -15,9 +15,9 @@
   <div class="breadcrumb">
     <?php include_slot('forum_navigation') ?>
   </div>
-  
+
   <h1><?php echo $title ?></h1>
-  
+
   <?php include_partial('sfSimpleForum/figures', array(
     'display_topic_link'  => false,
     'nb_topics'           => $topics_pager->getNbResults(),
@@ -28,11 +28,11 @@
     'feed_rule'           => 'sfSimpleForum/latestTopicsFeed',
     'feed_title'          => $feed_title
   )) ?>
-    
+
   <?php include_partial('sfSimpleForum/topic_list', array('topics' => $topics_pager->getResults(), 'include_forum' => true)) ?>
-  
+
   <br/>
-  
+
   <div id="pager">
     <?php echo pager_navigation($topics_pager, 'sfSimpleForum/latestTopics') ?>
   </div>
