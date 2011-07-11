@@ -3,6 +3,10 @@ forum_latest_topics:
   url:  /forums/latest-topics
   param: { module: sfSimpleForum, action: latestTopics }
 
+forum_latest_topics_feed:
+  url:  /forums/latest-topics-feed
+  param: { module: sfSimpleForum, action: latestTopicsFeed }
+
 forum_latest_posts:
   url:  /forums/latest-posts
   param: { module: sfSimpleForum, action: latestPosts }
@@ -34,6 +38,10 @@ forum_name_last_feed:
 forum_topic:
   url:  /forums/topic/:id/:stripped_title
   param: { module: sfSimpleForum, action: topic }
+
+forum_topic_feed:
+  url:  /forums/topic-feed/:id/:stripped_title
+  param: { module: sfSimpleForum, action: topicFeed }
 
 forum_message:
   url:  /forums/view-post/:id
