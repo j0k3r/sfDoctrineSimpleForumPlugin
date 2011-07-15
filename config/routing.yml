@@ -59,6 +59,10 @@ forum_user_topics:
   url:  /user/:username/topics
   param: { module: sfSimpleForum, action: userLatestTopics }
 
+forum_delete_post:
+  url: /forums/delete-post/:id
+  param: { module: sfSimpleForum, action: deletePost }
+
 forum_delete_topic:
   url: /forums/delete-topic/:id
   param: { module: sfSimpleForum, action: deleteTopic }
@@ -70,3 +74,11 @@ forum_report_abuse:
 forum_recommand:
   url: /forums/recommand-topic/:id
   param: { module: sfSimpleForum, action: recommand }
+
+forum_toggle_lock:
+  url: /forums/toggle-lock/:id
+  param: { module: sfSimpleForum, action: toggleLock }
+
+forum_toggle_stick:
+  url: /forums/toggle-stick/:id
+  param: { module: sfSimpleForum, action: toggleStick }
