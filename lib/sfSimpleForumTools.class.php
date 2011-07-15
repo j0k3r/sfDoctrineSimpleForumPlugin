@@ -56,6 +56,7 @@ class sfSimpleForumTools
    * @param  Doctrine_Record  Model object (can be thread, post, etc.)
    * @return mixed User model object (class sfGuard by default)
    */
+/*
   public static function getUser(Doctrine_Record $object)
   {
     $user_class = sfConfig::get('app_sfSimpleForumPlugin_user_class', 'sfGuardUser');
@@ -72,5 +73,5 @@ class sfSimpleForumTools
 
     return $object->$user_getter();
   }
-
+*/
 }

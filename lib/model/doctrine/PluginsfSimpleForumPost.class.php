@@ -9,11 +9,12 @@ abstract class PluginsfSimpleForumPost extends BasesfSimpleForumPost
   {
     return $this->getTitle();
   }
-
+/*
   public function getUser()
   {
     return sfSimpleForumTools::getUser($this);
   }
+*/
 
   public function getAuthorName()
   {
@@ -26,12 +27,12 @@ abstract class PluginsfSimpleForumPost extends BasesfSimpleForumPost
       return 'anonymous';
     }
   }
-  
+
   public function getTopic()
   {
     return $this->getsfSimpleForumTopic();
   }
-  
+
   // public function setTopicId($id)
   // {
     // if(is_int($id))
@@ -45,7 +46,7 @@ abstract class PluginsfSimpleForumPost extends BasesfSimpleForumPost
       // }
     // }
   // }
-  
+
   // public function setsfSimpleForumTopic($title)
   // {
     // $topic = Doctrine::getTable('sfSimpleForumTopic')->findOneByTitle($title);
@@ -59,7 +60,7 @@ abstract class PluginsfSimpleForumPost extends BasesfSimpleForumPost
       // }
     // }
   // }
-  
+
   public function getPositionInTopic()
   {
     $q = Doctrine_Query::create()
@@ -78,7 +79,7 @@ abstract class PluginsfSimpleForumPost extends BasesfSimpleForumPost
 
     return array_search($this->getId(), $messages);
   }
-  
+
   //public function save(Doctrine_connection $conn = null, $preserveTopic = false)
   public function save(Doctrine_Connection $conn = null)
   {
@@ -87,7 +88,7 @@ abstract class PluginsfSimpleForumPost extends BasesfSimpleForumPost
     {
       return parent::save($conn);
     }
-    
+
     if(!$conn)
     {
       $conn = Doctrine_Manager::connection();
@@ -96,22 +97,22 @@ abstract class PluginsfSimpleForumPost extends BasesfSimpleForumPost
     try
     {
       $conn->beginTransaction();
-      
+
       $topic = $this->getsfSimpleForumTopic();
       if($this->isNew())
       {
         $topic->clearViews();
       }
-      
+
       parent::save($conn);
-      
+
       $latestPost = $topic->getLatestPostByQuery();
       if(isset($preserveTopic))
       {
         $topic->leaveUpdatedAtUnchanged();
       }
       $topic->updateReplies($latestPost, $conn);
-      
+
       $conn->commit();
     }
     catch (Exception $e)
@@ -132,9 +133,9 @@ abstract class PluginsfSimpleForumPost extends BasesfSimpleForumPost
     try
     {
       $conn->beginTransaction();
-     
+
       parent::delete($conn);
-      
+
       $topic = $this->getsfSimpleForumTopic();
       if(isset($preserveTopic))
       {
@@ -142,7 +143,7 @@ abstract class PluginsfSimpleForumPost extends BasesfSimpleForumPost
       }
       $latestPost = $topic->getLatestPostByQuery();
       $topic->updateReplies($latestPost, $conn);
-     
+
       $conn->commit();
     }
     catch (Exception $e)
@@ -151,12 +152,12 @@ abstract class PluginsfSimpleForumPost extends BasesfSimpleForumPost
       throw $e;
     }
   }
-  
+
   public function getFeedLink()
   {
     return 'sfSimpleForum/topic?id='.$this->getTopicId().'&stripped_title='.$this->getsfSimpleForumTopic()->getSlug();
   }
-  
+
   public function getCreationTimestamp()
   {
     return $this->getCreatedAt('U');
