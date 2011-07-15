@@ -9,7 +9,7 @@ abstract class PluginsfSimpleForumForum extends BasesfSimpleForumForum
   {
     $q = $this->getTopicsCriteria();
     $q->limit($max);
-    
+
     return $q->execute();
   }
 
@@ -24,14 +24,14 @@ abstract class PluginsfSimpleForumForum extends BasesfSimpleForumForum
 
     return $pager;
   }
-  
+
   public function getTopicsCriteria()
   {
     $q = Doctrine_Query::create();
     $q->from('sfSimpleForumTopic');
     $q->where('forum_id = ?', array($this->getId()));
     $q->orderBy('is_sticked DESC, updated_at DESC');
-    
+
     return $q;
   }
 
@@ -41,15 +41,15 @@ abstract class PluginsfSimpleForumForum extends BasesfSimpleForumForum
     $q->from('sfSimpleForumPost');
     $q->where('forum_id = ?', array($this->getId()));
     $q->orderBy('id DESC');
-    
+
     return $q->limit(1)->execute()->getFirst();
   }
-  
+
   public function getLatestPost($con = null)
   {
     return $this->getsfSimpleForumPost($con);
   }
-  
+
   public function getPosts($max)
   {
     return Doctrine::getTable('sfSimpleForumPost')->getForForum($this->getSlug(), $max);
@@ -59,7 +59,7 @@ abstract class PluginsfSimpleForumForum extends BasesfSimpleForumForum
   {
     return Doctrine::getTable('sfSimpleForumPost')->getForForumPager($this->getSlug(), $page, $max_per_page);
   }
-  
+
   public function updateCounts($latestReply = null, $con = null)
   {
     if($latestReply)
