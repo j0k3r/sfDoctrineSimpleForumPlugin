@@ -510,7 +510,7 @@ class BasesfSimpleForumActions extends sfActions
 
     $this->sendAbuseEmail($topic);
 
-    $this->redirect($this->getModuleName().'/topic?id='.$topic->getId());
+    $this->redirect($this->getModuleName().'/topic?id='.$topic->getId().'&stripped_title='.$topic->getSlug());
   }
 
   protected function sendAbuseEmail(sfSimpleForumTopic $topic)
@@ -544,7 +544,7 @@ class BasesfSimpleForumActions extends sfActions
     $topic->leaveUpdatedAtUnchanged();
     $topic->save();
 
-    $this->redirect($this->getModuleName().'/topic?id='.$topic->getId());
+    $this->redirect($this->getModuleName().'/topic?id='.$topic->getId().'&stripped_title='.$topic->getSlug());
   }
 
   public function executeUpdatePost($request)
