@@ -474,7 +474,6 @@ class BasesfSimpleForumActions extends sfActions
   }
 
   // stick/unstick a topic
-
   public function executeToggleStick()
   {
     $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
@@ -488,7 +487,6 @@ class BasesfSimpleForumActions extends sfActions
   }
 
   // lock/unlock a topic
-
   public function executeToggleLock()
   {
     $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
@@ -498,7 +496,7 @@ class BasesfSimpleForumActions extends sfActions
     $topic->leaveUpdatedAtUnchanged();
     $topic->save();
 
-    $this->redirect($this->getModuleName().'/topic?id='.$topic->getId());
+    $this->redirect($this->getModuleName().'/topic?id='.$topic->getId().'&stripped_title='.$topic->getSlug());
   }
 
   public function executeReportAbuse()
