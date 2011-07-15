@@ -59,6 +59,10 @@ forum_user_topics:
   url:  /user/:username/topics
   param: { module: sfSimpleForum, action: userLatestTopics }
 
+forum_delete_topic:
+  url: /forums/delete-topic/:id
+  param: { module: sfSimpleForum, action: deleteTopic }
+
 forum_report_abuse:
   url: /forums/report-topic/:id
   param: { module: sfSimpleForum, action: reportAbuse }
