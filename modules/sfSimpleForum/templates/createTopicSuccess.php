@@ -38,7 +38,7 @@
             <?php if(sfConfig::get('sf_csrf_secret')): echo $form['_csrf_token']->render(); endif; ?>
             <?php echo $form['forum_id']->render() ?>
             <p>
-              <label for="forum_topic_title">Titre <span class="required">*</span></label>
+              <label for="forum_topic_title"><?php echo __('Title', null, 'sfSimpleForum') ?> <span class="required">*</span></label>
               <?php echo $form['title']->renderError() ?>
               <?php echo $form['title']->render(array('class' => 'field', 'style' => 'width: 370px')) ?>
             </p>
@@ -49,12 +49,12 @@
             </p>
             <?php if($sf_user->hasCredential('moderator')): ?>
             <p>
-              <label for="forum_topic_is_sticked">Épinglé</label>
+              <label for="forum_topic_is_sticked"><?php echo __('Sticked', null, 'sfSimpleForum') ?></label>
               <?php echo $form['is_sticked']->renderError() ?>
               <?php echo $form['is_sticked']->render(array('class' => 'field')) ?>
             </p>
             <p>
-              <label for="forum_topic_is_locked">Fermé</label>
+              <label for="forum_topic_is_locked"><?php echo __('Locked', null, 'sfSimpleForum') ?></label>
               <?php echo $form['is_locked']->renderError() ?>
               <?php echo $form['is_locked']->render(array('class' => 'field')) ?>
             </p>

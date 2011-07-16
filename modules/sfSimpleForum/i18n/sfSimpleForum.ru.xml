@@ -232,6 +232,18 @@
         <source>Validate</source>
         <target>Послать</target>
       </trans-unit>
+      <trans-unit id="57">
+        <source>Title</source>
+        <target>Название</target>
+      </trans-unit>
+      <trans-unit id="58">
+        <source>Sticked</source>
+        <target>Закреплённая</target>
+      </trans-unit>
+      <trans-unit id="59">
+        <source>Locked</source>
+        <target>Закрытая</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
