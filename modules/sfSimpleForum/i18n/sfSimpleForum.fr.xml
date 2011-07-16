@@ -222,6 +222,14 @@
         <source>Rank</source>
         <target>Grade</target>
       </trans-unit>
+      <trans-unit id="55">
+        <source>Message</source>
+        <target>Message</target>
+      </trans-unit>
+      <trans-unit id="56">
+        <source>Validate</source>
+        <target>Valider</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -85,12 +85,12 @@
         <?php echo $form['id']->render() ?>
         <?php echo $form['topic_id']->render() ?>
         <br/>
-        <label for="forum_post_content">Message</label>
+        <label for="forum_post_content"><?php echo __('Message', null, 'sfSimpleForum') ?></label>
         <?php echo $form['content']->renderError() ?>
         <?php echo $form['content']->render(array('class' => 'field')) ?>
         <p style="margin: 10px 0 0 142px;">
           <span class="button">
-            <button value="Valider" type="submit">Valider</button>
+            <button value="Validate" type="submit"><?php echo __('Validate', null, 'sfSimpleForum') ?></button>
           </span>
         </p>
       </fieldset>

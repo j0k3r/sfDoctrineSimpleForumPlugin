@@ -43,7 +43,7 @@
               <?php echo $form['title']->render(array('class' => 'field', 'style' => 'width: 370px')) ?>
             </p>
             <p>
-              <label for="forum_topic_content">Message <span class="required">*</span></label>
+              <label for="forum_topic_content"><?php echo __('Message', null, 'sfSimpleForum') ?> <span class="required">*</span></label>
               <?php echo $form['content']->renderError() ?>
               <?php echo $form['content']->render(array('class' => 'field', 'style' => 'width: 370px')) ?>
             </p>
@@ -61,7 +61,7 @@
             <?php endif ?>
             <p>
               <span class="button">
-                <button value="Valider" type="submit">Valider</button>
+                <button value="Validate" type="submit"><?php echo __('Validate', null, 'sfSimpleForum') ?></button>
               </span>
             </p>
           </form>

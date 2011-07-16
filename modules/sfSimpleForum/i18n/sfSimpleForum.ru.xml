@@ -224,6 +224,14 @@
         <source>Rank</source>
         <target>Ранг</target>
       </trans-unit>
+      <trans-unit id="55">
+        <source>Message</source>
+        <target>Сообщение</target>
+      </trans-unit>
+      <trans-unit id="56">
+        <source>Validate</source>
+        <target>Послать</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
