@@ -388,6 +388,8 @@ class BasesfSimpleForumActions extends sfActions
 
   public function executeCreateTopic($request)
   {
+  	$this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
+
     $this->form = new forumTopic();
     if($request->hasParameter('forum_name'))
     {

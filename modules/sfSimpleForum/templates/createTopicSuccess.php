@@ -1,4 +1,3 @@
-
 <?php if (sfConfig::get('app_sfSimpleForum_include_breadcrumb', true)): ?>
 <?php slot('forum_navigation') ?>
 <?php if ($forum): ?>
@@ -21,7 +20,7 @@
   <div class="breadcrumb">
     <?php include_slot('forum_navigation') ?>
   </div>
-  
+
   <div id="news">
     <h1><?php echo __('Create a new topic', null, 'sfSimpleForum') ?></h1>
     <br/>
@@ -32,7 +31,7 @@
       <div class="error"><?php echo $error ?></div>
 
       <?php endif ?>
-      
+
       <dl class="topic">
         <dd>
           <form action="<?php echo url_for('sfSimpleForum/createTopic?forum_name=' . $forum->get('slug')) ?>" method="post">
