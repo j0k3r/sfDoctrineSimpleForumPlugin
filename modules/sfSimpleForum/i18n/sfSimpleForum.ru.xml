@@ -244,6 +244,10 @@
         <source>Locked</source>
         <target>Закрытая</target>
       </trans-unit>
+      <trans-unit id="60">
+        <source>You are about to create a new topic in the forum %forum_name%</source>
+        <target>Вы собираетесь создать новую тему в форуме %forum_name%</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

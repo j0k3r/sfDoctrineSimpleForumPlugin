@@ -25,7 +25,7 @@
     <h1><?php echo __('Create a new topic', null, 'sfSimpleForum') ?></h1>
     <br/>
     <div class="leftcol" style="width:auto;">
-      <p>Vous êtes sur le point de créer un nouveau sujet dans le forum "<strong><?php echo $forum->get('name') ?></strong>"</p>
+      <p><?php echo __('You are about to create a new topic in the forum %forum_name%', array('%forum_name%' => '"<strong>'.$forum->get('name').'</strong>"'), 'sfSimpleForum') ?></p>
       <?php if(isset($error)): ?>
 
       <div class="error"><?php echo $error ?></div>
