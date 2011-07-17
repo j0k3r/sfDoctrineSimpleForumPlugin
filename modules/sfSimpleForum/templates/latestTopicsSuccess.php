@@ -5,7 +5,7 @@
 
 <?php slot('forum_navigation') ?>
   <?php echo forum_breadcrumb(array(
-    array(sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'), 'sfSimpleForum/forumList'),
+    array(__(sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'), null, 'sfSimpleForum'), 'sfSimpleForum/forumList'),
     $title
   )) ?>
 <?php end_slot() ?>

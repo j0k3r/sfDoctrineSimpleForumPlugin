@@ -1,10 +1,10 @@
 <?php use_helper('Pagination') ?>
 
-<?php slot('title', $topic->getTitle().' - '.$topic->getsfSimpleForumForum()->getName().' - Forum '.sfConfig::get('app_config_title_short')) ?>
+<?php slot('title', $topic->getTitle().' - '.$topic->getsfSimpleForumForum()->getName().' - '.__('Forum', null, 'sfSimpleForum').sfConfig::get('app_config_title_short')) ?>
 
 <?php slot('forum_navigation') ?>
   <?php echo forum_breadcrumb(array(
-    array(sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'), 'sfSimpleForum/forumList'),
+    array(__(sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'), null, 'sfSimpleForum'), 'sfSimpleForum/forumList'),
     array($topic->getsfSimpleForumForum()->getName(), 'sfSimpleForum/forum?forum_name='.$topic->getsfSimpleForumForum()->getSlug()),
     $topic->getTitle()
   )) ?>
@@ -85,12 +85,12 @@
         <?php echo $form['id']->render() ?>
         <?php echo $form['topic_id']->render() ?>
         <br/>
-        <label for="forum_post_content">Message</label>
+        <label for="forum_post_content"><?php echo __('Message', null, 'sfSimpleForum') ?></label>
         <?php echo $form['content']->renderError() ?>
         <?php echo $form['content']->render(array('class' => 'field')) ?>
         <p style="margin: 10px 0 0 142px;">
           <span class="button">
-            <button value="Valider" type="submit">Valider</button>
+            <button value="Validate" type="submit"><?php echo __('Validate', null, 'sfSimpleForum') ?></button>
           </span>
         </p>
       </fieldset>

@@ -224,6 +224,30 @@
         <source>Rank</source>
         <target>Ранг</target>
       </trans-unit>
+      <trans-unit id="55">
+        <source>Message</source>
+        <target>Сообщение</target>
+      </trans-unit>
+      <trans-unit id="56">
+        <source>Validate</source>
+        <target>Послать</target>
+      </trans-unit>
+      <trans-unit id="57">
+        <source>Title</source>
+        <target>Название</target>
+      </trans-unit>
+      <trans-unit id="58">
+        <source>Sticked</source>
+        <target>Закреплённая</target>
+      </trans-unit>
+      <trans-unit id="59">
+        <source>Locked</source>
+        <target>Закрытая</target>
+      </trans-unit>
+      <trans-unit id="60">
+        <source>You are about to create a new topic in the forum %forum_name%</source>
+        <target>Вы собираетесь создать новую тему в форуме %forum_name%</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -222,6 +222,30 @@
         <source>Rank</source>
         <target>Grade</target>
       </trans-unit>
+      <trans-unit id="55">
+        <source>Message</source>
+        <target>Message</target>
+      </trans-unit>
+      <trans-unit id="56">
+        <source>Validate</source>
+        <target>Valider</target>
+      </trans-unit>
+      <trans-unit id="57">
+        <source>Title</source>
+        <target>Titre</target>
+      </trans-unit>
+      <trans-unit id="58">
+        <source>Sticked</source>
+        <target>Épinglé</target>
+      </trans-unit>
+      <trans-unit id="59">
+        <source>Locked</source>
+        <target>Fermé</target>
+      </trans-unit>
+      <trans-unit id="60">
+        <source>You are about to create a new topic in the forum %forum_name%</source>
+        <target>Vous êtes sur le point de créer un nouveau sujet dans le forum %forum_name%</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

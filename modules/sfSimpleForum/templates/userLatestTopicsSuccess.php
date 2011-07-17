@@ -5,7 +5,7 @@
 
 <?php slot('forum_navigation') ?>
   <?php echo forum_breadcrumb(array(
-    array(sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'), 'sfSimpleForum/forumList'),
+    array(__(sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'), null, 'sfSimpleForum'), 'sfSimpleForum/forumList'),
     $title
   )) ?>
 <?php end_slot() ?>
@@ -15,15 +15,15 @@
   <div class="breadcrumb">
     <?php include_slot('forum_navigation') ?>
   </div>
-  
+
   <h1><?php echo $title ?></h1>
 
   <?php if (sfConfig::get('app_sfSimpleForumPlugin_allow_new_topic_outside_forum', true)): ?>
   <ul class="forum_actions">
     <li><?php echo link_to(__('New topic', null, 'sfSimpleForum'), 'sfSimpleForum/createTopic') ?></li>
-  </ul>    
+  </ul>
   <?php endif; ?>
-  
+
   <?php include_partial('sfSimpleForum/figures', array(
     'display_topic_link'  => false,
     'nb_topics'           => $topics_pager->getNbResults(),
@@ -34,7 +34,7 @@
     'feed_rule'           => 'sfSimpleForum/userLatestTopicsFeed?username='.$username,
     'feed_title'          => $feed_title
   )) ?>
-    
+
   <?php include_partial('sfSimpleForum/topic_list', array('topics' => $topics_pager->getResults(), 'include_forum' => true)) ?>
 
   <div id="pager">
