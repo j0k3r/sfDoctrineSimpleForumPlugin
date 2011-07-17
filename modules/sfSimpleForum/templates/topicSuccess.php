@@ -1,6 +1,6 @@
 <?php use_helper('Pagination') ?>
 
-<?php slot('title', $topic->getTitle().' - '.$topic->getsfSimpleForumForum()->getName().' - Forum '.sfConfig::get('app_config_title_short')) ?>
+<?php slot('title', $topic->getTitle().' - '.$topic->getsfSimpleForumForum()->getName().' - '.__('Forum', null, 'sfSimpleForum').sfConfig::get('app_config_title_short')) ?>
 
 <?php slot('forum_navigation') ?>
   <?php echo forum_breadcrumb(array(
