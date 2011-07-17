@@ -8,7 +8,7 @@
   )) ?>
 <?php else: ?>
   <?php echo forum_breadcrumb(array(
-    array(__(sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums')), 'sfSimpleForum/forumList'),
+    array(__(sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'), null, 'sfSimpleForum'), 'sfSimpleForum/forumList'),
     __('New topic', null, 'sfSimpleForum')
   )) ?>
 <?php endif; ?>

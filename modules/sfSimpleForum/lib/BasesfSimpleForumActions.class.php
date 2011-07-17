@@ -71,7 +71,7 @@ class BasesfSimpleForumActions extends sfActions
     $this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
     return __('Latest messages from %forums%', array(
       '%forums%'  => sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'),
-    ));
+    ), 'sfSimpleForum');
   }
 
   public function executeLatestTopics()
@@ -101,7 +101,7 @@ class BasesfSimpleForumActions extends sfActions
     $this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
     return __('Latest topics from %forums%', array(
       '%forums%'  => sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'),
-    ));
+    ), 'sfSimpleForum');
   }
 
   // get rank information
@@ -173,7 +173,7 @@ class BasesfSimpleForumActions extends sfActions
     $this->feed_title =  __('Latest messages from %forums% » %forum%', array(
       '%forums%'  => sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'),
       '%forum%'   => $this->forum->getName()
-    ));
+    ), 'sfSimpleForum');
   }
 
   // One topic
@@ -262,7 +262,7 @@ class BasesfSimpleForumActions extends sfActions
       '%forums%'  => sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'),
       '%forum%'   => $this->topic->getsfSimpleForumForum()->getName(),
       '%topic%'   => $this->topic->getTitle()
-    ));
+    ), 'sfSimpleForum');
   }
 
   public function executePost()
@@ -311,7 +311,7 @@ class BasesfSimpleForumActions extends sfActions
     return __('Latest messages from %forums% by %username%', array(
       '%forums%'   => sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'),
       '%username%' => $this->user->getUsername(),
-    ));
+    ), 'sfSimpleForum');
   }
 
   public function executeUserLatestTopics()
@@ -347,7 +347,7 @@ class BasesfSimpleForumActions extends sfActions
     return __('Latest topics from %forums% by %username%', array(
       '%forums%'   => sfConfig::get('app_sfSimpleForumPlugin_forum_name', 'Forums'),
       '%username%' => $this->user->getUsername(),
-    ));
+    ), 'sfSimpleForum');
   }
 
   protected function setUserVars()
