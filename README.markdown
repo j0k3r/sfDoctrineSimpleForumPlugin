@@ -62,12 +62,13 @@ Clear the cache to enable the autoloading to find the new classes:
 
 Enable the new `sfSimpleForum` module and the new `sfSimpleForum` helper in your application, via the `settings.yml` file.
 
-    [yml]
-    // in myproject/apps/frontend/config/settings.yml
+``` yaml
+    # in myproject/apps/frontend/config/settings.yml
     all:
       .settings:
         enabled_modules:        [sfSimpleForum, default]
         standard_helpers:       [Partial, Cache, sfSimpleForum, I18N]
+```
 
 Publish assets for the forum
 
@@ -84,7 +85,7 @@ Start using the plugin by browsing to the frontend module's default page:
 If you want to enable the plugin administration interface, you have to enable two more modules. You can do so in your main application or in a backend application. the following example is for a 'backend' application:
 
 ``` yml
-    // in myproject/apps/backend/config/settings.yml
+    # in myproject/apps/backend/config/settings.yml
     all:
       .settings:
         enabled_modules:        [sfSimpleForumCategoryAdmin, sfSimpleForumForumAdmin, sfSimpleForumRankAdmin, default]
@@ -101,7 +102,7 @@ Configuration
 
 Some settings can be tweaked in your app settings.yml
 
-    [yml]
+``` yml
     all:
       sfSimpleForumPlugin:
         display_recommandations: true         # will allow the users to recommand a topic.
@@ -121,6 +122,7 @@ Some settings can be tweaked in your app settings.yml
         # image used to display a read / an unread topic
         image_read: /sfDoctrineSimpleForumPlugin/images/email.png
         image_not_read: /sfDoctrineSimpleForumPlugin/images/email_go.png
+```
 
 Translations
 ------------
