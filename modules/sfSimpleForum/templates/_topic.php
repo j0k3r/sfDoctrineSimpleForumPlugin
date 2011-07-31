@@ -2,12 +2,13 @@
 <tr>
   <td align="center" width="1%">
     <?php
-    if ($sf_user->isAuthenticated()) {
-	    echo ($topic->getViewForUser($sf_user->getGuardUser()->getId())) ?
-	    	image_tag(sfConfig::get('app_sfDoctrineSimpleForumPlugin_image_read'), array('style' => 'vertical-align: middle')) :
-	    	image_tag(sfConfig::get('app_sfDoctrineSimpleForumPlugin_image_not_read'), array('style' => 'vertical-align: middle'));
-	}
-	?>
+      if ($sf_user->isAuthenticated())
+      {
+        echo ($topic->getViewForUser($sf_user->getGuardUser()->getId())) ?
+          image_tag(sfConfig::get('app_sfSimpleForumPlugin_image_read'), array('style' => 'vertical-align: middle')) :
+          image_tag(sfConfig::get('app_sfSimpleForumPlugin_image_not_read'), array('style' => 'vertical-align: middle'));
+      }
+    ?>
   </td>
   <td class="thread_name">
 

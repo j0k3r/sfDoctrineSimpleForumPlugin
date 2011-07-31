@@ -10,7 +10,7 @@
 
 /**
  * sfDoctrineSimpleForumPlugin configuration.
- * 
+ *
  * @package    sfDoctrineSimpleForumPlugin
  * @subpackage config
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
@@ -32,7 +32,7 @@ class sfDoctrineSimpleForumPluginConfiguration extends sfPluginConfiguration {
       }
     }
 
-    if (in_array('sfSimpleForum', sfConfig::get('sf_enabled_modules', array())) && sfConfig::get('app_sfDoctrineSimpleForumPlugin_load_css'))
+    if (in_array('sfSimpleForum', sfConfig::get('sf_enabled_modules', array())) && sfConfig::get('app_sfSimpleForumPlugin_load_css'))
     {
       $this->dispatcher->connect('context.load_factories', array($this, 'listenLoadCss'));
     }

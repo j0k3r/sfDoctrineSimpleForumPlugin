@@ -1,5 +1,19 @@
 default:
-  sfDoctrineSimpleForumPlugin:
-    load_css: true
+  sfSimpleForumPlugin:
+    display_recommandations: true         # will allow the users to recommand a topic.
+    display_abuse: true                   # will allow the users to report abuse for a topic.
+    count_views: true                     # will count the number of view per topic.
+    admin_email: test@test.com            # is the email of the admin who will receive abuse mails
+    from_email: test@test.com             # is the "from" email address used to send abuse email
+    show_author_details: true             # displays detailed information about the author on each post
+    max_per_page: 10                      # number of posts displayed per page
+    #display_avatar: true                  # if you want to display an image for each user (if show_author_details is set to true)
+    #avatar_method: getLogo                # provide a method which will return the path of the image to display. This method should be defined il your app/lib/myUser.class.php file
+    #upload_dir: forum/                    # the directory where uploaded files (for the rank system) will be uploaded. It will append this dir to sfConfig::get('sf_upload_dir')
+    display_rank: true                    # if you want to display the rank of each user (if show_author_details is set to true)
+    use_feeds: true                       # if you want to display a RSS link on each topic. Needs sfFeed2Plugin to work
+    load_css: true                        # enable default plugin css (disabled this config if you want to use your own css for the forum)
+
+    # image used to display a read / an unread topic
     image_read: /sfDoctrineSimpleForumPlugin/images/email.png
     image_not_read: /sfDoctrineSimpleForumPlugin/images/email_go.png
