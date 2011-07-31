@@ -1,8 +1,4 @@
-sfDoctrineSimpleForumPlugin
-========================================================
-
-Overview
---------
+# sfDoctrineSimpleForumPlugin ![project status](http://stillmaintained.com/j0k3r/sfDoctrineSimpleForumPlugin.png) #
 
 This is a port of sfSimpleForumPlugin for Doctrine & Symfony 1.4
 
@@ -40,7 +36,8 @@ With svn from your project directory
 
 Enable it in `ProjectConfiguration.class.php`
 
-    [php]
+``` php
+<?php
     class ProjectConfiguration extends sfProjectConfiguration
     {
       public function setup()
@@ -53,6 +50,7 @@ Enable it in `ProjectConfiguration.class.php`
         ));
       }
     }
+```
 
 Rebuild the model, generate the SQL code for the new tables, insert it into your database and load the included fixtures :
 
@@ -85,11 +83,12 @@ Start using the plugin by browsing to the frontend module's default page:
 
 If you want to enable the plugin administration interface, you have to enable two more modules. You can do so in your main application or in a backend application. the following example is for a 'backend' application:
 
-    [yml]
+``` yml
     // in myproject/apps/backend/config/settings.yml
     all:
       .settings:
         enabled_modules:        [sfSimpleForumCategoryAdmin, sfSimpleForumForumAdmin, sfSimpleForumRankAdmin, default]
+```
 
 Configure the plugin categories and forums by browsing to the administration modules default pages (assuming your backend application is called _backend_):
 
