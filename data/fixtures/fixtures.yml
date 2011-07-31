@@ -6,7 +6,7 @@ sfGuardUser:
   user_1:
     username:       admin_forum
     password:       admin
-    email_address:  admin@admin.com 
+    email_address:  admin@admin.com
     is_super_admin: true
   user_2:
     username:       tarzanman
@@ -21,7 +21,7 @@ sfGuardPermission:
   testuser_is_moderator:
     name:           testuser
     description: moderator
- 
+
 sfSimpleForumCategory:
   c1:
     name:        Public Boards
@@ -80,5 +80,14 @@ sfSimpleForumPost:
     sfGuardUser:            user_3
     sfSimpleForumTopic:     topic_2
     sfSimpleForumForum:     forum_2
-    
-    
+
+sfSimpleForumRank:
+  rank_1:
+    nb_posts:         1
+    title:            Newbie
+  rank_2:
+    nb_posts:         5
+    title:            Poster
+  rank_3:
+    nb_posts:         10
+    title:            Master
