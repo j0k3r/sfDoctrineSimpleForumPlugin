@@ -84,7 +84,7 @@ Start using the plugin by browsing to the frontend module's default page:
 
 If you want to enable the plugin administration interface, you have to enable two more modules. You can do so in your main application or in a backend application. the following example is for a 'backend' application:
 
-``` yml
+``` yaml
     # in myproject/apps/backend/config/settings.yml
     all:
       .settings:
@@ -102,7 +102,7 @@ Configuration
 
 Some settings can be tweaked in your app settings.yml
 
-``` yml
+``` yaml
     all:
       sfSimpleForumPlugin:
         display_recommandations: true         # will allow the users to recommand a topic.
