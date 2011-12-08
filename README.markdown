@@ -133,3 +133,10 @@ You can use the [french translation](https://github.com/j0k3r/sfDoctrineSimpleFo
   * Russian: up-to-date - *Thanks @frost-nzcr4*
   * Deutsch: not updated since fork from sfSimpleForumPlugin
   * Spanish: not updated since fork from sfSimpleForumPlugin
+
+Export from a phpBB 2.x forum
+------------
+
+Here is an export script for a phpBB forum. I used it to convert mine to sfDoctrineSimpleForumPlugin. Basically, it request the database, extract the data and generate a yml file. This file can be easily loaded using symfony.
+
+Check [the dedicated wiki page](https://github.com/j0k3r/sfDoctrineSimpleForumPlugin/wiki/Export-from-phpBB-2.x).
