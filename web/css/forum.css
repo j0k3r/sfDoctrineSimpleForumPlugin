@@ -1,4 +1,9 @@
-.forum, .forum td, .forum th, table#fora td.forum_threads, table#fora td.forum_posts, table#fora td.forum_recent, 
+#middle-side {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.forum, .forum td, .forum th, table#fora td.forum_threads, table#fora td.forum_posts, table#fora td.forum_recent,
 table#threads td.thread_replies, table#threads td.thread_views, table#threads td.thread_recommandations, table#threads td.thread_recent
 {
   /*font-family: 'Lucida Grande', 'Trebuchet MS', Arial, Helvetica, sans-serif;*/
@@ -20,7 +25,7 @@ table#threads td.thread_replies, table#threads td.thread_views, table#threads td
 }
 
 table#fora, table#threads, table#messages
-{ 
+{
   border-collapse: collapse;
   width: 100%;
   clear: both;
@@ -28,7 +33,7 @@ table#fora, table#threads, table#messages
 
 table#fora td, table#fora th, table#threads td, table#threads th, table#messages td, table#messages th
 {
-  border: solid 1px #BFDCFF;  
+  border: solid 1px #BFDCFF;
   padding: 4px;
 }
 
@@ -41,7 +46,7 @@ table#fora th, table#threads th, table#messages th
 table#fora td.category_header
 {
   font-weight: bold;
-  color: #000;  
+  color: #000;
   background-color: #F3F9FB;
 }
 
@@ -135,7 +140,7 @@ ul.forum_actions li
   height: 25px;
 }
 
-ul.forum_actions li a:link, 
+ul.forum_actions li a:link,
 ul.forum_actions li a:visited
 {
   font-size: 1.1em;
@@ -170,7 +175,7 @@ ul.post_actions li:first-child::before
   content: '';
 }
 
-ul.post_actions li a:link, 
+ul.post_actions li a:link,
 ul.post_actions li a:visited
 {
   color: red;

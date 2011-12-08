@@ -24,14 +24,14 @@
   margin: 0 0 10px 0;
 }
 table#fora, table#threads, table#messages
-{ 
+{
   border-collapse: collapse;
   width: 600px;
 }
 
 table#fora td, table#fora th, table#threads td, table#threads th, table#messages td, table#messages th
 {
-  border: solid 1px #eedcd1;  
+  border: solid 1px #eedcd1;
   padding: 4px;
 }
 
@@ -44,7 +44,7 @@ table#fora th, table#threads th, table#messages th
 table#fora td.category_header
 {
   font-weight: bold;
-  color: #911;  
+  color: #911;
   background-color: #ecd;
 }
 
@@ -127,7 +127,7 @@ ul.forum_actions
 {
   float: left;
 }
- 
+
 ul#forum_navigation, ul.forum_actions
 {
   list-style: none;
@@ -146,7 +146,7 @@ ul.forum_actions li
   height: 25px;
 }
 
-ul.forum_actions li a:link, 
+ul.forum_actions li a:link,
 ul.forum_actions li a:visited
 {
   padding: 2px 4px;
@@ -180,7 +180,7 @@ ul.post_actions li:first-child::before
   content: '';
 }
 
-ul.post_actions li a:link, 
+ul.post_actions li a:link,
 ul.post_actions li a:visited
 {
   color: lightgrey;
