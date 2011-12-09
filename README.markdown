@@ -4,6 +4,8 @@ This is a port of sfSimpleForumPlugin for Doctrine & Symfony 1.4
 
 It relies on an already working registration process (using sfDoctrineGuardPlugin)
 
+Screenshots are available [in the wiki](https://github.com/j0k3r/sfDoctrineSimpleForumPlugin/wiki/Screenshots).
+
 
 Requirements
 ------------
