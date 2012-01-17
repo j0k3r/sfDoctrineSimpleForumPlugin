@@ -1,0 +1,1 @@
+<?php echo link_to($sf_simple_forum_post->getsfSimpleForumForum()->getName(), 'sfSimpleForumForumAdmin/edit?id='.$sf_simple_forum_post->getsfSimpleForumForum()->getId()) ?>

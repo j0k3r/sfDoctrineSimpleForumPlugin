@@ -4,7 +4,7 @@ This is a port of sfSimpleForumPlugin for Doctrine & Symfony 1.4
 
 It relies on an already working registration process (using sfDoctrineGuardPlugin)
 
-Screenshots are available [in the wiki](https://github.com/j0k3r/sfDoctrineSimpleForumPlugin/wiki/Screenshots).
+Screenshots are available [in the wiki](https://github.com/j0k3r/sfDoctrineSimpleForumPlugin/wiki/Screenshots) and if you want to test it, the plugin is live on [my personal website](http://www.j0k3r.net/forum).
 
 
 Requirements
@@ -90,13 +90,15 @@ If you want to enable the plugin administration interface, you have to enable tw
     # in myproject/apps/backend/config/settings.yml
     all:
       .settings:
-        enabled_modules:        [sfSimpleForumCategoryAdmin, sfSimpleForumForumAdmin, sfSimpleForumRankAdmin, default]
+        enabled_modules:        [sfSimpleForumCategoryAdmin, sfSimpleForumForumAdmin, sfSimpleForumTopicAdmin, sfSimpleForumPostAdmin, sfSimpleForumRankAdmin, default]
 ```
 
 Configure the plugin categories and forums by browsing to the administration modules default pages (assuming your backend application is called _backend_):
 
     http://myproject/backend_dev.php/sfSimpleForumCategoryAdmin
     http://myproject/backend_dev.php/sfSimpleForumForumAdmin
+    http://myproject/backend_dev.php/sfSimpleForumTopicAdmin
+    http://myproject/backend_dev.php/sfSimpleForumPostAdmin
     http://myproject/backend_dev.php/sfSimpleForumRankAdmin
 
 Configuration

@@ -1,0 +1,24 @@
+generator:
+  class:                    sfDoctrineGenerator
+  param:
+    model_class:            sfSimpleForumTopic
+    theme:                  admin
+    non_verbose_templates:  true
+    with_show:              false
+    singular:               ~
+    plural:                 ~
+    route_prefix:           topic_admin
+    with_doctrine_route:    true
+
+    config:
+      actions: ~
+      fields: ~
+      list:
+        title:              Topics Administration
+        display:            [=title, _forum, nb_posts, nb_views, nb_recommandations, is_sticked, is_locked]
+        sort:               [id, desc]
+      filter:
+        display:            [title, forum_id, is_sticked, is_locked]
+      edit:
+        title:              Edit topic "%%title%%"
+        display:            [title, is_sticked, is_locked]

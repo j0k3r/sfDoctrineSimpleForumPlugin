@@ -49,6 +49,44 @@ class sfDoctrineSimpleForumRouting
   }
 
   /**
+   * Adds an sfDoctrineRouteCollection collection to manage posts.
+   *
+   * @param sfEvent $event
+   * @static
+   */
+  static public function addRouteForPostAdmin(sfEvent $event)
+  {
+    $event->getSubject()->prependRoute('post_admin', new sfDoctrineRouteCollection(array(
+      'name'                => 'post_admin',
+      'model'               => 'sfSimpleForumPost',
+      'module'              => 'sfSimpleForumPostAdmin',
+      'prefix_path'         => 'forum/post',
+      'with_wildcard_routes' => true,
+      'collection_actions'  => array('filter' => 'post', 'batch' => 'post'),
+      'requirements'        => array(),
+    )));
+  }
+
+  /**
+   * Adds an sfDoctrineRouteCollection collection to manage posts.
+   *
+   * @param sfEvent $event
+   * @static
+   */
+  static public function addRouteForTopicAdmin(sfEvent $event)
+  {
+    $event->getSubject()->prependRoute('topic_admin', new sfDoctrineRouteCollection(array(
+      'name'                => 'topic_admin',
+      'model'               => 'sfSimpleForumTopic',
+      'module'              => 'sfSimpleForumTopicAdmin',
+      'prefix_path'         => 'forum/topic',
+      'with_wildcard_routes' => true,
+      'collection_actions'  => array('filter' => 'post', 'batch' => 'post'),
+      'requirements'        => array(),
+    )));
+  }
+
+  /**
    * Adds an sfDoctrineRouteCollection collection to manage categories.
    *
    * @param sfEvent $event

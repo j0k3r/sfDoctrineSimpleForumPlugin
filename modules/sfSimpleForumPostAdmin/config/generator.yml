@@ -1,0 +1,24 @@
+generator:
+  class:                    sfDoctrineGenerator
+  param:
+    model_class:            sfSimpleForumPost
+    theme:                  admin
+    non_verbose_templates:  true
+    with_show:              false
+    singular:               ~
+    plural:                 ~
+    route_prefix:           post_admin
+    with_doctrine_route:    true
+
+    config:
+      actions: ~
+      fields: ~
+      list:
+        title:              Posts Administration
+        display:            [=title, _forum, _topic]
+        sort:               [id, desc]
+      filter:
+        display:            [title, forum_id, topic_id]
+      edit:
+        title:              Edit post "%%title%%"
+        display:            [title, content]
