@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <xliff version="1.0">
-  <file original="global" source-language="en_US" datatype="plaintext">
+  <file original="global" source-language="en" datatype="plaintext">
     <body>
       <trans-unit id="1">
         <source>Latest messages from %forums%</source>
@@ -144,7 +144,7 @@
       </trans-unit>
       <trans-unit id="36">
         <source>Latest topics</source>
-        <target>Temas más recientes</target
+        <target>Temas más recientes</target>
       </trans-unit>
       <trans-unit id="37">
         <source>Sticked topic</source>
@@ -165,6 +165,86 @@
       <trans-unit id="41">
         <source>[1]1 message|(1,+Inf] %1% messages</source>
         <target>[1]1 mensaje|(1,+Inf] %1% mensajes</target>
+      </trans-unit>
+      <trans-unit id="41">
+        <source>Content</source>
+        <target>Mensaje</target>
+      </trans-unit>
+      <trans-unit id="42">
+        <source>Welcome on the forum</source>
+        <target>Bienvenido al foro</target>
+      </trans-unit>
+      <trans-unit id="43">
+        <source>Recommand</source>
+        <target>Recomendar</target>
+      </trans-unit>
+      <trans-unit id="44">
+        <source>Unrecommand</source>
+        <target>Desrecomendar</target>
+      </trans-unit>
+      <trans-unit id="45">
+        <source>Unstick</source>
+        <target>Désépingler</target>
+      </trans-unit>
+      <trans-unit id="46">
+        <source>Unlock</source>
+        <target>Réouvrir</target>
+      </trans-unit>
+      <trans-unit id="47">
+        <source>This topic was locked by a forum moderator. No reply can be added.</source>
+        <target>Este tema ha sido cerrado por un moderador. No se puede añadir más mensajes</target>
+      </trans-unit>
+      <trans-unit id="48">
+        <source>Report abuse</source>
+        <target>Denunciar abuso</target>
+      </trans-unit>
+      <trans-unit id="49">
+        <source>Are you sure you want to report this topic?</source>
+        <target>¿Está seguro de que quiere denunciar este tema?</target>
+      </trans-unit>
+      <trans-unit id="50">
+        <source>An abuse was reported for topic "%1%"</source>
+        <target>Se ha denunciado un abuso en el tema "%1%"</target>
+      </trans-unit>
+      <trans-unit id="51">
+        <source><![CDATA[An abuse was reported for topic "%1%".<br />Please, check the topic and delete it if necessary.<br /><a href="%2%">%2%</a>]]></source>
+        <target><![CDATA[Se ha denunciado un abuso en el tema "%1%".<br />Por favor compruebe esto y tome las medidas oportunas.<br /><a href="%2%">%2%</a>]]></target>
+      </trans-unit>
+      <trans-unit id="52">
+        <source>There is no topic in this discussion yet. Perhaps you would like to %start%?</source>
+        <target>No hay temas en esta discusión. Quizás quieras %start%?</target>
+      </trans-unit>
+      <trans-unit id="53">
+        <source>start a new one</source>
+        <target>comenzar uno nuevo</target>
+      </trans-unit>
+      <trans-unit id="54">
+        <source>Rank</source>
+        <target>Rango</target>
+      </trans-unit>
+      <trans-unit id="55">
+        <source>Message</source>
+        <target>Mensaje</target>
+      </trans-unit>
+      <trans-unit id="56">
+        <source>Validate</source>
+        <target>Validar</target>
+      </trans-unit>
+      <trans-unit id="57">
+        <source>Title</source>
+        <target>Título</target>
+      </trans-unit>
+      <trans-unit id="58">
+        <source>Sticked</source>
+        <target>Fijado</target>
+      </trans-unit>
+      <trans-unit id="59">
+        <source>Locked</source>
+        <target>Cerrado</target>
+      </trans-unit>
+      <trans-unit id="60">
+        <source>You are about to create a new topic in the forum %forum_name%</source>
+        <target>Vas a crear un nuevo tema en el foro %forum_name%</target>
       </trans-unit>
     </body>
   </file>
