@@ -2,9 +2,9 @@
 
 This is a port of sfSimpleForumPlugin for Doctrine & Symfony 1.4
 
-It relies on an already working registration process (using sfDoctrineGuardPlugin)
+It relies on an already working registration process (using sfDoctrineGuardPlugin).
 
-Screenshots are available [in the wiki](https://github.com/j0k3r/sfDoctrineSimpleForumPlugin/wiki/Screenshots) and if you want to test it, the plugin is live on [my personal website](http://www.j0k3r.net/forum).
+Screenshots are available [in the wiki](https://github.com/j0k3r/sfDoctrineSimpleForumPlugin/wiki/Screenshots) and if you want to test it, the plugin is live on [my personal website](http://www.j0k3r.net/forums).
 
 
 Requirements
@@ -133,10 +133,10 @@ Translations
 
 You can use the [french translation](https://github.com/j0k3r/sfDoctrineSimpleForumPlugin/blob/master/modules/sfSimpleForum/i18n/sfSimpleForum.fr.xml) as a starting point for other translations.
 
-  * French: up-to-date
+  * French:  up-to-date
   * Russian: up-to-date - *Thanks @frost-nzcr4*
+  * Spanish: up-to-date - *Thanks @iribarren*
   * Deutsch: not updated since fork from sfSimpleForumPlugin
-  * Spanish: not updated since fork from sfSimpleForumPlugin
 
 Export from a phpBB 2.x forum
 ------------
