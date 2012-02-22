@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <xliff version="1.0">
-  <file original="global" source-language="en" datatype="plaintext">
+  <file original="global" source-language="en" target-language="fr" datatype="plaintext">
     <body>
       <trans-unit id="1">
         <source>Latest messages from %forums%</source>
@@ -208,7 +208,7 @@
       </trans-unit>
       <trans-unit id="51">
         <source><![CDATA[An abuse was reported for topic "%1%".<br />Please, check the topic and delete it if necessary.<br /><a href="%2%">%2%</a>]]></source>
-        <target><![CDATA[Un abus a été signalé dans le sujet "%1%".<br />Veuillez vérifier le sujet et effectuer les actions en conséquence.<br /><a href="%2%">%2%</a>]]></target>      
+        <target><![CDATA[Un abus a été signalé dans le sujet "%1%".<br />Veuillez vérifier le sujet et effectuer les actions en conséquence.<br /><a href="%2%">%2%</a>]]></target>
       </trans-unit>
       <trans-unit id="52">
         <source>There is no topic in this discussion yet. Perhaps you would like to %start%?</source>
