@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <xliff version="1.0">
-  <file original="global" source-language="en" datatype="plaintext">
+  <file original="global" source-language="en" target-language="es" datatype="plaintext">
     <body>
       <trans-unit id="1">
         <source>Latest messages from %forums%</source>
