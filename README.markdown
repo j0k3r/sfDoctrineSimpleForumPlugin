@@ -1,4 +1,4 @@
-# sfDoctrineSimpleForumPlugin ![project status](http://stillmaintained.com/j0k3r/sfDoctrineSimpleForumPlugin.png) #
+# sfDoctrineSimpleForumPlugin #
 
 This is a port of sfSimpleForumPlugin for Doctrine & Symfony 1.4
 
