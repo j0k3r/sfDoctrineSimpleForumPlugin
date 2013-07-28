@@ -19,16 +19,16 @@ The [update-last-post|INFO] task does things.
 Call it with:
 
   [php symfony forum:update-last-post|INFO]
-  
+
   Updated latest_post_id with latest information from the database.
-  
+
 EOF;
   }
 
   protected function execute($arguments = array(), $options = array())
   {
     $application = $options['application'];
-          
+
     if($options['env'] == 'dev')
     {
       $env = 'dev';
@@ -42,7 +42,7 @@ EOF;
     else
     {
       $this->logSection('error', 'Wrong environment specified!');
-      die();
+      return;
     }
 
     // initialize the database connection
@@ -54,8 +54,8 @@ EOF;
     $this->logSection('----------', '----------');
     $this->logSection('Update latest post start', date('d-m-y H:i'));
     $this->logSection('----------', '----------');
-    
-    
+
+
     $topics = Doctrine::getTable('sfSimpleForumTopic')->findAll();
     foreach($topics as $topic)
     {
@@ -66,7 +66,7 @@ EOF;
       $this->logSection('Topic', $topic->get('title'));
       $this->logSection('post_id', $topic->getLatestPostByQuery()->get('id'));
     }
-    
+
     $forums = Doctrine::getTable('sfSimpleForumForum')->findAll();
     foreach($forums as $forum)
     {
@@ -76,7 +76,7 @@ EOF;
       $this->logSection('Forum', $forum->get('name'));
       $this->logSection('post_id', ($forum->getLatestPostByQuery() instanceOf sfSimpleForumPost) ? $forum->getLatestPostByQuery()->get('id') : null);
     }
-    
+
     $this->logSection('End', date('d-m-y H:i'));
   }
 }
