@@ -177,7 +177,7 @@ class BasesfSimpleForumActions extends sfActions
 
   // One topic
 
-  public function executeTopic($request)
+  public function executeTopic(sfWebRequest $request)
   {
     $this->setTopicVars($request->getParameter('id'));
     $this->post_pager = $this->topic->getPostsPager(
@@ -237,7 +237,7 @@ class BasesfSimpleForumActions extends sfActions
     $response->addMeta('description', $this->topic->getTitle());
   }
 
-  public function executeTopicFeed($request)
+  public function executeTopicFeed(sfWebRequest $request)
   {
     $this->checkFeedPlugin();
     $this->setTopicVars($request->getParameter('id'));
@@ -385,9 +385,9 @@ class BasesfSimpleForumActions extends sfActions
 
   // Display the topic creation form
 
-  public function executeCreateTopic($request)
+  public function executeCreateTopic(sfWebRequest $request)
   {
-  	$this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
+    $this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
 
     $this->form = new forumTopic();
     if($request->hasParameter('forum_name'))
@@ -435,7 +435,7 @@ class BasesfSimpleForumActions extends sfActions
     }
   }
 
-  protected function redirectToPost($post)
+  protected function redirectToPost(sfSimpleForumPost $post)
   {
     $position = $post->getPositionInTopic();
     $page = ceil(($position + 1) / sfConfig::get('app_sfSimpleForumPlugin_max_per_page', 10));
@@ -527,7 +527,7 @@ class BasesfSimpleForumActions extends sfActions
     }
 
     $mailBody = $this->getPartial('sfSimpleForum/abuse_mail', array(
-      'topic' 		=> $topic,
+      'topic' => $topic,
     ));
 
     $message = $this->getMailer()
@@ -548,7 +548,7 @@ class BasesfSimpleForumActions extends sfActions
     $this->redirect($this->getModuleName().'/topic?id='.$topic->getId().'&stripped_title='.$topic->getSlug());
   }
 
-  public function executeUpdatePost($request)
+  public function executeUpdatePost(sfWebRequest $request)
   {
     $this->forward404If( ! $request->getParameter('content') ||
                          ! $request->getParameter('id') ||
@@ -563,7 +563,7 @@ class BasesfSimpleForumActions extends sfActions
     return $this->renderText(nl2br($post->get('content')));
   }
 
-  public function executeUpdateTopic($request)
+  public function executeUpdateTopic(sfWebRequest $request)
   {
     $this->forward404If( ! $request->getParameter('title') ||
                          ! $request->getParameter('id') ||
