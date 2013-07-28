@@ -129,7 +129,6 @@ class BasesfSimpleForumActions extends sfActions
 
     if (sfConfig::get('app_sfSimpleForumPlugin_count_views', true) && $this->getUser()->isAuthenticated())
     {
-      // FIXME: When Propel can do a right join with multiple on conditions, merge this query with the pager's one
       $this->topics = Doctrine::getTable('sfSimpleForumTopic')->setIsNewForUser($this->topics, sfSimpleForumTools::getConnectedUserId($this->getUser()));
     }
 
