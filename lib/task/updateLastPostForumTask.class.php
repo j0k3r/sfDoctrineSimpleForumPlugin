@@ -48,13 +48,12 @@ EOF;
     // initialize the database connection
     $configuration = ProjectConfiguration::getApplicationConfiguration($application, $env, $debug);
     // need to create  a context, if not, we got an error : The "default" context does not exist.
-    $context = sfContext::createInstance($configuration);
-    $databaseManager = new sfDatabaseManager($configuration);
+    sfContext::createInstance($configuration);
+    new sfDatabaseManager($configuration);
 
     $this->logSection('----------', '----------');
     $this->logSection('Update latest post start', date('d-m-y H:i'));
     $this->logSection('----------', '----------');
-
 
     $topics = Doctrine::getTable('sfSimpleForumTopic')->findAll();
     foreach($topics as $topic)

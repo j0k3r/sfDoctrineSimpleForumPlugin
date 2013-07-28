@@ -4,16 +4,15 @@
  */
 class PluginsfSimpleForumPostTable extends Doctrine_Table
 {
-  
   public function getOneJoinForum($id)
   {
     $q = $this->createQuery();
     $q->where('id = ?', array($id));
     $object = $q->limit(1)->execute()->getFirst();
-    
-    if ($objects instanceOf sfSimpleForumPost) 
+
+    if ($object instanceOf sfSimpleForumPost)
     {
-      return $objects;
+      return $object;
     }
     return null;
   }
@@ -22,10 +21,10 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
   {
     $q = $this->createQuery();
     $q->orderBy('id DESC');
-    
+
     return $q;
-  }  
-  
+  }
+
   public function getLatest($max = null)
   {
     $q = $this->getLatestCriteria();
@@ -33,10 +32,10 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
     {
       $q->limit($max);
     }
-    
+
     return $q->execute();
   }
-  
+
   public function getLatestPager($page = 1, $max_per_page = 10)
   {
     $q = $this->getLatestCriteria();
@@ -45,18 +44,18 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
     $pager->setQuery($q);
     //$pager->setPeerMethod('doSelectJoinsfSimpleForumForum');
     $pager->init();
-    
+
     return $pager;
   }
-  
+
   public function getForTopicCriteria($topic_id)
   {
     $q = $this->createQuery('t');
     $q->where('topic_id = ?', array($topic_id));
-    
+
     return $q;
   }
-  
+
   public function getForTopic($topic_id, $max = null)
   {
     $q = $this->getForTopicCriteria($topic_id);
@@ -65,10 +64,10 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
     {
       $q->limit($max);
     }
-    
+
     return $q->execute();
   }
-  
+
   public function getForTopicPager($topic_id, $page = 1, $max_per_page = 10)
   {
     $q = $this->getForTopicCriteria($topic_id)
@@ -82,7 +81,7 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
     $pager->setPage($page);
     $pager->setQuery($q);
     $pager->init();
-    
+
     return $pager;
   }
 
@@ -92,8 +91,8 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
     $q->where('sfSimpleForumPost.sfSimpleForumForum.slug = ?', array($forum_name));
 
     return $q;
-  }  
-  
+  }
+
   public function getForForum($forum_name, $max = null)
   {
     $q = $this->getForForumCriteria($forum_name);
@@ -101,10 +100,10 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
     {
       $q->limit($max);
     }
-    
+
     return $q->execute();
   }
-  
+
   public function getForForumPager($forum_name = '', $page = 1, $max_per_page = 10)
   {
     $q = $this->getForForumCriteria($forum_name);
@@ -117,7 +116,7 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
 
     return $pager;
   }
-    
+
   public function getForUserCriteria($user_id)
   {
     $q = $this->createQuery();
@@ -125,7 +124,7 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
     $q->orderBy('id DESC');
 
     return $q;
-  }  
+  }
 
   public function getForUser($user_id, $max = null)
   {
@@ -134,7 +133,7 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
     {
       $q->limit($max);
     }
-    
+
     return $q->execute();
   }
 
@@ -150,15 +149,15 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
 
     return $pager;
   }
-  
+
   public function countForUser($user_id)
   {
     $q = $this->createQuery();
     $q->where('user_id = ?', array($user_id));
-    
+
     return $q->execute()->count();
   }
-  
+
 
 
 
@@ -175,14 +174,14 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
     {
       call_user_func($callable, 'BasesfSimpleForumPostPeer', $c, $con);
     }
-    
+
     $c = clone $c;
-    
+
     if ($c->getDbName() == Propel::getDefaultDB())
     {
       $c->setDbName(self::DATABASE_NAME);
     }
-    
+
     sfSimpleForumPostPeer::addSelectColumns($c);
     $startcol2 = (sfSimpleForumPostPeer::NUM_COLUMNS - sfSimpleForumPostPeer::NUM_LAZY_LOAD_COLUMNS) + 1;
     sfSimpleForumTopicPeer::addSelectColumns($c);
@@ -191,18 +190,18 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
     $startcol4 = $startcol3 + sfSimpleForumForumPeer::NUM_COLUMNS;
     $c->addJoin(sfSimpleForumPostPeer::TOPIC_ID, sfSimpleForumTopicPeer::ID);
     $c->addJoin(sfSimpleForumPostPeer::FORUM_ID, sfSimpleForumForumPeer::ID);
-    
+
     $rs = BasePeer::doSelect($c, $con);
     $results = array();
-    
-    while($rs->next()) 
+
+    while($rs->next())
     {
       $post = new sfSimpleForumPost();
       $post->hydrate($rs);
-      
+
       $topic = new sfSimpleForumTopic();
       $topic->hydrate($rs, $startcol2);
-      
+
       $newObject = true;
       foreach ($results as $temp_post)
       {
@@ -214,16 +213,16 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
           break;
         }
       }
-      
+
       if ($newObject)
       {
         $topic->initsfSimpleForumPosts();
         $topic->addsfSimpleForumPost($post);
       }
-      
+
       $forum = new sfSimpleForumForum();
       $forum->hydrate($rs, $startcol3);
-      
+
       $newObject = true;
       foreach ($results as $temp_post)
       {
@@ -235,13 +234,13 @@ class PluginsfSimpleForumPostTable extends Doctrine_Table
           break;
         }
       }
-      
+
       if ($newObject)
       {
         $forum->initsfSimpleForumPosts();
         $forum->addsfSimpleForumPost($post);
       }
-      
+
       $results[] = $post;
     }
     return $results;

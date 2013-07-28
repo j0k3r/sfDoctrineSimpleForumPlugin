@@ -12,10 +12,10 @@ class forumPost extends PluginsfSimpleForumPostForm
   public function configure()
   {
     parent::configure();
-    $user = sfContext::getInstance()->getUser();
+
     $widgetSchema = $this->getWidgetSchema();
     $validatorSchema = $this->getValidatorSchema();
-    
+
     unset(
       $widgetSchema['created_at'],
       $widgetSchema['updated_at'],
@@ -33,11 +33,11 @@ class forumPost extends PluginsfSimpleForumPostForm
       $validatorSchema['title'],
       $validatorSchema['forum_id']
     );
-    
+
     $widgetSchema['topic_id'] = new sfWidgetFormInputHidden();
-    
+
     $validatorSchema['content'] = new sfValidatorString(array('required' => true));
-    
+
     $widgetSchema->setNameFormat('forum_post[%s]');
   }
 }
