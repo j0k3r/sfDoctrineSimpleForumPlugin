@@ -29,7 +29,7 @@
     'nb_topics'           => $topics_pager->getNbResults(),
     'topic_rule'          => '',
     'display_post_link'   => true,
-    'nb_posts'            => Doctrine::getTable('sfSimpleForumPost')->findByUserId($user->getId())->count(),
+    'nb_posts'            => Doctrine_Core::getTable('sfSimpleForumPost')->findByUserId($user->getId())->count(),
     'post_rule'           => 'sfSimpleForum/userLatestPosts?username='.$username,
     'feed_rule'           => 'sfSimpleForum/userLatestTopicsFeed?username='.$username,
     'feed_title'          => $feed_title

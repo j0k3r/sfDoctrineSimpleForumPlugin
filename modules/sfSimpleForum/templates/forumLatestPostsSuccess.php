@@ -21,7 +21,7 @@
 
   <?php include_partial('sfSimpleForum/figures', array(
     'display_topic_link'  => true,
-    'nb_topics'           => Doctrine::getTable('sfSimpleForumTopic')->findByForumId($forum->get('id'))->count(),
+    'nb_topics'           => Doctrine_Core::getTable('sfSimpleForumTopic')->findByForumId($forum->get('id'))->count(),
     'topic_rule'          => 'sfSimpleForum/forum?forum_name='.$name,
     'display_post_link'   => false,
     'nb_posts'            => $post_pager->getNbResults(),
