@@ -21,7 +21,7 @@ class sfSimpleForumTools
 
     // return call_user_func(array($user_peer, $method_name), $username);
 
-    return Doctrine::getTable('sfGuardUser')->retrieveByUsername($username);
+    return Doctrine_Core::getTable('sfGuardUser')->retrieveByUsername($username);
   }
 
   /**

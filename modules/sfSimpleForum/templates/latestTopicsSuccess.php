@@ -23,7 +23,7 @@
     'nb_topics'           => $topics_pager->getNbResults(),
     'topic_rule'          => '',
     'display_post_link'   => true,
-    'nb_posts'            => Doctrine::getTable('sfSimpleForumPost')->findAll()->count(),
+    'nb_posts'            => Doctrine_Core::getTable('sfSimpleForumPost')->findAll()->count(),
     'post_rule'           => 'sfSimpleForum/latestPosts',
     'feed_rule'           => 'sfSimpleForum/latestTopicsFeed',
     'feed_title'          => $feed_title

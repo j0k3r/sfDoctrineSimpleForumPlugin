@@ -27,9 +27,9 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
   }
 
   /**
-   * isAbuseReported checks if a user has already reported an abuse for a topic 
-   * 
-   * @param sfGuardUser $user 
+   * isAbuseReported checks if a user has already reported an abuse for a topic
+   *
+   * @param sfGuardUser $user
    * @access public
    * @return void
    */
@@ -40,7 +40,7 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
 
       return false;
     }
-    
+
     return $this->getNbAbuseReportedByUser($user) > 0;
   }
 
@@ -49,9 +49,9 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
    * by user
    *
    * Ok it makes one more query, but mysql and doctrine are just
-   * bad with nested selects. 
-   * 
-   * @param mixed $user 
+   * bad with nested selects.
+   *
+   * @param mixed $user
    * @access public
    * @return void
    */
@@ -66,9 +66,9 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
   }
 
   /**
-   * isRecommanded checks if a user has already recommanded a topic 
-   * 
-   * @param sfGuardUser $user 
+   * isRecommanded checks if a user has already recommanded a topic
+   *
+   * @param sfGuardUser $user
    * @access public
    * @return void
    */
@@ -88,9 +88,9 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
    * by user
    *
    * Ok it makes one more query, but mysql and doctrine are just
-   * bad with nested selects. 
-   * 
-   * @param mixed $user 
+   * bad with nested selects.
+   *
+   * @param mixed $user
    * @access public
    * @return void
    */
@@ -108,22 +108,22 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
   {
     return $this->is_new;
   }
-  
+
   public function setIsNew($value = true)
   {
     $this->is_new = $value;
   }
-  
+
   public function getUser()
   {
     return sfSimpleForumTools::getUser($this);
   }
-  
+
   public function leaveUpdatedAtUnchanged()
   {
     //$this->modifiedColumns[] = 'updated_at';
   }
-  
+
   public function incrementViews()
   {
     $this->setNbViews($this->getNbViews() + 1);
@@ -131,11 +131,11 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
     $this->leaveUpdatedAtUnchanged();
     parent::save();
   }
-  
+
   public function addViewForUser($user_id)
   {
     //check if there is not already a topic view for this user
-    $topic = Doctrine::getTable('sfSimpleForumTopicView')->find(array($user_id, $this->getId()));
+    $topic = Doctrine_Core::getTable('sfSimpleForumTopicView')->find(array($user_id, $this->getId()));
     if ($topic instanceOf sfSimpleForumTopicView)
     {
       return;
@@ -145,10 +145,10 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
     $topicView->setUserId($user_id);
     $topicView->save();
   }
-  
+
   public function getViewForUser($user_id)
   {
-    return Doctrine::getTable('sfSimpleForumTopicView')->find(array($user_id, $this->getId()));
+    return Doctrine_Core::getTable('sfSimpleForumTopicView')->find(array($user_id, $this->getId()));
   }
 
   public function clearTopicView($user_id)
@@ -167,44 +167,44 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
     $q->where('topic_id = ?', array($this->getId()));
     $q->delete();
   }
-  
+
   public function getNbReplies()
   {
     return $this->getNbPosts() - 1;
   }
-  
+
   public function getLatestPostByQuery()
   {
     $q = Doctrine_Query::create();
     $q->from('sfSimpleForumPost');
     $q->where('topic_id = ?', array($this->getId()));
     $q->orderBy('id DESC');
-    
+
     return $q->limit(1)->execute()->getFirst();
   }
-  
+
   public function getLatestPost()
   {
     return $this->getsfSimpleForumPost();
   }
-  
+
   public function getPosts($max = null)
   {
-    return Doctrine::getTable('sfSimpleForumPost')->getForTopic($this->getId(), $max);
+    return Doctrine_Core::getTable('sfSimpleForumPost')->getForTopic($this->getId(), $max);
   }
 
   public function getPostsPager($page = 1, $max_per_page = 10)
   {
-    return Doctrine::getTable('sfSimpleForumPost')->getForTopicPager($this->getId(), $page, $max_per_page);
+    return Doctrine_Core::getTable('sfSimpleForumPost')->getForTopicPager($this->getId(), $page, $max_per_page);
   }
-  
+
   public function updateReplies($latestReply = null, $con = null)
   {
     if($this->getId())
     {
       if($latestReply)
       {
-        $this->setNbPosts(Doctrine::getTable('sfSimpleForumPost')->findByTopicId($this->get('id'))->count());
+        $this->setNbPosts(Doctrine_Core::getTable('sfSimpleForumPost')->findByTopicId($this->get('id'))->count());
         $this->setLatestPostId($latestReply->getId());
         $this->setUpdatedAt($latestReply->getCreatedAt());
       }
@@ -233,9 +233,9 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
     try
     {
       $con->beginTransaction();
-      
+
       parent::save($con);
-      
+
       // Update the topic's forum counts
       $forum = $this->getsfSimpleForumForum();
       if(!$latestPost)
@@ -243,7 +243,7 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
         $latestPost = $forum->getLatestPostByQuery();
       }
       $forum->updateCounts($latestPost, $con);
-     
+
       $con->commit();
     }
     catch (Exception $e)
@@ -252,7 +252,7 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
       throw $e;
     }
   }
-    
+
   public function delete(Doctrine_Connection $con = null, $latestPost = null)
   {
     if(!$con)
@@ -263,9 +263,9 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
     try
     {
       $con->beginTransaction();
-      
+
       parent::delete($con);
-      
+
       // Update the topic's forum counts
       $forum = $this->getsfSimpleForumForum();
       if(!$latestPost)
@@ -273,7 +273,7 @@ abstract class PluginsfSimpleForumTopic extends BasesfSimpleForumTopic
         $latestPost = $forum->getLatestPostByQuery();
       }
       $forum->updateCounts($latestPost, $con);
-      
+
       $con->commit();
     }
     catch (Exception $e)

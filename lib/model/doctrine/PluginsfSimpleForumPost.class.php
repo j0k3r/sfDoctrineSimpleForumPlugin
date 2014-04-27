@@ -49,7 +49,7 @@ abstract class PluginsfSimpleForumPost extends BasesfSimpleForumPost
 
   // public function setsfSimpleForumTopic($title)
   // {
-    // $topic = Doctrine::getTable('sfSimpleForumTopic')->findOneByTitle($title);
+    // $topic = Doctrine_Core::getTable('sfSimpleForumTopic')->findOneByTitle($title);
     // if($topic instanceOf sfSimpleForumTopic)
     // {
       // parent::set('topic_id', $topic->get('id'));

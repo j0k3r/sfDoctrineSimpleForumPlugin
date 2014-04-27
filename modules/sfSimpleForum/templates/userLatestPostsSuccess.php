@@ -20,7 +20,7 @@
 
   <?php include_partial('sfSimpleForum/figures', array(
     'display_topic_link'  => true,
-    'nb_topics'           => Doctrine::getTable('sfSimpleForumTopic')->findByUserId($user->getId())->count(),
+    'nb_topics'           => Doctrine_Core::getTable('sfSimpleForumTopic')->findByUserId($user->getId())->count(),
     'topic_rule'          => 'sfSimpleForum/userLatestTopics?username='.$username,
     'display_post_link'   => false,
     'nb_posts'            => $post_pager->getNbResults(),

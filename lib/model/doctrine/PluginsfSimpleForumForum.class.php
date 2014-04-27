@@ -52,20 +52,20 @@ abstract class PluginsfSimpleForumForum extends BasesfSimpleForumForum
 
   public function getPosts($max)
   {
-    return Doctrine::getTable('sfSimpleForumPost')->getForForum($this->getSlug(), $max);
+    return Doctrine_Core::getTable('sfSimpleForumPost')->getForForum($this->getSlug(), $max);
   }
 
   public function getPostsPager($page = 1, $max_per_page = 10)
   {
-    return Doctrine::getTable('sfSimpleForumPost')->getForForumPager($this->getSlug(), $page, $max_per_page);
+    return Doctrine_Core::getTable('sfSimpleForumPost')->getForForumPager($this->getSlug(), $page, $max_per_page);
   }
 
   public function updateCounts($latestReply = null, $con = null)
   {
     if($latestReply)
     {
-      $this->setNbPosts(Doctrine::getTable('sfSimpleForumPost')->findByForumId($this->get('id'))->count());
-      $this->setNbTopics(Doctrine::getTable('sfSimpleForumTopic')->findByForumId($this->get('id'))->count());
+      $this->setNbPosts(Doctrine_Core::getTable('sfSimpleForumPost')->findByForumId($this->get('id'))->count());
+      $this->setNbTopics(Doctrine_Core::getTable('sfSimpleForumTopic')->findByForumId($this->get('id'))->count());
       $this->setLatestPostId($latestReply->getId());
       $this->setUpdatedAt($latestReply->getCreatedAt());
     }

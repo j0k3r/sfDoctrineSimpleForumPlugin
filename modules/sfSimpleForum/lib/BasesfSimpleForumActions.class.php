@@ -26,7 +26,7 @@ class BasesfSimpleForumActions extends sfActions
 
   public function executeForumList()
   {
-    $forums = Doctrine::getTable('sfSimpleForumForum')->getAllOrderedByCategory();
+    $forums = Doctrine_Core::getTable('sfSimpleForumForum')->getAllOrderedByCategory();
     $nb_topics = 0;
     $nb_posts  = 0;
 
@@ -44,11 +44,11 @@ class BasesfSimpleForumActions extends sfActions
 
   public function executeLatestPosts()
   {
-    $this->post_pager = Doctrine::getTable('sfSimpleForumPost')->getLatestPager(
+    $this->post_pager = Doctrine_Core::getTable('sfSimpleForumPost')->getLatestPager(
       $this->getRequestParameter('page', 1),
       sfConfig::get('app_sfSimpleForumPlugin_max_per_page', 10)
     );
-    $this->nb_topics  = Doctrine::getTable('sfSimpleForumTopic')->findAll()->count();
+    $this->nb_topics  = Doctrine_Core::getTable('sfSimpleForumTopic')->findAll()->count();
     $this->feed_title = $this->getFeedTitle();
     $this->rankArray  = $this->getRankArray();
   }
@@ -57,7 +57,7 @@ class BasesfSimpleForumActions extends sfActions
   {
     $this->checkFeedPlugin();
 
-    $this->posts = Doctrine::getTable('sfSimpleForumPost')->getLatest(
+    $this->posts = Doctrine_Core::getTable('sfSimpleForumPost')->getLatest(
       sfConfig::get('app_sfSimpleForumPlugin_feed_max', 10)
     );
     $this->rule = $this->getModuleName().'/latestPosts';
@@ -76,7 +76,7 @@ class BasesfSimpleForumActions extends sfActions
 
   public function executeLatestTopics()
   {
-    $this->topics_pager = Doctrine::getTable('sfSimpleForumTopic')->getLatestPager(
+    $this->topics_pager = Doctrine_Core::getTable('sfSimpleForumTopic')->getLatestPager(
       $this->getRequestParameter('page', 1),
       sfConfig::get('app_sfSimpleForumPlugin_max_per_page', 10)
     );
@@ -87,7 +87,7 @@ class BasesfSimpleForumActions extends sfActions
   {
     $this->checkFeedPlugin();
 
-    $this->topics = Doctrine::getTable('sfSimpleForumTopic')->getLatest(
+    $this->topics = Doctrine_Core::getTable('sfSimpleForumTopic')->getLatest(
       sfConfig::get('app_sfSimpleForumPlugin_feed_max', 10)
     );
     $this->rule = $this->getModuleName().'/latestTopics';
@@ -129,7 +129,7 @@ class BasesfSimpleForumActions extends sfActions
 
     if (sfConfig::get('app_sfSimpleForumPlugin_count_views', true) && $this->getUser()->isAuthenticated())
     {
-      $this->topics = Doctrine::getTable('sfSimpleForumTopic')->setIsNewForUser($this->topics, sfSimpleForumTools::getConnectedUserId($this->getUser()));
+      $this->topics = Doctrine_Core::getTable('sfSimpleForumTopic')->setIsNewForUser($this->topics, sfSimpleForumTools::getConnectedUserId($this->getUser()));
     }
 
     $response = $this->getResponse();
@@ -164,7 +164,7 @@ class BasesfSimpleForumActions extends sfActions
   {
     $this->name = $this->getRequestParameter('forum_name');
 
-    $forum = Doctrine::getTable('sfSimpleForumForum')->retrieveBySlug($this->name);
+    $forum = Doctrine_Core::getTable('sfSimpleForumForum')->retrieveBySlug($this->name);
     $this->forward404Unless($forum);
     $this->forum = $forum;
 
@@ -253,7 +253,7 @@ class BasesfSimpleForumActions extends sfActions
 
   protected function setTopicVars($id)
   {
-    $this->topic = Doctrine::getTable('sfSimpleForumTopic')->find($id);
+    $this->topic = Doctrine_Core::getTable('sfSimpleForumTopic')->find($id);
     $this->forward404Unless($this->topic);
 
     $this->getContext()->getConfiguration()->loadHelpers(array('I18N'));
@@ -266,7 +266,7 @@ class BasesfSimpleForumActions extends sfActions
 
   public function executePost()
   {
-    $post = Doctrine::getTable('sfSimpleForumPost')->find($this->getRequestParameter('id'));
+    $post = Doctrine_Core::getTable('sfSimpleForumPost')->find($this->getRequestParameter('id'));
     $this->forward404Unless($post);
 
     $topic = $post->getTopic();
@@ -281,7 +281,7 @@ class BasesfSimpleForumActions extends sfActions
   {
     $this->setUserVars();
 
-    $this->post_pager = Doctrine::getTable('sfSimpleForumPost')->getForUserPager(
+    $this->post_pager = Doctrine_Core::getTable('sfSimpleForumPost')->getForUserPager(
       $this->user->getId(),
       $this->getRequestParameter('page', 1),
       sfConfig::get('app_sfSimpleForumPlugin_max_per_page', 10)
@@ -293,7 +293,7 @@ class BasesfSimpleForumActions extends sfActions
   {
     $this->setUserVars();
 
-    $this->posts = Doctrine::getTable('sfSimpleForumPost')->getForUser(
+    $this->posts = Doctrine_Core::getTable('sfSimpleForumPost')->getForUser(
       $this->user->getId(),
       sfConfig::get('app_sfSimpleForumPlugin_feed_max', 10)
     );
@@ -317,7 +317,7 @@ class BasesfSimpleForumActions extends sfActions
   {
     $this->setUserVars();
 
-    $this->topics_pager = Doctrine::getTable('sfSimpleForumTopic')->getForUserPager(
+    $this->topics_pager = Doctrine_Core::getTable('sfSimpleForumTopic')->getForUserPager(
       $this->user->getId(),
       $this->getRequestParameter('page', 1),
       sfConfig::get('app_sfSimpleForumPlugin_max_per_page', 10)
@@ -330,7 +330,7 @@ class BasesfSimpleForumActions extends sfActions
   {
     $this->setUserVars();
 
-    $this->topics = Doctrine::getTable('sfSimpleForumTopic')->getForUser(
+    $this->topics = Doctrine_Core::getTable('sfSimpleForumTopic')->getForUser(
       $this->user->getId(),
       sfConfig::get('app_sfSimpleForumPlugin_feed_max', 10)
     );
@@ -392,7 +392,7 @@ class BasesfSimpleForumActions extends sfActions
     $this->form = new forumTopic();
     if($request->hasParameter('forum_name'))
     {
-      $this->forum = Doctrine::getTable('sfSimpleForumForum')->retrieveBySlug($request->getParameter('forum_name'));
+      $this->forum = Doctrine_Core::getTable('sfSimpleForumForum')->retrieveBySlug($request->getParameter('forum_name'));
       $this->forward404Unless($this->forum, 'Forum not found !');
 
       $this->form->setDefaults(array('forum_id' => $this->forum->get('id')));
@@ -444,11 +444,11 @@ class BasesfSimpleForumActions extends sfActions
 
   public function executeDeletePost()
   {
-    $post = Doctrine::getTable('sfSimpleForumPost')->find($this->getRequestParameter('id'));
+    $post = Doctrine_Core::getTable('sfSimpleForumPost')->find($this->getRequestParameter('id'));
     $this->forward404Unless($post);
 
     $topic = $post->getTopic();
-    if (Doctrine::getTable('sfSimpleForumPost')->findByTopicId($topic->get('id'))->count() == 1)
+    if (Doctrine_Core::getTable('sfSimpleForumPost')->findByTopicId($topic->get('id'))->count() == 1)
     {
       // it is the last post of the topic, so delete the whole topic
       $topic->delete();
@@ -465,7 +465,7 @@ class BasesfSimpleForumActions extends sfActions
 
   public function executeDeleteTopic()
   {
-    $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
+    $topic = Doctrine_Core::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
     $this->forward404Unless($topic);
 
     $topic->delete();
@@ -477,7 +477,7 @@ class BasesfSimpleForumActions extends sfActions
   // stick/unstick a topic
   public function executeToggleStick()
   {
-    $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
+    $topic = Doctrine_Core::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
     $this->forward404Unless($topic);
 
     $topic->setIsSticked(!$topic->getIsSticked());
@@ -490,7 +490,7 @@ class BasesfSimpleForumActions extends sfActions
   // lock/unlock a topic
   public function executeToggleLock()
   {
-    $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
+    $topic = Doctrine_Core::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
     $this->forward404Unless($topic);
 
     $topic->setIsLocked(!$topic->getIsLocked());
@@ -502,7 +502,7 @@ class BasesfSimpleForumActions extends sfActions
 
   public function executeReportAbuse()
   {
-    $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
+    $topic = Doctrine_Core::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
     $this->forward404Unless($topic);
 
     $topic->reportAbuse($this->getUser()->getGuardUser());
@@ -538,7 +538,7 @@ class BasesfSimpleForumActions extends sfActions
 
   public function executeRecommand()
   {
-    $topic = Doctrine::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
+    $topic = Doctrine_Core::getTable('sfSimpleForumTopic')->find($this->getRequestParameter('id'));
     $this->forward404Unless($topic);
 
     $topic->recommand($this->getUser()->getGuardUser());
@@ -554,7 +554,7 @@ class BasesfSimpleForumActions extends sfActions
                          ! $request->getParameter('id') ||
                          ! $this->getUser()->hasCredential('moderator'));
 
-    $post = Doctrine::getTable('sfSimpleForumPost')->find(substr($request->getParameter('id'), 5, strlen($request->getParameter('id'))));
+    $post = Doctrine_Core::getTable('sfSimpleForumPost')->find(substr($request->getParameter('id'), 5, strlen($request->getParameter('id'))));
     $this->forward404Unless($post);
 
     $post->set('content', $request->getParameter('content'));
@@ -569,7 +569,7 @@ class BasesfSimpleForumActions extends sfActions
                          ! $request->getParameter('id') ||
                          ! $this->getUser()->hasCredential('moderator'));
 
-    $topic = Doctrine::getTable('sfSimpleForumTopic')->find(substr($request->getParameter('id'), 6, strlen($request->getParameter('id'))));
+    $topic = Doctrine_Core::getTable('sfSimpleForumTopic')->find(substr($request->getParameter('id'), 6, strlen($request->getParameter('id'))));
     $this->forward404Unless($topic);
 
     $topic->set('title', $request->getParameter('title'));

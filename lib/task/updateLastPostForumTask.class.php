@@ -55,10 +55,10 @@ EOF;
     $this->logSection('Update latest post start', date('d-m-y H:i'));
     $this->logSection('----------', '----------');
 
-    $topics = Doctrine::getTable('sfSimpleForumTopic')->findAll();
+    $topics = Doctrine_Core::getTable('sfSimpleForumTopic')->findAll();
     foreach($topics as $topic)
     {
-      $topic->set('nb_posts', Doctrine::getTable('sfSimpleForumPost')->findByTopicId($topic->get('id'))->count());
+      $topic->set('nb_posts', Doctrine_Core::getTable('sfSimpleForumPost')->findByTopicId($topic->get('id'))->count());
       $topic->set('latest_post_id', $topic->getLatestPostByQuery()->get('id'));
       $topic->save();
 
@@ -66,7 +66,7 @@ EOF;
       $this->logSection('post_id', $topic->getLatestPostByQuery()->get('id'));
     }
 
-    $forums = Doctrine::getTable('sfSimpleForumForum')->findAll();
+    $forums = Doctrine_Core::getTable('sfSimpleForumForum')->findAll();
     foreach($forums as $forum)
     {
       $forum->set('latest_post_id', ($forum->getLatestPostByQuery() instanceOf sfSimpleForumPost) ? $forum->getLatestPostByQuery()->get('id') : null);
